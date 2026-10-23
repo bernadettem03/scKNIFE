@@ -1,16 +1,16 @@
 # The 10,000-cell scKNIFE tutorial
 
-**Expression + knowledge graph → run scKNIFE → check cell-type retention → explore biological activities.**
+**Expression + knowledge graph → tune parameters → run scKNIFE → check cell-type retention → explore biological activities.**
 
 Run the model on one representative sample of 10,000 cells, then use its learned factors and reconstructed node activities for downstream questions. scKNIFE does not assign cell-type labels in this workflow. Comparing the learned representation with known cell types assesses whether it retains recognizable biological organization.
 
 ## Follow the workflow
 
 1. [Installation and inputs](installation.md): install the environment and obtain expression, metadata and graph inputs.
-2. [Run full scKNIFE](tutorials/10000-setup.md): sample cells, prepare expression, fit the graph model, reconstruct activities and save the fitted objects.
+2. [Run full scKNIFE](tutorials/10000-setup.md): sample cells, prepare expression, tune on a representative subset, fit the graph model, reconstruct activities and save the fitted objects.
 3. [Cell-type retention](tutorials/10000-annotation.md): compare H-space clusters and source cell types on the same UMAP.
 4. [Metabolic analysis](tutorials/10000-metabolic.md): explore task activity, UMAP patterns, linked reactions and genes, and descriptive On-minus-Pre differences.
-5. [Factor interpretation](tutorials/10000-factors.md): group the 16 fitted factors into four consensus clusters (CCs), interpret representative node groups (NGs), and examine their activities.
+5. [Factor interpretation](tutorials/10000-factors.md): group the fitted factors into four consensus clusters (CCs), interpret representative node groups (NGs), and examine their activities.
 6. [Cell–cell signaling](tutorials/10000-signaling.md): summarize ligand–receptor scores, permutation FDR, network roles, VEGF signaling and descriptive On-minus-Pre differences.
 
 **Optional extension:** [Rank sensitivity and projection](tutorials/10000-validation.md) examines an 8,000/2,000 training–held-out split within the sample. It is separate from the main biological workflow.
@@ -24,7 +24,7 @@ Download the {download}`complete executed 10,000-cell notebook <downloads/scKNIF
 The three analysis pages reuse the same saved 10,000-cell fit and reconstructed activities. After fitting, each page can be run independently in a fresh Python session from the repository root. Run that page's blocks in order, or use its downloadable script; commented alternatives show how to change the worked examples.
 
 - **Source cell type** means the original `cellType` metadata used to group and describe cells. Cell-type retention concerns biological organization in the learned representation.
-- **H** contains cell-factor activities; **W** contains biological-node loadings. The factor page uses **CC** for a consensus cluster of factors and **NG** for its selected biological nodes. The fitted rank is 16; the interpretation resolution is k=4.
+- **H** contains cell-factor activities; **W** contains biological-node loadings. The factor page uses **CC** for a consensus cluster of factors and **NG** for its selected biological nodes. The fitted rank is selected by pre-fit tuning; the interpretation resolution is k=4.
 - **On minus Pre** means on-treatment minus pre-treatment. Both metabolic and signaling contrasts are descriptive pooled comparisons, without patient adjustment or treatment-effect tests.
 
 Each analysis presents code, its figure and an explanation. Click a figure to view it at full resolution. The graph inputs are reused throughout.

@@ -1,0 +1,23 @@
+{
+  "tuning_cells": 2000,
+  "fitting_cells": 1500,
+  "validation_cells": 500,
+  "strata_in_full_sample": 86,
+  "strata_in_tuning": 86,
+  "genes_selected_on_fitting_cells_only": true,
+  "seeds": [
+    42,
+    43
+  ],
+  "iterations": 100,
+  "candidate_fits": 26,
+  "selected_params": {
+    "k": 24,
+    "lambda_reg": 0.1,
+    "beta_W": 0.001,
+    "beta_H": 0.1
+  },
+  "selected_validation_error": 0.5983674211666361,
+  "seconds": 327.11089665512554,
+  "selection_rule": "Smallest rank within 1% of best joint-grid validation error; sequential penalties minimize mean error."
+}

@@ -41,12 +41,14 @@ details.to_csv(out/'interaction_details.csv.gz',index=False,compression='gzip')
 pd.DataFrame({'reference_cell_type':groups,'cells':counts}).to_csv(out/'group_counts.csv',index=False)
 pairs.to_csv(out/'matched_interaction_components.csv',index=False)
 
+
 fig,ax=plt.subplots(figsize=(7,6));im=ax.imshow(comm,cmap='viridis',aspect='auto')
 ax.set_xticks(range(len(groups)));ax.set_xticklabels([textwrap.fill(g,16) for g in groups],rotation=35,ha='right')
 ax.set_yticks(range(len(groups)));ax.set_yticklabels([textwrap.fill(g,20) for g in groups])
 ax.set_xlabel('Receiver source cell type');ax.set_ylabel('Sender source cell type')
 ax.set_title('Descriptive communication scores · 10,000 cells');fig.colorbar(im,ax=ax,label='Weighted activity score')
 fig.tight_layout();fig.savefig(out/'signaling_heatmap.png',dpi=160,bbox_inches='tight');plt.close(fig)
+
 
 from scknife.signaling import plotting as plots
 
@@ -64,6 +66,7 @@ general = out / 'general'
 
 plots.plot_sender_receiver(comm, general)
 # plots.plot_flow(comm, general)  # Optional dominant-flow view.
+
 
 # Aggregate database components with identical ligand/receptor labels for display.
 totals=details.groupby(['ligand','receptor'],sort=True).weighted_score.sum().sort_values(ascending=False,kind='stable').head(10)
@@ -86,6 +89,7 @@ fig.text(.5,.01,'Bubble area is proportional to weighted score; no significance 
 fig.tight_layout(rect=(0,.04,1,1));fig.savefig(out/'signaling_lr_bubbles.png',dpi=160,bbox_inches='tight');plt.close(fig)
 # plots.plot_bubble(details, groups, general)  # Alternative group-pair overview.
 # plots.plot_top_lr(details, general)  # Alternative pooled ligand–receptor ranking.
+
 
 from pathlib import Path
 import os,json,hashlib
@@ -131,7 +135,9 @@ def heatmap(v,title,filename,label,diverging=False):
 
 heatmap(-np.log10(fdr),'Cell-label permutation FDR · 1,000 permutations','permutation_fdr.png','−log10(BH-adjusted p-value)')
 
+
 plots.plot_network(comm, general, title='Cell-type communication network')
+
 
 # Network centrality: omit self-links; stronger edges have shorter inverse-score distances.
 g=nx.DiGraph();g.add_nodes_from(groups)
@@ -146,6 +152,7 @@ fig,axes=plt.subplots(2,2,figsize=(14,10))
 for ax,col in zip(axes.flat,central):
  ax.barh(groups,central[col]);ax.invert_yaxis();ax.set_title(col.replace('_',' ').title());ax.set_xlabel('Score')
 fig.suptitle('Descriptive centrality · self-links excluded');fig.tight_layout();fig.savefig(out/'network_centrality.png',dpi=170);plt.close(fig)
+
 
 SELECTED_PATHWAY = 'VEGF'
 # SELECTED_PATHWAY = 'CXCL'
@@ -162,11 +169,13 @@ path_dir = base / 'signaling' / 'pathways' / SELECTED_PATHWAY
 
 plots.plot_heatmaps(path_comm, None, path_dir, title=f'{SELECTED_PATHWAY} communication')
 
+
 plots.plot_top_lr(frame, path_dir)
 # plots.plot_sender_receiver(path_comm, path_dir)
 # plots.plot_flow(path_comm, path_dir)
 # plots.plot_bubble(frame, groups, path_dir)
 # plots.plot_network(path_comm, path_dir, title=f"{SELECTED_PATHWAY} cell-type network")
+
 
 contrast_report = {}
 def draw_contrast(column, left, right, stem, title):

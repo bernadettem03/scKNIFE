@@ -8,7 +8,9 @@
 python scripts/run_tutorial_10000_validation.py
 ```
 
-Split the selected sample into **8,000 training and 2,000 held-out cells**, seed 42. Fit ranks 8, 16 and 24 on training cells and project held-out expression onto each fixed `Rg @ W` basis using nonnegative least squares. The primary biological analysis remains the separate 16-factor fit on all 10,000 cells.
+Split the selected sample into **8,000 training and 2,000 held-out cells**, seed 42. Fit ranks 8, 16 and 24 on training cells and project held-out expression onto each fixed `Rg @ W` basis using nonnegative least squares. The primary biological analysis remains the separate tuned fit on all 10,000 cells.
+
+The pre-fit tuning settings supply the W/H and graph penalties. This optional split illustrates projection within the same cohort; it is not a second independent evaluation of the tuning choices. Projected H values are exported for the selected model rank.
 
 ## Rank sensitivity and projection code
 
@@ -38,9 +40,11 @@ train=adata[order[:8000]].copy(); test=adata[order[8000:]].copy()
 # Remove fitted results before fitting each training-only model.
 train.uns.clear()
 for col in [c for c in train.obs if c.startswith('H_graph_')]: del train.obs[col]
+selected_params=json.loads((OUT/'tuning/selected_params.json').read_text())
+penalties={key:selected_params[key] for key in ['lambda_reg','beta_W','beta_H']}
 rows=[]; projections=[]
 for rank in (8,16,24):
-    model=run_full_pipeline(train.copy(),G,k=rank,lambda_reg=1,beta_W=.01,beta_H=.01,n_iter=60,tol=0,random_state=42,verbose=False)
+    model=run_full_pipeline(train.copy(),G,k=rank,**penalties,n_iter=60,tol=0,random_state=42,verbose=False)
     basis=np.asarray(model.uns['Rg'] @ model.uns['W_graph'])
     genes=model.var_names
     expression=test[:,genes].X
@@ -49,7 +53,7 @@ for rank in (8,16,24):
     reconstructed=(basis@predicted).T
     error=np.linalg.norm(expression-reconstructed)/np.linalg.norm(expression)
     rows.append({'rank':rank,'training_cells':8000,'heldout_cells':2000,'relative_reconstruction_error':float(error)})
-    if rank==16:
+    if rank==selected_params["k"]:
         projections=pd.DataFrame(predicted.T,index=test.obs_names,columns=[f'H_projected_{i}' for i in range(rank)])
     plt.close('all')
 pd.DataFrame(rows).to_csv(OUT/'rank_sensitivity.csv',index=False)
@@ -58,10 +62,9 @@ fig,ax=plt.subplots(figsize=(6,4));ax.plot([r['rank'] for r in rows],[r['relativ
 ax.set_xticks([8,16,24]);ax.set_xlabel('Number of factors');ax.set_ylabel('Held-out relative reconstruction error')
 ax.set_title('Exploratory rank sensitivity · 2,000 held-out cells')
 fig.tight_layout();fig.savefig(OUT/'rank_sensitivity.png',dpi=160);plt.close(fig)
-report={'elapsed_seconds':time.perf_counter()-start,'peak_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,'training_cells':8000,'heldout_cells':2000,'genes_selected_on_full_tutorial_sample':True,'purpose':'exploratory reconstruction diagnostic, not unbiased generalization or biological rank selection'}
+report={'elapsed_seconds':time.perf_counter()-start,'peak_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,'training_cells':8000,'heldout_cells':2000,'gene_selection':'tuning fitting subset; overlaps this exploratory split', 'selected_params':selected_params,'purpose':'exploratory reconstruction diagnostic, not unbiased generalization or biological rank selection'}
 (OUT/'validation_report.json').write_text(json.dumps(report,indent=2))
 print(rows,report)
-
 ```
 
 ```{image} ../assets/tutorial-10000/rank_sensitivity.png
@@ -72,7 +75,7 @@ print(rows,report)
 
 Relative held-out reconstruction error across the three tested ranks.
 
-Errors decrease from **0.61294** at rank 8 to **0.59972** at rank 16 and **0.59314** at rank 24. Because gene selection used the full sample, this is an exploratory reconstruction diagnostic, not an unbiased generalization benchmark or proof of an optimal biological rank.
+Errors are **0.61273** at rank 8, **0.59949** at rank 16 and **0.59232** at rank 24. Because the gene-selection and parameter-tuning cells overlap this exploratory split, this is an exploratory reconstruction diagnostic, not an unbiased generalization benchmark or proof of an optimal biological rank.
 
 The diagnostic plot has factor count on the x-axis and relative held-out reconstruction error on the y-axis; lower error means better reconstruction for this split. It does not establish better cell identities.
 
@@ -82,18 +85,18 @@ Primary results use `fitted_subset.h5ad` and `activity_scores.parquet`, with sou
 
 ## Clean-run verification
 
-The complete command sequence was tested in a fresh Python environment and isolated output directory, starting from conversion of the original R count matrix. The directional interaction table was freshly exported from the pinned database snapshot. All six stages completed, including 1,000 fresh signaling permutations. Cell identifiers matched the documented 10,000-cell sample, all 32 displayed tutorial figures were generated, and graph checksums remained unchanged.
+The updated command sequence was executed in an isolated output directory using the prepared source inputs. All six stages completed, including 26 tuning fits and 1,000 fresh signaling permutations. The same 10,000 cell identifiers were retained. All 34 main tutorial figures and the optional state-program figure were regenerated; all graph-file checksums remained unchanged.
 
 | Stage | Wall time (seconds) |
 | --- | ---: |
-| Fit and reconstruct activities | 101.63 |
-| Cell-type retention | 1.85 |
-| Metabolic analysis | 8.72 |
-| Factor interpretation | 12.22 |
-| Signaling, including 1,000 permutations | 44.52 |
-| Rank/projection diagnostic | 102.02 |
+| Sampling, tuning, full fit and activity reconstruction | 470.30 |
+| Cell-type retention | 2.10 |
+| Metabolic analysis | 9.91 |
+| Factor interpretation | 12.96 |
+| Signaling, including 1,000 permutations | 45.08 |
+| Optional rank/projection diagnostic | 117.08 |
 
-Times are specific to the tested machine and include process startup and input loading. Peak process memory was approximately 3.53 GiB for fitting and 2.31 GiB for the rank/projection diagnostic; other stages were not separately memory-profiled. Installation and raw-input conversion are excluded from the table.
+Times include process startup and input loading on the tested machine; installation and input preparation are excluded. Tuning accounts for 327 seconds of the first stage. Peak process memory was approximately 3.57 GiB for tuning/full fitting and 2.31 GiB for the optional diagnostic. Other stages were not separately memory-profiled.
 
 Download the {download}`clean-run verification <../downloads/tutorial_clean_run_verification.json>`, {download}`fit report <../downloads/tutorial_10000_run_report.json>` and {download}`projection report <../downloads/tutorial_10000_validation_report.json>`.
 

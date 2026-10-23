@@ -2,13 +2,13 @@
 
 [Tutorial overview](../tutorial-10000.md) · [Previous: Metabolic analysis](10000-metabolic.md) · [Next: Cell–cell signaling](10000-signaling.md)
 
-Interpret the fitted model through **factor usage → consensus clusters → representative biological nodes → cell-level activities**. This page uses the same 10,000 cells, 16 fitted factors and source `cellType` metadata.
+Interpret the fitted model through **factor usage → consensus clusters → representative biological nodes → cell-level activities**. This page uses the same 10,000 cells, fitted factors and source `cellType` metadata.
 
 **Prerequisite:** complete [model fitting](10000-setup.md). Run the blocks in order in one Python session from the repository root. [Download the complete runnable script](../downloads/factor_interpretation.py).
 
 ## How to read the output
 
-**CC** (consensus cluster) identifies a group of factors with related W profiles; **NG** identifies the biological nodes selected to interpret that group. NG activity reconstructs those nodes using all aligned factors. CC activity averages H over the factors assigned to that group. The interpretation resolution is **k=4**, while the fitted model rank remains 16. NG activity and CC activity summarize different aspects of the fitted model.
+**CC** (consensus cluster) identifies a group of factors with related W profiles; **NG** identifies the biological nodes selected to interpret that group. NG activity reconstructs those nodes using all aligned factors. CC activity averages H over the factors assigned to that group. The interpretation resolution is **k=4**, while the fitted model rank is selected before the full fit. NG activity and CC activity summarize different aspects of the fitted model.
 
 ## Load the same fitted model
 
@@ -39,14 +39,15 @@ nodes=np.asarray(a.uns['node_names']).astype(str)
 W=np.asarray(a.uns['W_graph'],dtype=float)
 hcols=sorted([c for c in a.obs if c.startswith('H_graph_')],key=lambda c:int(c.rsplit('_',1)[1]))
 H=a.obs[hcols].to_numpy(float)
-assert H.shape==(10000,16) and W.shape==(len(nodes),16)
+N_FACTORS = H.shape[1]
+assert H.shape[0] == 10000 and W.shape == (len(nodes), N_FACTORS)
 assert np.isfinite(W).all() and np.isfinite(H).all() and W.min()>=0 and H.min()>=0
 meta=a.obs[['cellType','patient_id','timepoint']].astype(str)
 types=sorted(meta.cellType.unique())
 G=nx.read_graphml('graphs/version_1/unified_graph.graphml')
 kinds=np.array([str(G.nodes[n].get('kind','')) for n in nodes])
 keep=(~np.isin(kinds,['cell_type','cell_state'])) & (W.sum(axis=1)>0)
-W_ELIGIBLE=pd.DataFrame(W[keep],index=nodes[keep],columns=[str(i) for i in range(16)])
+W_ELIGIBLE=pd.DataFrame(W[keep],index=nodes[keep],columns=[str(i) for i in range(N_FACTORS)])
 NODE_METADATA_ELIGIBLE=pd.DataFrame({'node_name':nodes[keep],'node_kind':kinds[keep]})
 def row_z(x):
  x=np.log1p(np.asarray(x,dtype=float))
@@ -84,14 +85,14 @@ Each row is one fitted H factor; each column is a source cell type. Colors show 
 
 ## Choose the number of factor groups using W consensus
 
-The analysis standardizes log(1 + W) within each node, resamples 80% of eligible nodes with replacement 200 times, and clusters factors using correlation distance and average linkage. We test k=2–12 for this 16-factor fit. PAC measures the fraction of factor pairs with ambiguous consensus (between 0.1 and 0.9). After reviewing these diagnostics, this tutorial uses the chosen resolution **k=4**. The fitted model rank remains 16.
+The analysis standardizes log(1 + W) within each node, resamples 80% of eligible nodes with replacement 200 times, and clusters factors using correlation distance and average linkage. We test consensus resolutions from 2 to the smaller of 12 and one less than the fitted rank. PAC measures the fraction of factor pairs with ambiguous consensus (between 0.1 and 0.9). After reviewing these diagnostics, this tutorial uses the chosen resolution **k=4**. The fitted model rank is selected before the full fit.
 
 ```python
 SEED=42;BOOTSTRAPS=200;RESAMPLE_FRACTION=.8
-K_VALUES=range(2,13)
+K_VALUES=range(2,min(13,N_FACTORS))
 W_Z=row_z(W_ELIGIBLE)
 rng=np.random.default_rng(SEED)
-sums={k:np.zeros((16,16)) for k in K_VALUES}
+sums={k:np.zeros((N_FACTORS,N_FACTORS)) for k in K_VALUES}
 for b in range(BOOTSTRAPS):
  rows=rng.choice(len(W_Z),int(.8*len(W_Z)),replace=True)
  d=np.clip(1-np.corrcoef(W_Z[rows].T),0,2);np.fill_diagonal(d,0)
@@ -103,7 +104,7 @@ for k in K_VALUES:
  c=sums[k]/BOOTSTRAPS;d=1-c;np.fill_diagonal(d,0)
  tree=linkage(squareform(d,checks=False),method='average')
  lab=fcluster(tree,t=k,criterion='maxclust')-1
- sizes=np.bincount(lab);upper=c[np.triu_indices(16,1)]
+ sizes=np.bincount(lab);upper=c[np.triu_indices(N_FACTORS,1)]
  records.append({'k':k,'actual_groups':len(sizes),'PAC':np.mean((upper>.1)&(upper<.9)),
   'silhouette':silhouette_score(d,lab,metric='precomputed'),'min_size':sizes.min(),'max_size':sizes.max()})
  solutions[k]=(c,lab,tree)
@@ -111,7 +112,7 @@ metrics=pd.DataFrame(records)
 # Review consensus diagnostics, then use the chosen four-group resolution.
 eligible=metrics[(metrics.min_size>=2)&(metrics.actual_groups==metrics.k)]
 assert not eligible.empty
-SELECTED_K=4  # Chosen tutorial resolution; fitted model rank remains 16.
+SELECTED_K=4  # Chosen tutorial resolution; fitted model rank is selected before the full fit.
 assert SELECTED_K in eligible.k.values
 metrics.to_csv(OUT/'k_diagnostics.csv',index=False)
 fig,axes=plt.subplots(1,2,figsize=(10,4))
@@ -142,9 +143,9 @@ raw_order=sorted(set(raw),key=lambda l:np.flatnonzero(raw==l)[0])
 labels=np.array([raw_order.index(l) for l in raw])
 groups=[f'CC{i+1}' for i in range(SELECTED_K)]
 ngroups=[f'NG{i+1}' for i in range(SELECTED_K)]
-COMPONENT_ASSIGNMENTS=pd.DataFrame({'component':[str(i) for i in range(16)],'consensus_cluster':labels})
+COMPONENT_ASSIGNMENTS=pd.DataFrame({'component':[str(i) for i in range(N_FACTORS)],'consensus_cluster':labels})
 COMPONENT_ASSIGNMENTS.to_csv(OUT/'factor_groups.csv',index=False)
-order=np.lexsort((np.arange(16),labels))
+order=np.lexsort((np.arange(N_FACTORS),labels))
 ticks=[f'H{i} · {groups[labels[i]]}' for i in order]
 heat(pd.DataFrame(consensus[np.ix_(order,order)],index=ticks,columns=ticks),'Bootstrap factor co-clustering','consensus','Co-clustering fraction',False)
 ```
@@ -171,7 +172,7 @@ fig,ax=plt.subplots(figsize=(10,3))
 ax.imshow(sensitivity,cmap='tab10',aspect='auto',vmin=1,vmax=10)
 for i,row in enumerate(sensitivity):
  for j,v in enumerate(row):ax.text(j,i,str(v),ha='center',va='center',color='white')
-ax.set_xticks(range(16),[f'H{i}' for i in range(16)],rotation=45)
+ax.set_xticks(range(N_FACTORS),[f'H{i}' for i in range(N_FACTORS)],rotation=45)
 ax.set_yticks(range(3),['k=2','k=3','k=4']);ax.set_title('Factor membership at nearby resolutions')
 fig.tight_layout();save('resolution_sensitivity')
 ```
@@ -467,7 +468,7 @@ ax.legend(title='Node kind',bbox_to_anchor=(1.02,1),loc='upper left',fontsize=10
 :align: center
 ```
 
-The first heatmap shows node-wise standardized loadings across all 16 factors; the second shows standardized mean loadings across the four CCs. Both use the same 80 nodes. These colors describe relative W loadings, not reconstructed cell activity. Use individual-factor profiles and exported enrichment values to assess differences in strength. The stacked bars count the selected node kinds; they do not measure activity or pathway flux.
+The first heatmap shows node-wise standardized loadings across all fitted factors; the second shows standardized mean loadings across the four CCs. Both use the same 80 nodes. These colors describe relative W loadings, not reconstructed cell activity. Use individual-factor profiles and exported enrichment values to assess differences in strength. The stacked bars count the selected node kinds; they do not measure activity or pathway flux.
 
 ## Examine category-specific loading profiles
 
@@ -491,7 +492,7 @@ for kind in entity_types:
  limit=max(float(np.abs(values).max()),1e-12)
  im=ax.imshow(values,aspect='auto',cmap='RdBu_r',vmin=-limit,vmax=limit)
  ax.set_yticks(range(len(rows)),names,fontsize=10)
- ax.set_xticks(range(16),[f'H{i}' for i in order],rotation=45,ha='right')
+ ax.set_xticks(range(N_FACTORS),[f'H{i}' for i in order],rotation=45,ha='right')
  for boundary in np.flatnonzero(np.diff(row_groups)!=0)+.5:
   ax.axhline(boundary,color='#273e50',lw=1.2)
  for boundary in np.flatnonzero(np.diff(labels[order])!=0)+.5:
@@ -619,7 +620,7 @@ for ax,node in zip(axes,chosen):
  ax.set_xticks(range(1,len(types)+1),types,rotation=60,ha='right');ax.set_title(textwrap.fill(node,28),fontsize=11)
  ax.set_ylabel('log(1 + reconstructed node activity)')
 plt.tight_layout();save('constituents')
-summary={'cells':a.n_obs,'factors':16,'selected_k':SELECTED_K,'group_sizes':np.bincount(labels).tolist(),'bootstraps':BOOTSTRAPS,'selected_nodes':len(selected),'seconds':time.time()-START,'cell_id_sha256':hashlib.sha256('\n'.join(a.obs_names).encode()).hexdigest()}
+summary={'cells':a.n_obs,'factors':N_FACTORS,'selected_k':SELECTED_K,'group_sizes':np.bincount(labels).tolist(),'bootstraps':BOOTSTRAPS,'selected_nodes':len(selected),'seconds':time.time()-START,'cell_id_sha256':hashlib.sha256('\n'.join(a.obs_names).encode()).hexdigest()}
 (OUT/'summary.json').write_text(json.dumps(summary,indent=2));print(summary,flush=True)
 ```
 

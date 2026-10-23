@@ -1,11 +1,17 @@
 {
   "cells": 10000,
   "genes": 2000,
-  "elapsed_seconds": 100.44967921613716,
-  "peak_rss_native_units": 3705344,
+  "elapsed_seconds": 470.30246613989584,
+  "peak_rss_native_units": 3738676,
   "peak_rss_units": "KiB on Linux; bytes on macOS",
   "seed": 42,
-  "rank": 16,
+  "rank": 24,
+  "selected_params": {
+    "k": 24,
+    "lambda_reg": 0.1,
+    "beta_W": 0.001,
+    "beta_H": 0.1
+  },
   "iterations": 100,
   "python": "3.9.21",
   "versions": {

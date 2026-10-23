@@ -23,9 +23,11 @@ train=adata[order[:8000]].copy(); test=adata[order[8000:]].copy()
 # Remove fitted results before fitting each training-only model.
 train.uns.clear()
 for col in [c for c in train.obs if c.startswith('H_graph_')]: del train.obs[col]
+selected_params=json.loads((OUT/'tuning/selected_params.json').read_text())
+penalties={key:selected_params[key] for key in ['lambda_reg','beta_W','beta_H']}
 rows=[]; projections=[]
 for rank in (8,16,24):
-    model=run_full_pipeline(train.copy(),G,k=rank,lambda_reg=1,beta_W=.01,beta_H=.01,n_iter=60,tol=0,random_state=42,verbose=False)
+    model=run_full_pipeline(train.copy(),G,k=rank,**penalties,n_iter=60,tol=0,random_state=42,verbose=False)
     basis=np.asarray(model.uns['Rg'] @ model.uns['W_graph'])
     genes=model.var_names
     expression=test[:,genes].X
@@ -34,7 +36,7 @@ for rank in (8,16,24):
     reconstructed=(basis@predicted).T
     error=np.linalg.norm(expression-reconstructed)/np.linalg.norm(expression)
     rows.append({'rank':rank,'training_cells':8000,'heldout_cells':2000,'relative_reconstruction_error':float(error)})
-    if rank==16:
+    if rank==selected_params["k"]:
         projections=pd.DataFrame(predicted.T,index=test.obs_names,columns=[f'H_projected_{i}' for i in range(rank)])
     plt.close('all')
 pd.DataFrame(rows).to_csv(OUT/'rank_sensitivity.csv',index=False)
@@ -43,7 +45,7 @@ fig,ax=plt.subplots(figsize=(6,4));ax.plot([r['rank'] for r in rows],[r['relativ
 ax.set_xticks([8,16,24]);ax.set_xlabel('Number of factors');ax.set_ylabel('Held-out relative reconstruction error')
 ax.set_title('Exploratory rank sensitivity · 2,000 held-out cells')
 fig.tight_layout();fig.savefig(OUT/'rank_sensitivity.png',dpi=160);plt.close(fig)
-report={'elapsed_seconds':time.perf_counter()-start,'peak_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,'training_cells':8000,'heldout_cells':2000,'genes_selected_on_full_tutorial_sample':True,'purpose':'exploratory reconstruction diagnostic, not unbiased generalization or biological rank selection'}
+report={'elapsed_seconds':time.perf_counter()-start,'peak_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,'training_cells':8000,'heldout_cells':2000,'gene_selection':'tuning fitting subset; overlaps this exploratory split', 'selected_params':selected_params,'purpose':'exploratory reconstruction diagnostic, not unbiased generalization or biological rank selection'}
 (OUT/'validation_report.json').write_text(json.dumps(report,indent=2))
 print(rows,report)
 

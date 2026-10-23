@@ -1,8 +1,14 @@
 {
-  "elapsed_seconds": 99.98897137399763,
-  "peak_rss_kib": 2419048,
+  "elapsed_seconds": 115.07771728700027,
+  "peak_rss_kib": 2422660,
   "training_cells": 8000,
   "heldout_cells": 2000,
-  "genes_selected_on_full_tutorial_sample": true,
+  "gene_selection": "tuning fitting subset; overlaps this exploratory split",
+  "selected_params": {
+    "k": 24,
+    "lambda_reg": 0.1,
+    "beta_W": 0.001,
+    "beta_H": 0.1
+  },
   "purpose": "exploratory reconstruction diagnostic, not unbiased generalization or biological rank selection"
 }

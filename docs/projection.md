@@ -10,4 +10,4 @@ python scripts/run_tutorial_10000_validation.py
 
 The script reloads `tutorial/outputs_10000/fitted_subset.h5ad`, fits ranks 8, 16 and 24, and saves `rank_sensitivity.csv`, `heldout_projected_factors.csv`, `rank_sensitivity.png` and `validation_report.json`. The displayed main UMAP and biological summaries come from the separate final model fitted on all 10,000 cells.
 
-The 2,000 expression genes were selected using the full tutorial sample, so the diagnostic is exploratory rather than an unbiased generalization benchmark. Keep graph-node order, gene order and preprocessing consistent. No additional cohort cells are projected here. The package's general `h_projection` API is described in {doc}`api/index`.
+Gene selection and parameter tuning used a subset that overlaps this exploratory split, so the diagnostic is exploratory rather than an unbiased generalization benchmark. Keep graph-node order, gene order and preprocessing consistent. No additional cohort cells are projected here. The package's general `h_projection` API is described in {doc}`api/index`.

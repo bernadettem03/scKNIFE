@@ -22,9 +22,9 @@ add('markdown','''# scKNIFE: complete 10,000-cell Bassez tutorial
 
 Run this notebook from top to bottom in the scKNIFE environment. It fits a representative 10,000-cell sample and generates every figure from that run.
 
-**Workflow:** prepare inputs → fit scKNIFE → examine cell-type retention → metabolic activity → factor interpretation → cell–cell signaling.
+**Workflow:** prepare inputs → tune on a representative subset → fit scKNIFE → examine cell-type retention → metabolic activity → factor interpretation → cell–cell signaling.
 
-The primary fit uses 16 factors. Factor interpretation groups these into four consensus clusters (CC1–CC4); this is distinct from the model rank. Source cell types remain metadata for interpretation, not supervised training targets or newly assigned labels.
+The primary fit uses parameters selected on a representative 2,000-cell subset before refitting all 10,000 cells. Factor interpretation groups the fitted factors into four consensus clusters (CC1–CC4); this is distinct from the model rank. Source cell types remain metadata for interpretation, not supervised training targets or newly assigned labels.
 
 Install Python 3.9 and the package from the repository root:
 

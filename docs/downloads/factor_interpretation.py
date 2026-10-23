@@ -1,4 +1,3 @@
-# %% Load the same fitted model
 from pathlib import Path
 import os, json, hashlib, textwrap, time
 import numpy as np
@@ -23,14 +22,15 @@ nodes=np.asarray(a.uns['node_names']).astype(str)
 W=np.asarray(a.uns['W_graph'],dtype=float)
 hcols=sorted([c for c in a.obs if c.startswith('H_graph_')],key=lambda c:int(c.rsplit('_',1)[1]))
 H=a.obs[hcols].to_numpy(float)
-assert H.shape==(10000,16) and W.shape==(len(nodes),16)
+N_FACTORS = H.shape[1]
+assert H.shape[0] == 10000 and W.shape == (len(nodes), N_FACTORS)
 assert np.isfinite(W).all() and np.isfinite(H).all() and W.min()>=0 and H.min()>=0
 meta=a.obs[['cellType','patient_id','timepoint']].astype(str)
 types=sorted(meta.cellType.unique())
 G=nx.read_graphml('graphs/version_1/unified_graph.graphml')
 kinds=np.array([str(G.nodes[n].get('kind','')) for n in nodes])
 keep=(~np.isin(kinds,['cell_type','cell_state'])) & (W.sum(axis=1)>0)
-W_ELIGIBLE=pd.DataFrame(W[keep],index=nodes[keep],columns=[str(i) for i in range(16)])
+W_ELIGIBLE=pd.DataFrame(W[keep],index=nodes[keep],columns=[str(i) for i in range(N_FACTORS)])
 NODE_METADATA_ELIGIBLE=pd.DataFrame({'node_name':nodes[keep],'node_kind':kinds[keep]})
 def row_z(x):
  x=np.log1p(np.asarray(x,dtype=float))
@@ -44,16 +44,18 @@ def heat(table,title,name,label='Row z-score of log(1 + mean activity)',signed=T
  ax.set_xticks(range(table.shape[1]),table.columns,rotation=40,ha='right')
  ax.set_yticks(range(len(table)),table.index);ax.set_title(title)
  fig.colorbar(im,ax=ax,label=label);fig.tight_layout();save(name)
-# %% Begin with H: factor usage across cell types
+
+
 factor_means=pd.DataFrame(H,index=a.obs_names,columns=hcols).groupby(meta.cellType).mean().reindex(types).T
 heat(factor_means,'Mean H activity by source cell type','factor_usage','Mean H activity',False)
 factor_means.to_csv(OUT/'factor_usage.csv')
-# %% Choose the number of factor groups using W consensus
+
+
 SEED=42;BOOTSTRAPS=200;RESAMPLE_FRACTION=.8
-K_VALUES=range(2,13)
+K_VALUES=range(2,min(13,N_FACTORS))
 W_Z=row_z(W_ELIGIBLE)
 rng=np.random.default_rng(SEED)
-sums={k:np.zeros((16,16)) for k in K_VALUES}
+sums={k:np.zeros((N_FACTORS,N_FACTORS)) for k in K_VALUES}
 for b in range(BOOTSTRAPS):
  rows=rng.choice(len(W_Z),int(.8*len(W_Z)),replace=True)
  d=np.clip(1-np.corrcoef(W_Z[rows].T),0,2);np.fill_diagonal(d,0)
@@ -65,7 +67,7 @@ for k in K_VALUES:
  c=sums[k]/BOOTSTRAPS;d=1-c;np.fill_diagonal(d,0)
  tree=linkage(squareform(d,checks=False),method='average')
  lab=fcluster(tree,t=k,criterion='maxclust')-1
- sizes=np.bincount(lab);upper=c[np.triu_indices(16,1)]
+ sizes=np.bincount(lab);upper=c[np.triu_indices(N_FACTORS,1)]
  records.append({'k':k,'actual_groups':len(sizes),'PAC':np.mean((upper>.1)&(upper<.9)),
   'silhouette':silhouette_score(d,lab,metric='precomputed'),'min_size':sizes.min(),'max_size':sizes.max()})
  solutions[k]=(c,lab,tree)
@@ -73,7 +75,7 @@ metrics=pd.DataFrame(records)
 # Review consensus diagnostics, then use the chosen four-group resolution.
 eligible=metrics[(metrics.min_size>=2)&(metrics.actual_groups==metrics.k)]
 assert not eligible.empty
-SELECTED_K=4  # Chosen tutorial resolution; fitted model rank remains 16.
+SELECTED_K=4  # Chosen tutorial resolution; fitted model rank is selected before the full fit.
 assert SELECTED_K in eligible.k.values
 metrics.to_csv(OUT/'k_diagnostics.csv',index=False)
 fig,axes=plt.subplots(1,2,figsize=(10,4))
@@ -84,18 +86,20 @@ for ax,col,title in zip(axes,['PAC','silhouette'],['Ambiguous consensus fraction
  ax.set_xlabel('Number of factor groups (k)');ax.set_title(title,fontsize=12);ax.set_xticks(list(K_VALUES))
 axes[0].legend(fontsize=9);fig.tight_layout();save('choose_k')
 print(metrics.to_string(index=False),flush=True);print('SELECTED_K',SELECTED_K,flush=True)
-# %% Inspect consensus and factor membership
+
+
 consensus,raw,tree=solutions[SELECTED_K]
 raw_order=sorted(set(raw),key=lambda l:np.flatnonzero(raw==l)[0])
 labels=np.array([raw_order.index(l) for l in raw])
 groups=[f'CC{i+1}' for i in range(SELECTED_K)]
 ngroups=[f'NG{i+1}' for i in range(SELECTED_K)]
-COMPONENT_ASSIGNMENTS=pd.DataFrame({'component':[str(i) for i in range(16)],'consensus_cluster':labels})
+COMPONENT_ASSIGNMENTS=pd.DataFrame({'component':[str(i) for i in range(N_FACTORS)],'consensus_cluster':labels})
 COMPONENT_ASSIGNMENTS.to_csv(OUT/'factor_groups.csv',index=False)
-order=np.lexsort((np.arange(16),labels))
+order=np.lexsort((np.arange(N_FACTORS),labels))
 ticks=[f'H{i} · {groups[labels[i]]}' for i in order]
 heat(pd.DataFrame(consensus[np.ix_(order,order)],index=ticks,columns=ticks),'Bootstrap factor co-clustering','consensus','Co-clustering fraction',False)
-# %% Compare nearby grouping resolutions
+
+
 sensitivity=[]
 for k in [2,3,4]:
  lab=solutions[k][1]
@@ -105,10 +109,11 @@ fig,ax=plt.subplots(figsize=(10,3))
 ax.imshow(sensitivity,cmap='tab10',aspect='auto',vmin=1,vmax=10)
 for i,row in enumerate(sensitivity):
  for j,v in enumerate(row):ax.text(j,i,str(v),ha='center',va='center',color='white')
-ax.set_xticks(range(16),[f'H{i}' for i in range(16)],rotation=45)
+ax.set_xticks(range(N_FACTORS),[f'H{i}' for i in range(N_FACTORS)],rotation=45)
 ax.set_yticks(range(3),['k=2','k=3','k=4']);ax.set_title('Factor membership at nearby resolutions')
 fig.tight_layout();save('resolution_sensitivity')
-# %% Select representative biological nodes
+
+
 DECAY_TAU=5.;DECAY_CUMULATIVE_MASS=.95;MAX_NODES_PER_CLUSTER_KIND=20;TOP_N=20
 def score_nodes(node_zscores, metadata, assignments):
     labels_local = assignments["consensus_cluster"].to_numpy()
@@ -325,7 +330,8 @@ selected=select_mixed_decay_budget(ranked,local,TOP_N,SELECTED_K)
 assert selected.node_name.is_unique and len(selected)==TOP_N*SELECTED_K
 assert selected.enrichment_delta_z.gt(0).all()
 selected.to_csv(OUT/'selected_nodes.csv',index=False);decay_audit.to_csv(OUT/'decay_audit.csv',index=False)
-# %% Read the node dictionary and relative W profiles
+
+
 wmean=np.column_stack([W_ELIGIBLE.to_numpy()[:,labels==g].mean(axis=1) for g in range(SELECTED_K)])
 wz=pd.DataFrame(row_z(wmean),index=W_ELIGIBLE.index,columns=groups)
 rows=selected.sort_values(['consensus_cluster','cluster_rank'])
@@ -359,7 +365,8 @@ composition=pd.crosstab(selected.consensus_cluster,selected.node_kind);compositi
 ax=composition.plot.bar(stacked=True,figsize=(9,5),colormap='tab20',rot=0)
 ax.set_ylabel('Selected nodes');ax.set_xlabel('Node group');ax.set_title('Biological node-kind composition')
 ax.legend(title='Node kind',bbox_to_anchor=(1.02,1),loc='upper left',fontsize=10);plt.tight_layout();save('composition')
-# %% Examine category-specific loading profiles
+
+
 # Select one entity type for the worked example.
 entity_types = ['geneset']
 # entity_types.append('gene')
@@ -377,7 +384,7 @@ for kind in entity_types:
  limit=max(float(np.abs(values).max()),1e-12)
  im=ax.imshow(values,aspect='auto',cmap='RdBu_r',vmin=-limit,vmax=limit)
  ax.set_yticks(range(len(rows)),names,fontsize=10)
- ax.set_xticks(range(16),[f'H{i}' for i in order],rotation=45,ha='right')
+ ax.set_xticks(range(N_FACTORS),[f'H{i}' for i in order],rotation=45,ha='right')
  for boundary in np.flatnonzero(np.diff(row_groups)!=0)+.5:
   ax.axhline(boundary,color='#273e50',lw=1.2)
  for boundary in np.flatnonzero(np.diff(labels[order])!=0)+.5:
@@ -389,7 +396,8 @@ for kind in entity_types:
  ax.set_xlabel('Factors ordered by factor group')
  fig.colorbar(im,ax=ax,label='Node-wise z-score of log(1 + W)',fraction=.025,pad=.03)
  fig.tight_layout();save(f'category_all_{kind}')
-# %% Reconstruct node-group activity and align it with H groups
+
+
 profiles=np.vstack([W[np.isin(nodes,selected.loc[selected.consensus_cluster==g,'node_name'])].mean(axis=0) for g in range(SELECTED_K)])
 node_raw=H@profiles.T
 factor_raw=np.column_stack([H[:,labels==g].mean(axis=1) for g in range(SELECTED_K)])
@@ -400,7 +408,8 @@ factor_type=pd.DataFrame(row_z(factor_mean),index=groups,columns=types)
 heat(node_type,'Reconstructed node-group activity','node_activity')
 heat(factor_type,'Shared W–H factor-group activity','factor_activity')
 node_mean.to_csv(OUT/'node_group_means.csv');factor_mean.to_csv(OUT/'factor_group_means.csv')
-# %% Connect node groups, factor groups and cell types
+
+
 node_factor=pd.DataFrame(np.vstack([wz.loc[selected.loc[selected.consensus_cluster==g,'node_name']].mean(axis=0) for g in range(SELECTED_K)]),index=ngroups,columns=groups)
 fig,ax=plt.subplots(figsize=(10,6))
 ys=[np.linspace(0,1,len(x)) for x in [ngroups,groups,types]]
@@ -417,7 +426,8 @@ for x,title in enumerate(['W node groups','Shared factor groups','Source cell ty
 ax.set_xlim(-.05,2.5);ax.set_ylim(-.06,1.15);ax.axis('off')
 ax.legend(handles=[Patch(color='#b24b55',label='Positive relative score'),Patch(color='#357eaa',label='Negative relative score')],loc='lower center',bbox_to_anchor=(.5,-.12),ncol=2)
 plt.tight_layout();save('associations');pd.DataFrame(edges).to_csv(OUT/'all_associations.csv',index=False)
-# %% View all 10,000 cells with metadata tracks
+
+
 logged=np.log1p(node_raw);cell_z=(logged-logged.mean(axis=0))/np.maximum(logged.std(axis=0),1e-12)
 ordered=meta.sort_values(['cellType','patient_id','timepoint'],kind='stable').index
 positions=a.obs_names.get_indexer(ordered)
@@ -431,7 +441,8 @@ im=axes[-1].imshow(cell_z[positions].T,aspect='auto',cmap='RdBu_r',vmin=-2.5,vma
 axes[-1].set_yticks(range(SELECTED_K),ngroups);axes[-1].set_xlabel('All 10,000 cells · ordered by cell type, patient and timepoint')
 fig.colorbar(im,ax=axes[-1],label='Per-group z-score of log(1 + activity)')
 fig.legend(handles=legend,loc='outside lower center',ncol=4,fontsize=9);save('all_cells')
-# %% Check patient representation and summarize selected constituents
+
+
 coverage=pd.crosstab(meta.cellType,meta.patient_id).reindex(types)
 heat(coverage,'Cells available per patient and cell type','coverage','Number of cells',False)
 # A declared descriptive display: first three nodes from NG1's ranked dictionary.
@@ -443,5 +454,5 @@ for ax,node in zip(axes,chosen):
  ax.set_xticks(range(1,len(types)+1),types,rotation=60,ha='right');ax.set_title(textwrap.fill(node,28),fontsize=11)
  ax.set_ylabel('log(1 + reconstructed node activity)')
 plt.tight_layout();save('constituents')
-summary={'cells':a.n_obs,'factors':16,'selected_k':SELECTED_K,'group_sizes':np.bincount(labels).tolist(),'bootstraps':BOOTSTRAPS,'selected_nodes':len(selected),'seconds':time.time()-START,'cell_id_sha256':hashlib.sha256('\n'.join(a.obs_names).encode()).hexdigest()}
+summary={'cells':a.n_obs,'factors':N_FACTORS,'selected_k':SELECTED_K,'group_sizes':np.bincount(labels).tolist(),'bootstraps':BOOTSTRAPS,'selected_nodes':len(selected),'seconds':time.time()-START,'cell_id_sha256':hashlib.sha256('\n'.join(a.obs_names).encode()).hexdigest()}
 (OUT/'summary.json').write_text(json.dumps(summary,indent=2));print(summary,flush=True)

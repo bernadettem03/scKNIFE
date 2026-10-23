@@ -1,4 +1,3 @@
-# %% Load aligned activities and metadata
 from pathlib import Path
 import os, json, hashlib, textwrap
 import numpy as np
@@ -31,14 +30,16 @@ def heat(table,title,name,label,cmap='viridis',signed=False):
  ax.set_xticks(range(table.shape[1]),table.columns,rotation=35,ha='right')
  ax.set_yticks(range(len(table)),[textwrap.fill(str(x),48) for x in table.index])
  ax.set_title(title);fig.colorbar(im,ax=ax,label=label);fig.tight_layout();save(name)
-# %% 1. Overview of task activity across cell types
+
+
 means=scores.groupby(meta.cellType,observed=True).mean().T
 ranked=scores.mean().sort_values(ascending=False,kind='stable')
 chosen=ranked.head(8).index
 # chosen=ranked.head(12).index  # Show more tasks if needed.
 means.to_csv(OUT/'task_means.csv')
 heat(means.loc[chosen],'Selected metabolic-task activity','task_overview','Mean reconstructed task activity')
-# %% 2. Locate selected task activities on the shared UMAP
+
+
 example_tasks=[
  'ATP generation from glucose (hypoxic conditions) - glycolysis',
  'ATP regeneration from glucose (normoxic conditions) - glycolysis + krebs cycle',
@@ -57,7 +58,8 @@ for ax,task in zip(axes,example_tasks):
  ax.set_xlabel('UMAP 1');ax.set_ylabel('UMAP 2')
  fig.colorbar(im,ax=ax,label='log(1 + task activity)',shrink=.7)
 fig.tight_layout();save('task_umaps')
-# %% 3. Examine within-cell-type variation for one task
+
+
 EXAMPLE_TASK=example_tasks[0]
 # EXAMPLE_TASK=example_tasks[1]  # Oxidative ATP regeneration.
 # EXAMPLE_TASK=example_tasks[2]  # Acetoacetate synthesis.
@@ -68,7 +70,8 @@ ax.violinplot([values.loc[meta.cellType.eq(t)].to_numpy() for t in types],showme
 ax.set_xticks(range(1,len(types)+1),[f'{t}\n(n={meta.cellType.eq(t).sum():,})' for t in types],rotation=35,ha='right')
 ax.set_ylabel('log(1 + reconstructed task activity)')
 ax.set_title(textwrap.fill(EXAMPLE_TASK,65));fig.tight_layout();save('task_distribution')
-# %% 4. Inspect connected reaction and gene activities
+
+
 # Traverse only existing task–reaction and reaction–gene edges.
 reactions=sorted(n for n in G.neighbors(EXAMPLE_TASK) if G.nodes[n].get('kind')=='reaction' and n in activity.index)
 assert reactions, 'No linked reactions available for this task'
@@ -90,7 +93,8 @@ linked_means.to_csv(OUT/'linked_node_means.csv')
 edges=[{'source':EXAMPLE_TASK,'target':r,'relation':'task–reaction'} for r in reactions]
 edges += [{'source':r,'target':g,'relation':'reaction–gene'} for r in reactions for g in G.neighbors(r) if g in genes]
 pd.DataFrame(edges).to_csv(OUT/'task_reaction_gene_links.csv',index=False)
-# %% 5. Rank descriptive On-minus-Pre task differences
+
+
 CELL_TYPE='Cancer_cell'
 # CELL_TYPE='T_cell'
 # CELL_TYPE='Myeloid_cell'
