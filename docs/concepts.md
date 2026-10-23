@@ -23,4 +23,4 @@ Downstream workflows add clusters and biological assignments to `adata.obs`; UMA
 
 ## Model output versus metadata
 
-Cell type, patient, site, and response labels do not generate scKNIFE factors. They are joined by cell identity after fitting and used to summarize model-derived activity. When authentic sample identifiers are available, metadata can group cell-level scores into sample summaries. The main 10,000-cell tutorial uses authentic patient IDs for paired metabolic comparisons and pooled descriptive signaling.
+Cell type, patient, site, and response labels do not generate scKNIFE factors. They are joined by cell identity after fitting and used to summarize model-derived activity. When authentic sample identifiers are available, metadata can group cell-level scores into sample summaries. The main 10,000-cell tutorial retains authentic patient IDs and timepoints and presents descriptive metabolic and signaling contrasts.

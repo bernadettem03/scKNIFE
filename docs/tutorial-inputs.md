@@ -48,6 +48,6 @@ export SCKNIFE_METADATA="/absolute/path/1871-BIOKEY_metaData_cohort2_web.csv"
 export SCKNIFE_INTERACTION_DB="$PWD/tutorial/inputs/interactions.csv"
 ```
 
-Keep the same terminal and activated environment for the {doc}`quickstart`. The scripts check and align cell identifiers; metadata must match the counts. Patient IDs and `Pre`/`On` timepoints support paired analysis. E/NE labels describe clonotype expansion, not clinical response.
+Keep the same terminal and activated environment for the {doc}`quickstart`. The scripts check and align cell identifiers; metadata must match the counts. Patient IDs and `Pre`/`On` timepoints are retained for grouping and interpretation. E/NE labels describe clonotype expansion, not clinical response.
 
 Input files stay on your machine. They are not fetched automatically or redistributed as part of these instructions. No graph construction or graph editing is needed.

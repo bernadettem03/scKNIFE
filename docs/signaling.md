@@ -1,16 +1,11 @@
 # Cell–cell signaling with 10,000 cells
 
-Follow the dedicated {doc}`tutorials/10000-signaling` page for cell signaling, with its code, plots and interpretation together.
+Follow {doc}`tutorials/10000-signaling` for the complete seven-step analysis with code, figures and explanations. It uses the same fitted 10,000 cells, reconstructed node activities and source `cellType` labels as the main workflow.
 
-The primary signaling results use refined annotations. The {doc}`tutorial-10000` includes shared-scale sender–receiver heatmaps and ligand–receptor bubbles, with refined results left and source references right.
-
-Prepare the directional interaction CSV using {doc}`tutorial-inputs`. After fitting and both annotation stages, run:
+Prepare the directional interaction CSV using {doc}`tutorial-inputs`, complete {doc}`tutorials/10000-setup`, then run:
 
 ```bash
 python scripts/run_tutorial_10000_signaling.py
-python scripts/run_tutorial_10000_refined_downstream.py
 ```
 
-The first script prepares the reference comparison; the second generates primary refined results and matched comparisons under `tutorial/outputs_10000/annotation_downstream_comparison/`. Read `refined_communication_matrix.csv` and `refined_interaction_details.csv.gz` for primary results.
-
-These are pooled, descriptive activity-based scores, not CellChat probabilities or significance tests. No treatment comparison is performed here. Group-based specificity normalization changes with the set of groups; score differences reflect both membership and this normalization. Uncertain is not a biological type. Inspect rare-group counts and component coverage before interpreting scores. Complete executed code and current numerical checks are in the tutorial.
+The worked examples cover sender–receiver activity, leading ligand–receptor pairs, VEGF signaling, permutation FDR, network centrality and descriptive On-minus-Pre contrasts. Outputs are saved under `signaling/` in `SCKNIFE_TUTORIAL_OUTPUT`. The detailed page explains the assumptions and interpretation of each plot. Signaling scores are model-derived summaries, not direct measurements of communication.

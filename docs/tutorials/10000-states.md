@@ -72,4 +72,4 @@ This page characterizes state programs; the tutorial does not yet contain an ind
 
 ## Outputs
 
-`state_activity_by_cluster.csv` and `state_activity_by_cluster.png` are saved in the configured output directory. Continue to [metabolic analysis](10000-metabolic.md) for task activities and patient-paired comparisons.
+`state_activity_by_cluster.csv` and `state_activity_by_cluster.png` are saved in the configured output directory. Continue to [metabolic analysis](10000-metabolic.md) for task activities and descriptive condition contrasts.

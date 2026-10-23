@@ -12,7 +12,7 @@ This is a visual exploration of cellular organization; scKNIFE does not assign n
 
 ## Inputs and code
 
-Complete [model fitting](10000-setup.md). Load its H-space clusters, UMAP and original source annotations; do not substitute marker-reassigned labels. Run from the repository root:
+Complete [model fitting](10000-setup.md). Load its H-space clusters, UMAP and original source cell-type labels. Run from the repository root:
 
 ## Compare the learned organization with source labels
 

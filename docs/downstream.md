@@ -1,9 +1,9 @@
 # Downstream analysis of 10,000 cells
 
-Follow the dedicated {doc}`tutorials/10000-metabolic` page for metabolic analysis and paired patient comparisons, with its code, plots and interpretation together.
+Complete {doc}`tutorials/10000-setup`, then examine {doc}`tutorials/10000-annotation` before exploring biological activities. These analyses reuse the same fitted model and node-by-cell activity scores. Source `cellType` labels provide grouping metadata; scKNIFE does not assign new cell-type labels in this workflow.
 
-Primary analysis uses `scknife_breast_refined`, produced by breast-context cluster annotation followed by fixed rare-cell marker gates. See {doc}`tutorial-10000` for executed code, primary plots and matched source-reference comparisons.
+1. **Metabolic analysis:** follow {doc}`tutorials/10000-metabolic` for task activity, UMAP patterns, linked reactions and genes, and descriptive On-minus-Pre differences.
+2. **Factor interpretation:** follow {doc}`tutorials/10000-factors` to summarize the 16 factors using four consensus clusters and representative biological node groups.
+3. **Cell–cell signaling:** follow {doc}`tutorials/10000-signaling` for sender–receiver scores, VEGF examples, permutation FDR, centrality and descriptive condition contrasts.
 
-Run `scripts/run_tutorial_10000_refined_downstream.py` after fitting, both annotation stages and reference signaling. The runner regenerates state/task means, all 16 H-factor summaries, patient-paired task effects and descriptive signaling. The same 10,000 cells and fitted activities are used for both label sets; graphs, factors and embeddings remain unchanged during regrouping.
-
-Primary refined plots are left and references right, with common features and scales. Patients require ten cells per timepoint and groups need three paired patients; eligibility is recalculated for each annotation. Rare groups and Uncertain remain visible but should be interpreted with their cell counts. Label-independent W node programs are generated from the new fit. See the full tutorial for numerical findings and limitations rather than interpreting reference agreement as independent biological validation.
+Run each page's code in order, or use its matching script from {doc}`quickstart`. Each page places code, generated figures and explanations together. For additional questions, {doc}`tutorials/10000-states` illustrates cell-state program summaries. An analysis requiring entities absent from the fitted graph requires an appropriate graph and a new fit.

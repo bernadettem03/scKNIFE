@@ -25,7 +25,7 @@ Explore the two unified graphs and seven focused collections, with source invent
 :::{grid-item-card} Explore the API
 :link: api/index
 :link-type: doc
-Find functions for fitting, clustering, annotation, projection, and signaling.
+Find functions for fitting, clustering, activity analysis, projection, and signaling.
 :::
 ::::
 
