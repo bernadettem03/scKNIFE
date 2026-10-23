@@ -1,0 +1,72 @@
+{
+  "format_version": 1,
+  "program_count_definition": "Sum of biological-set category memberships. This is not the graph node count; CellChat pathway labels are stored on edges.",
+  "versions": {
+    "version_1": {
+      "file": "graphs/version_1/unified_graph.graphml",
+      "sha256": "679559b1f6f0f4ace53bbe4d600e632b1610979eb077dc77effcea83f5a01d24",
+      "bytes": 34833080,
+      "nodes": 22951,
+      "edges": 216079,
+      "connected_components": 33,
+      "node_kinds": {
+        "gene": 14525,
+        "GO_term": 6036,
+        "cellchat_entity": 1157,
+        "reaction": 787,
+        "task": 218,
+        "cell_type": 95,
+        "cell_state": 83,
+        "geneset": 50
+      },
+      "biological_programs": {
+        "hallmark_gene_sets": 50,
+        "metabolic_tasks": 218,
+        "reaction_associated_programs": 787,
+        "cell_type_marker_sets": 95,
+        "cell_state_programs": 83,
+        "go_biological_processes": 6036,
+        "human_gem_pathways": 0,
+        "cellchat_pathways": 252,
+        "total": 7521
+      }
+    },
+    "version_2": {
+      "file": "graphs/version_2/unified_graph.graphml",
+      "sha256": "1ea43d7cffe51ef700f1d02d53c1ed9f30b9faa3b39b35027462b170099b0a80",
+      "bytes": 59085065,
+      "nodes": 39247,
+      "edges": 336225,
+      "connected_components": 33,
+      "construction": "Frozen Version 1 graph merged with the Human-GEM component used in the manuscript analysis.",
+      "increment_over_version_1": {
+        "nodes": 16296,
+        "edges": 120146,
+        "human_gem_pathways": 147
+      },
+      "node_kinds": {
+        "gene": 14665,
+        "reaction": 12666,
+        "GO_term": 6036,
+        "metabolite": 4130,
+        "cellchat_entity": 1157,
+        "task": 218,
+        "pathway": 147,
+        "cell_type": 95,
+        "cell_state": 83,
+        "geneset": 50
+      },
+      "biological_programs": {
+        "hallmark_gene_sets": 50,
+        "metabolic_tasks": 218,
+        "reaction_associated_programs": 787,
+        "cell_type_marker_sets": 95,
+        "cell_state_programs": 83,
+        "go_biological_processes": 6036,
+        "human_gem_pathways": 147,
+        "cellchat_pathways": 252,
+        "total": 7668
+      }
+    }
+  }
+}

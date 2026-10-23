@@ -1,0 +1,77 @@
+{
+  "cells": 10000,
+  "genes": 2000,
+  "cell_id_sha256": "a47ad5d98b131c0e47129c7657dcc35515c675cddd510c60e89f986c21212d63",
+  "verified_figures": 32,
+  "graph_files_unchanged": true,
+  "factor_group_sizes": [
+    4,
+    3,
+    6,
+    3
+  ],
+  "checkpoint_fields": [
+    "completed",
+    "exceed",
+    "rng_state",
+    "label_signature",
+    "input_signature"
+  ],
+  "stages": [
+    {
+      "stage": "pip-check",
+      "seconds": 0.82,
+      "exit_code": 0
+    },
+    {
+      "stage": "convert-python",
+      "seconds": 2.15,
+      "exit_code": 0
+    },
+    {
+      "stage": "contract",
+      "seconds": 0.07,
+      "exit_code": 0
+    },
+    {
+      "stage": "tests",
+      "seconds": 20.93,
+      "exit_code": 0
+    },
+    {
+      "stage": "tutorial_fit",
+      "seconds": 101.63,
+      "exit_code": 0
+    },
+    {
+      "stage": "tutorial_organization",
+      "seconds": 1.85,
+      "exit_code": 0
+    },
+    {
+      "stage": "tutorial_metabolic",
+      "seconds": 8.72,
+      "exit_code": 0
+    },
+    {
+      "stage": "tutorial_factors",
+      "seconds": 12.22,
+      "exit_code": 0
+    },
+    {
+      "stage": "tutorial_signaling",
+      "seconds": 44.52,
+      "exit_code": 0
+    },
+    {
+      "stage": "tutorial_validation",
+      "seconds": 102.02,
+      "exit_code": 0
+    },
+    {
+      "stage": "docs",
+      "seconds": 4.38,
+      "exit_code": 0
+    }
+  ]
+}

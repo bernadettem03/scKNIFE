@@ -1,0 +1,23 @@
+"""Prevent the documented 10,000-cell commands drifting from executable code."""
+from pathlib import Path
+import ast
+import re
+ROOT=Path(__file__).resolve().parents[1]
+PAGES={'setup':'','annotation':'_organization','metabolic':'_metabolic','factors':'_factors','signaling':'_signaling','validation':'_validation'}
+for page,suffix in PAGES.items():
+ text=(ROOT/f'docs/tutorials/10000-{page}.md').read_text()
+ blocks=re.findall(r'```python\n(.*?)```',text,re.S)
+ if page=='validation':blocks=blocks[:1]
+ documented=ast.dump(ast.parse('\n\n'.join(blocks)),include_attributes=False)
+ script=ROOT/f'scripts/run_tutorial_10000{suffix}.py'
+ assert script.exists(),script
+ assert ast.dump(ast.parse(script.read_text()),include_attributes=False)==documented,f'Code drift: {page}'
+quick=(ROOT/'docs/quickstart.md').read_text()
+for suffix in PAGES.values():
+ assert f'python scripts/run_tutorial_10000{suffix}.py' in quick,f'Missing quick-start stage: {suffix}'
+setup=(ROOT/'scripts/run_tutorial_10000.py').read_text()
+assert 'run_celltype_assignment' not in setup and 'paired_task_comparisons' not in setup
+print('All six tutorial stages match their documented code and quick-start commands.')
+
+import subprocess, sys
+subprocess.run([sys.executable, str(ROOT / "scripts/build_main_notebook.py"), "--check"], check=True)

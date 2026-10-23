@@ -1,0 +1,8 @@
+{
+  "elapsed_seconds": 62.57199808396399,
+  "peak_rss_kib": 1691936,
+  "training_cells": 4000,
+  "heldout_cells": 1000,
+  "genes_selected_on_full_tutorial_sample": true,
+  "purpose": "exploratory reconstruction diagnostic, not unbiased generalization or biological rank selection"
+}

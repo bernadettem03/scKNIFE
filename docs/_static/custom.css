@@ -1,0 +1,42 @@
+/* Quiet, light-first scientific documentation, using the Furo theme. */
+:root { --content-width: 58rem; }
+.content { width: 58rem; }
+article { line-height: 1.7; }
+h1 { font-size: 2rem; line-height: 1.25; letter-spacing: -.025em; }
+h2 { font-size: 1.5rem; margin-top: 2.6rem; letter-spacing: -.015em; }
+h3 { font-size: 1.17rem; }
+.sidebar-brand-text { font-size: 1.3rem; font-weight: 650; }
+.sidebar-tree .caption { font-size: .75rem; letter-spacing: .06em; }
+.sidebar-tree .reference { padding-top: .35rem; padding-bottom: .35rem; }
+article img { max-width: 100%; height: auto; }
+article table { font-size: .9rem; }
+article pre { font-size: .83rem; line-height: 1.6; }
+.sd-card { border-radius: .4rem; box-shadow: none !important; }
+.sd-card-title { color: var(--color-brand-primary); }
+.sd-dropdown { margin: 1rem 0; box-shadow: none !important; }
+body[data-theme="light"] .sd-summary-title { background: #f3f7f9; }
+body[data-theme="light"] .highlight { background: #f6f8fa; }
+@media (max-width: 67em) { .content { width: auto; } }
+
+/* Compact scientific figures; full-resolution image opens on click. */
+article img.compact-scientific-plot {
+  display: block; width: auto; max-width: min(100%, 720px);
+  max-height: 680px; object-fit: contain; margin: 1.4rem auto .7rem;
+  background: #fff; padding: .65rem; border: 1px solid #e5eaf0;
+  border-radius: 10px; box-sizing: border-box;
+}
+article a.scientific-figure-link { display: block; cursor: zoom-in; }
+article a.scientific-figure-link:focus-visible { outline: 2px solid #168c91; }
+@media (max-width: 600px) {
+ article img.compact-scientific-plot { padding: .25rem; max-height: none; }
+}
+
+/* Keep long scientific code inside the content column. */
+.main, .content, .article-container { min-width: 0; }
+.content { box-sizing: border-box; max-width: 100%; }
+.article-container, article, article section { max-width: 100%; }
+article div.highlight, article pre { max-width: 100%; overflow-x: auto; }
+article a.scientific-figure-link { max-width: 100%; }
+
+/* Preserve readable row labels in combined entity heatmaps. */
+article img.combined-entity-plot { max-height: none; max-width: 100%; width: 100%; }

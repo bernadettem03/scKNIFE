@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=64.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scknife"
+version = "0.1.0"
+description = "Graph-Regularized NMF for Single-Cell Analysis"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Bernadette Mathew", email = "bernadettem@iiitd.ac.in"},
+]
+requires-python = ">=3.9,<3.10"
+dependencies = [
+    "anndata==0.10.3",
+    "numpy==1.26.4",
+    "pandas==2.2.3",
+    "scipy==1.13.1",
+    "matplotlib==3.9.2",
+    "seaborn==0.13.2",
+    "scanpy==1.9.6",
+    "doubletdetection==4.2",
+    "tqdm==4.67.1",
+    "celltypist==1.6.3",
+    "networkx==3.2.1",
+    "scikit-learn==1.5.2",
+    "statsmodels",
+    "pyarrow>=14",
+]
+
+[project.urls]
+Documentation = "https://github.com/bernadettem03/scKNIFE/tree/main/docs"
+Source = "https://github.com/bernadettem03/scKNIFE"
+Issues = "https://github.com/bernadettem03/scKNIFE/issues"
+
+[project.optional-dependencies]
+tutorial = ["nbclient>=0.8,<0.11", "nbformat>=5,<6", "ipykernel>=6,<7", "python-igraph>=0.11,<0.12", "leidenalg>=0.10,<0.11"]
+test = ["pytest>=7,<9"]
+graphs = ["decoupler==1.8.0", "openpyxl>=3,<4"]
+docs = [
+    "sphinx>=7,<8",
+    "furo==2024.8.6",
+    "myst-parser>=2,<4",
+    "nbsphinx>=0.9,<1",
+    "nbsphinx-link>=1.3,<2",
+    "sphinx-copybutton>=0.5,<1",
+    "sphinx-design>=0.6,<1",
+    "ipython>=8,<9",
+]
+
+[tool.setuptools]
+package-dir = {"" = "package"}
+
+[tool.setuptools.packages.find]
+where = ["package"]
