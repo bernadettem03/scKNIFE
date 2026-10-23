@@ -11,7 +11,7 @@
 scKNIFE uses graph-regularized non-negative matrix factorization to learn cell factors and biological-node loadings. Their reconstructed activity scores support metabolic analysis, factor interpretation and cell–cell signaling. The tutorial also examines how the learned representation retains known cell-type organization.
 
 <p align="center">
-  <img src="docs/assets/scknife-workflow-v3.png" alt="scKNIFE workflow: gene expression and a biological knowledge graph lead to cell factors, node loadings and downstream biological activity analyses" width="850">
+  <img src="docs/assets/scknife-workflow-v4.png" alt="scKNIFE workflow: gene expression and a biological knowledge graph lead to cell factors, node loadings and downstream biological activity analyses" width="850">
 </p>
 
 ## What you can explore

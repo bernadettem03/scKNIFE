@@ -31,7 +31,7 @@ Find functions for fitting, clustering, activity analysis, projection, and signa
 
 ## From expression to biological activity
 
-```{image} assets/scknife-workflow-v3.png
+```{image} assets/scknife-workflow-v4.png
 :alt: scKNIFE analysis workflow connecting expression, knowledge graphs, factorization and downstream analysis
 :align: center
 ```

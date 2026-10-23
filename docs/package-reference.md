@@ -14,8 +14,6 @@ Use `construct_unified_graph()` with Version 1, Version 2, individual supplied G
 
 - `run_h_graph_clustering(adata, ...)` — select H-space Leiden clustering by silhouette and compute UMAP.
 - `run_h_graph_clustering_fixed(adata, ...)` — run one specified H → PCA → neighbors → Leiden → UMAP configuration without grid search.
-- `run_celltype_assignment(adata, activity, marker_nodes, ...)` — assign cluster cell types without reference labels.
-- `run_cellstate_assignment(adata, activity, state_nodes, ...)` — assign cluster cell states.
 - `run_scanpy_KNIFE_DE(...)` — differential analysis of activity features.
 - `run_activity_lr(...)` — compute activity-based ligand-receptor tables with input-fingerprinted, resumable permutation checkpoints.
 
