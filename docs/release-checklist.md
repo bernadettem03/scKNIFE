@@ -22,7 +22,7 @@ The MSigDB record must identify the older `real_msigdb_processed.csv`; the later
 
 - [x] **Synthetic regression data:** the bundled Bassez H5AD and metadata have been replaced with independently simulated counts and labels. The main 10,000-cell tutorial obtains real inputs from the original source. The public-release candidate begins with a fresh synthetic-only history. Earlier fixture content is preserved solely in separate private archives and backups.
 
-- [x] **Clean release installed:** the new private `bernadettem03/scKNIFE` repository contains the reviewed 239-file release with a fresh synthetic-only root commit, including the updated README and graph guide. Manuscript figure-reproduction folders and the original history are excluded.
+- [x] **Clean release installed:** the new public `bernadettem03/scKNIFE` repository contains the reviewed 239-file release with a fresh synthetic-only root commit, including the updated README and graph guide. Manuscript figure-reproduction folders and the original history are excluded.
 - [x] **Original repository preserved:** `bernadettem03/scKNIFE-private-archive-20261023` is private and archived read-only. Separate repository and working-folder backups are retained.
 - [x] **Previous commit references checked:** the checked previous commit IDs are unavailable through the new repository; an old commit URL also returned 404 in the browser. The history remains available in the private archive.
 - [x] **Working clone synchronized:** the designated server clone matches the new private repository. All 19 supplied graph files are byte-for-byte unchanged.
@@ -31,16 +31,14 @@ The MSigDB record must identify the older `real_msigdb_processed.csv`; the later
 ## Remaining publication decisions
 
 - [ ] **Complete applicable resource records:** resolve redistribution coverage for bundled third-party inputs and attach applicable notices. Version and export records establish which terms apply; they are not all requests for separate permission letters.
-- [ ] **Approve public visibility:** the new repository remains private. Publication requires a separate decision after the outstanding resource review.
+- [x] **Public visibility:** the maintainer authorized publication on 23 October 2026. The clean repository is public; archived repositories remain private. Publication does not resolve the resource provenance records listed above.
 
 ## Read the Docs setup
 
-- [ ] **GitHub app access:** the Community app installation is not completed for this account. Authorize access to scKNIFE only when ready to connect.
-- [ ] **Hosting and project identity:** the inspected Community account has no project. Community requires a public source repository; use Business if private hosting is required. Record the available project name and verified documentation URL when created; do not assume the historical `scknife` project belongs to this account.
-- [ ] **Approve project creation and first build:** project creation starts a build automatically. No project creation or build is authorized by preparation of this candidate.
-- [ ] **Hosted verification and README link:** after authorized creation, verify the hosted build and documentation, then add the verified URL to the README and package metadata.
-
-GitHub replacement is complete. No hosted build, visibility change or publication is initiated by this checklist. No passwords or tokens are needed in documentation or chat.
+- [x] **Project created:** `scknife-docs`, using the public GitHub repository and branch `main` with `.readthedocs.yaml`.
+- [x] **Automatic updates:** a signed GitHub push webhook connects this repository to Read the Docs; SSL verification is enabled. No GitHub App installation is required for this manual integration.
+- [x] **Hosted documentation:** the initial documentation is available at [scKNIFE documentation](https://scknife-docs.readthedocs.io/en/latest/).
+- [x] **Documentation links:** the hosted URL is included in the README and package metadata.
 
 ## Paper citation
 

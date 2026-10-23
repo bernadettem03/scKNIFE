@@ -6,7 +6,7 @@ scKNIFE integrates expression with a biological knowledge graph, learns cell fac
 
 ## Start here
 
-The [complete executable notebook](tutorial/scKNIFE_Bassez_Cohort_B_complete_tutorial.ipynb) and [step-by-step documentation](docs/tutorial-10000.md) follow the same representative **10,000-cell Bassez cohort-2 workflow**. Every displayed result is generated from that sample; no saved full-cohort factorization is required.
+The [complete executable notebook](tutorial/scKNIFE_Bassez_Cohort_B_complete_tutorial.ipynb) and [step-by-step documentation](https://scknife-docs.readthedocs.io/en/latest/tutorial-10000.html) follow the same representative **10,000-cell Bassez cohort-2 workflow**. Every displayed result is generated from that sample; no saved full-cohort factorization is required.
 
 1. Install scKNIFE and prepare source inputs.
 2. Sample 10,000 cells, fit scKNIFE and reconstruct node activities.
@@ -28,7 +28,7 @@ Source cell types remain metadata for interpretation. This workflow does not ass
 | [Graphs](graphs/) | Version 1, Version 2 and individual graph components |
 | [Biological resources](docs/graph-resources.md) | Source descriptions, citations and resource terms |
 
-The documentation sources above are available in this repository. The hosted Read the Docs project link will be added after its project configuration is verified.
+**[Read the full documentation](https://scknife-docs.readthedocs.io/en/latest/)** — installation, the complete 10,000-cell tutorial, graph guide and API reference. Documentation rebuilds automatically when updates are pushed to `main`.
 
 ## Installation and inputs
 
