@@ -1,6 +1,6 @@
 # Parameter selection
 
-Follow the dedicated {doc}`tutorials/10000-validation` page for robustness checks, with its code, plots and interpretation together.
+Follow the dedicated {doc}`tutorials/10000-validation` page for optional rank sensitivity and projection, with code, plots and interpretation together.
 
 The main {doc}`tutorial-10000` uses a predeclared rank of 16 and compares ranks 8, 16 and 24 in an exploratory held-out reconstruction diagnostic.
 

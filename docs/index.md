@@ -61,7 +61,6 @@ Overview <tutorial-10000>
 4. Metabolic analysis <tutorials/10000-metabolic>
 5. Factor interpretation <tutorials/10000-factors>
 6. Cell–cell signaling <tutorials/10000-signaling>
-7. Robustness and exports <tutorials/10000-validation>
 ```
 
 ```{toctree}
@@ -69,6 +68,7 @@ Overview <tutorial-10000>
 :caption: Optional analyses
 :maxdepth: 1
 
+Optional: rank sensitivity and projection <tutorials/10000-validation>
 Other activity-based analyses <tutorials/10000-states>
 ```
 

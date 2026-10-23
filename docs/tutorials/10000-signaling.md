@@ -1,6 +1,6 @@
 # Cell–cell signaling
 
-[Tutorial overview](../tutorial-10000.md) · [Previous: Factor interpretation](10000-factors.md) · [Next: Robustness and exports](10000-validation.md)
+[Tutorial overview](../tutorial-10000.md) · [Previous: Factor interpretation](10000-factors.md) · [Optional: rank sensitivity and projection](10000-validation.md)
 
 Explore activity-based signaling in seven steps: **communication overview → sender/receiver roles → ligand–receptor contributions → permutation FDR → network organization → VEGF → On-minus-Pre differences**.
 
@@ -312,4 +312,4 @@ Positive values indicate higher pooled scores On-treatment; negative values indi
 
 ## Outputs and next step
 
-Scores and interaction tables are saved in `signaling/`; network plots in `signaling/general/`; permutation results, centrality and contrasts in `signaling/inference/`; pathway plots in `signaling/pathways/VEGF/`. Continue to [robustness and exports](10000-validation.md).
+Scores and interaction tables are saved in `signaling/`; network plots in `signaling/general/`; permutation results, centrality and contrasts in `signaling/inference/`; pathway plots in `signaling/pathways/VEGF/`. For an optional extension, see [rank sensitivity and projection](10000-validation.md).

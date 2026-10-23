@@ -12,7 +12,8 @@ Run the model on one representative sample of 10,000 cells, then use its learned
 4. [Metabolic analysis](tutorials/10000-metabolic.md): explore task activity, UMAP patterns, linked reactions and genes, and descriptive On-minus-Pre differences.
 5. [Factor interpretation](tutorials/10000-factors.md): group the 16 fitted factors into four consensus clusters (CCs), interpret representative node groups (NGs), and examine their activities.
 6. [Cell–cell signaling](tutorials/10000-signaling.md): summarize ligand–receptor scores, permutation FDR, network roles, VEGF signaling and descriptive On-minus-Pre differences.
-7. [Robustness and exports](tutorials/10000-validation.md): assess sensitivity and retain reusable results.
+
+**Optional extension:** [Rank sensitivity and projection](tutorials/10000-validation.md) examines an 8,000/2,000 training–held-out split within the sample. It is separate from the main biological workflow.
 
 ## Run as a notebook
 

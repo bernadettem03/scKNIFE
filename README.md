@@ -43,7 +43,9 @@ See the [installation guide](https://scknife-docs.readthedocs.io/en/latest/insta
 
 The [complete notebook](tutorial/scKNIFE_Bassez_Cohort_B_complete_tutorial.ipynb) and [step-by-step tutorial](https://scknife-docs.readthedocs.io/en/latest/tutorial-10000.html) follow the same representative 10,000-cell Bassez cohort-2 sample, with executable code, generated figures and interpretation.
 
-**Prepare inputs → fit scKNIFE → examine cell-type retention → metabolism → factors → signaling → robustness checks.**
+**Prepare inputs → fit scKNIFE → examine cell-type retention → metabolism → factors → signaling.**
+
+An optional [rank sensitivity and projection](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-validation.html) section demonstrates held-out projection within the same sample.
 
 1. Follow [input preparation](https://scknife-docs.readthedocs.io/en/latest/tutorial-inputs.html) to obtain counts and metadata from the original source and prepare the directional interaction table.
 2. Set the input paths as shown in the [quick start](https://scknife-docs.readthedocs.io/en/latest/quickstart.html).

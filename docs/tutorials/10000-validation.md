@@ -1,4 +1,4 @@
-# Robustness checks and exported results
+# Optional: rank sensitivity and projection
 
 [Tutorial overview](../tutorial-10000.md) · [Previous: Cell–cell signaling](10000-signaling.md)
 

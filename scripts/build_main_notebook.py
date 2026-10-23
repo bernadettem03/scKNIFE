@@ -22,7 +22,7 @@ add('markdown','''# scKNIFE: complete 10,000-cell Bassez tutorial
 
 Run this notebook from top to bottom in the scKNIFE environment. It fits a representative 10,000-cell sample and generates every figure from that run.
 
-**Workflow:** prepare inputs → fit scKNIFE → examine cell-type retention → metabolic activity → factor interpretation → cell–cell signaling → robustness checks.
+**Workflow:** prepare inputs → fit scKNIFE → examine cell-type retention → metabolic activity → factor interpretation → cell–cell signaling.
 
 The primary fit uses 16 factors. Factor interpretation groups these into four consensus clusters (CC1–CC4); this is distinct from the model rank. Source cell types remain metadata for interpretation, not supervised training targets or newly assigned labels.
 
@@ -79,7 +79,7 @@ for page in PAGES:
   else:add('markdown',clean(chunk))
 add('markdown','''## Completion
 
-All main analyses use the same 10,000-cell fit and preserve source labels. The final robustness section uses an 8,000/2,000 split within that sample. Reuse the exported activities with biological relationships appropriate to your next question. VEGF and On minus Pre are worked examples; commented choices show where to select alternatives.
+All main analyses use the same 10,000-cell fit and preserve source labels. The optional rank sensitivity and projection section uses an 8,000/2,000 split within that sample. Reuse the exported activities with biological relationships appropriate to your next question. VEGF and On minus Pre are worked examples; commented choices show where to select alternatives.
 
 See [biological resources and citations](../docs/graph-resources.md) for upstream resource details.''')
 nb={'cells':cells,'metadata':{'kernelspec':{'display_name':'Python 3 (scKNIFE)','language':'python','name':'python3'},'language_info':{'name':'python','version':'3.9.21'}},'nbformat':4,'nbformat_minor':4}
