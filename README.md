@@ -1,38 +1,33 @@
 # scKNIFE
 
-**Graph-regularized non-negative matrix factorization for interpretable single-cell RNA-seq analysis.**
+**Connect single-cell gene expression with biological knowledge to reveal interpretable cellular programs.**
 
-scKNIFE integrates expression with a biological knowledge graph, learns cell factors H and node loadings W, and reconstructs biological activity scores for downstream analysis.
+[Documentation](https://scknife-docs.readthedocs.io/en/latest/) · [Tutorial notebook](tutorial/scKNIFE_Bassez_Cohort_B_complete_tutorial.ipynb) · [Installation](https://scknife-docs.readthedocs.io/en/latest/installation.html) · [Graph guide](https://scknife-docs.readthedocs.io/en/latest/graphs.html)
 
-## Start here
+[![Tests](https://github.com/bernadettem03/scKNIFE/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/bernadettem03/scKNIFE/actions/workflows/tests.yml)
+[![Documentation](https://readthedocs.org/projects/scknife-docs/badge/?version=latest)](https://scknife-docs.readthedocs.io/en/latest/)
+[![Software license: MIT](https://img.shields.io/badge/software_license-MIT-blue.svg)](LICENSE)
 
-The [complete executable notebook](tutorial/scKNIFE_Bassez_Cohort_B_complete_tutorial.ipynb) and [step-by-step documentation](https://scknife-docs.readthedocs.io/en/latest/tutorial-10000.html) follow the same representative **10,000-cell Bassez cohort-2 workflow**. Every displayed result is generated from that sample; no saved full-cohort factorization is required.
+scKNIFE uses graph-regularized non-negative matrix factorization to learn cell factors and biological-node loadings. Their reconstructed activity scores support metabolic analysis, factor interpretation and cell–cell signaling. The tutorial also examines how the learned representation retains known cell-type organization.
 
-1. Install scKNIFE and prepare source inputs.
-2. Sample 10,000 cells, fit scKNIFE and reconstruct node activities.
-3. Examine cell-type retention in the learned representation.
-4. Explore metabolic activities and linked biological entities.
-5. Interpret factors using four consensus clusters (CC1–CC4) and representative node groups (NG1–NG4).
-6. Explore cell–cell signaling, using VEGF and On minus Pre as worked examples.
-7. Examine rank sensitivity and held-out projection within the selected sample.
+<p align="center">
+  <img src="docs/assets/scknife-workflow-v3.png" alt="scKNIFE workflow: gene expression and a biological knowledge graph lead to cell factors, node loadings and downstream biological activity analyses" width="850">
+</p>
 
-Source cell types remain metadata for interpretation. This workflow does not assign new cell-type labels. The primary model has 16 factors; the four consensus clusters summarize those factors and are separate from cell clusters. E/NE describes clonotype expansion/non-expansion, not clinical response.
+## What you can explore
 
-| Resource | Purpose |
+| Analysis | Biological question |
 |---|---|
-| [Complete notebook](tutorial/scKNIFE_Bassez_Cohort_B_complete_tutorial.ipynb) | Code, generated figures and interpretation in execution order |
-| [Tutorial overview](docs/tutorial-10000.md) | The same workflow organized into focused pages |
-| [Quick start](docs/quickstart.md) | The six command-line analysis stages |
-| [Input preparation](docs/tutorial-inputs.md) | Source counts, metadata, conversion and directional interaction export |
-| [Package reference](docs/package-reference.md) | Fitting and downstream APIs |
-| [Graphs](graphs/) | Version 1, Version 2 and individual graph components |
-| [Biological resources](docs/graph-resources.md) | Source descriptions, citations and resource terms |
+| [Cell-type retention](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-annotation.html) | Does the learned representation retain recognizable cell-type organization? |
+| [Metabolic activity](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-metabolic.html) | How do metabolic-task activities and their linked reactions and genes vary across cells? |
+| [Factor interpretation](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-factors.html) | Which biological entities characterize the learned factors and their consensus groups? |
+| [Cell–cell signaling](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-signaling.html) | Which sender–receiver groups and ligand–receptor relationships have transcriptomic support? |
 
-**[Read the full documentation](https://scknife-docs.readthedocs.io/en/latest/)** — installation, the complete 10,000-cell tutorial, graph guide and API reference. Documentation rebuilds automatically when updates are pushed to `main`.
+Activity scores are model-derived summaries. The main workflow uses source cell-type labels for interpretation and grouping; it does not assign new cell-type labels.
 
-## Installation and inputs
+## Installation
 
-Use Python 3.9.21 in a dedicated environment:
+Use a Python 3.9 environment; the tutorial environment was tested with Python 3.9.21.
 
 ```bash
 git clone https://github.com/bernadettem03/scKNIFE.git
@@ -42,66 +37,40 @@ source .venv/bin/activate
 python -m pip install -e '.[tutorial]'
 ```
 
-Follow [input preparation](docs/tutorial-inputs.md) to obtain the cohort-2 counts and matching metadata from the Lambrechts lab, convert counts if needed, and export the pinned human CellChat interaction table. R with Matrix is needed for the RDS conversion; base R is sufficient for the interaction export. Use unnormalized counts with gene symbols and matching cell barcodes.
+See the [installation guide](https://scknife-docs.readthedocs.io/en/latest/installation.html) for environment details and the [API reference](https://scknife-docs.readthedocs.io/en/latest/api/index.html) for package functions.
 
-Set paths in the same activated terminal:
+## Run the 10,000-cell tutorial
 
-```bash
-export SCKNIFE_COUNTS="$PWD/tutorial/inputs/bassez_cohort2_counts.h5ad"
-export SCKNIFE_METADATA="/absolute/path/1871-BIOKEY_metaData_cohort2_web.csv"
-export SCKNIFE_INTERACTION_DB="$PWD/tutorial/inputs/interactions.csv"
-export SCKNIFE_TUTORIAL_OUTPUT="$PWD/tutorial/outputs_10000"
-export MPLBACKEND=Agg
-export OMP_NUM_THREADS=2
-export OPENBLAS_NUM_THREADS=2
-export NUMBA_NUM_THREADS=2
-```
+The [complete notebook](tutorial/scKNIFE_Bassez_Cohort_B_complete_tutorial.ipynb) and [step-by-step tutorial](https://scknife-docs.readthedocs.io/en/latest/tutorial-10000.html) follow the same representative 10,000-cell Bassez cohort-2 sample, with executable code, generated figures and interpretation.
 
-## Run the complete notebook
+**Prepare inputs → fit scKNIFE → examine cell-type retention → metabolism → factors → signaling → robustness checks.**
 
-Open the [notebook](tutorial/scKNIFE_Bassez_Cohort_B_complete_tutorial.ipynb) in your Jupyter interface using the installed environment, or execute it directly:
+1. Follow [input preparation](https://scknife-docs.readthedocs.io/en/latest/tutorial-inputs.html) to obtain counts and metadata from the original source and prepare the directional interaction table.
+2. Set the input paths as shown in the [quick start](https://scknife-docs.readthedocs.io/en/latest/quickstart.html).
+3. Open the notebook in your installed environment, or run every cell with:
 
 ```bash
 python scripts/run_tutorial.py
 ```
 
-The runner uses the active Python environment and saves the executed notebook in `SCKNIFE_TUTORIAL_OUTPUT`. The notebook displays figures generated by its preceding analysis cells. Use a new output directory for an independent run.
+The run saves the fitted model, activity scores, tables, figures and executed notebook in your configured output directory. Real cohort inputs are obtained separately. For the equivalent command-line stages, follow the [quick start](https://scknife-docs.readthedocs.io/en/latest/quickstart.html).
 
-## Command-line alternative
+## Choose a graph
 
-These scripts implement the same analysis code. Choose this route or the notebook; running both repeats the analysis.
+| Option | Use |
+|---|---|
+| **Ready-made Version 1 or Version 2** | Start with a unified biological graph. The tutorial uses Version 1; Version 2 adds Human-GEM. |
+| **Seven individual collections** | Select Hallmark, CellChat, GO, markers, cell states, reactions or metabolic-task relationships. |
+| **Custom graph** | Build a graph with the supplied APIs and upstream inputs appropriate to your question. |
 
-```bash
-python scripts/run_tutorial_10000.py
-python scripts/run_tutorial_10000_organization.py
-python scripts/run_tutorial_10000_metabolic.py
-python scripts/run_tutorial_10000_factors.py
-python scripts/run_tutorial_10000_signaling.py
-python scripts/run_tutorial_10000_validation.py
-```
+Explore the [graph guide](https://scknife-docs.readthedocs.io/en/latest/graphs.html) and [supplied graph files](graphs/). Choose the graph before fitting. Analyses that require additional entities need a suitable graph and a new fit; downstream analyses can reuse the resulting activity scores.
 
-Results include `fitted_subset.h5ad`, `activity_scores.parquet`, the sampling audit, metadata and analysis tables and figures. Node activities are reconstructed as W × H. Additional analyses can use these activities with biological relationships appropriate to the question. Signaling scores are activity-based proxies; On minus Pre contrasts are descriptive pooled summaries.
+## Citation and support
 
-## Graphs and reproducibility
+When using scKNIFE, cite the repository and the version or commit used, together with the biological resources included in your analysis. The manuscript citation will be added when available. See [citation guidance](https://scknife-docs.readthedocs.io/en/latest/citation.html) and [resource references](https://scknife-docs.readthedocs.io/en/latest/graph-resources.html).
 
-Choose one of three graph workflows:
-
-- **Ready-made unified graph:** Version 1 (used in the main tutorial) or Version 2 (Version 1 plus Human-GEM).
-- **Individual graph collection:** one of seven supplied collections focused on Hallmark, CellChat, GO, markers, cell states, reactions, or metabolic tasks.
-- **Custom graph:** use the graph-building APIs with upstream source files obtained for your analysis.
-
-See [Graph selection and unification](docs/graphs.md) for the available files, source composition and building reference. Choose a suitable graph before fitting and keep it fixed during tuning and final analysis.
-
-Individual and unified graph files retain their applicable upstream resource terms. Offering custom graph construction does not itself authorize redistribution of supplied graphs. Users who obtain upstream inputs themselves must also follow those source terms; the scKNIFE software MIT license does not replace them.
-
-A contract check keeps the notebook, documentation and six scripts aligned:
-
-```bash
-python scripts/check_tutorial_contract.py
-```
-
-The separately named [1,000-cell regression notebook](tutorial/scKNIFE_regression_1000.ipynb) uses fully synthetic counts and labels for automated package checks and synthetic signaling tests; it is not the main biological tutorial. Run it with `python scripts/run_tutorial.py --regression`.
+For questions or reproducible problems, [open a GitHub issue](https://github.com/bernadettem03/scKNIFE/issues). Include your scKNIFE version, environment and a minimal example without private data.
 
 ## License
 
-scKNIFE software and documentation use the [MIT License](LICENSE). Third-party data and biological resources retain their own terms; see [Biological resources](docs/graph-resources.md). The software license does not replace upstream resource licenses.
+scKNIFE software and documentation use the [MIT License](LICENSE). Supplied biological resources retain their source-specific terms; see [resource references](https://scknife-docs.readthedocs.io/en/latest/graph-resources.html). These terms apply to both individual and unified graphs, and to upstream inputs used for custom graph construction.
