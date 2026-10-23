@@ -66,11 +66,10 @@ Overview <tutorial-10000>
 
 ```{toctree}
 :hidden:
-:caption: Optional analyses and diagnostics
+:caption: Optional analyses
 :maxdepth: 1
 
 Other activity-based analyses <tutorials/10000-states>
-Marker-based reassignment <tutorials/10000-diagnostic>
 ```
 
 ```{toctree}
@@ -95,7 +94,6 @@ troubleshooting
 :maxdepth: 1
 
 Tutorial guide <tutorials/index>
-Annotation diagnostics <annotation-audit>
 tuning
 pipeline
 projection

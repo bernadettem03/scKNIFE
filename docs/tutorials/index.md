@@ -12,4 +12,4 @@ Start with the [10,000-cell tutorial overview](../tutorial-10000.md), then follo
 
 The analysis pages reuse the fitted model and reconstructed activities. Each provides runnable code, figures and interpretation, with commented alternatives for further exploration.
 
-[Other activity-based analyses](10000-states.md) and [marker-based reassignment](10000-diagnostic.md) are optional extensions.
+[Other activity-based analyses](10000-states.md) are an optional extension.

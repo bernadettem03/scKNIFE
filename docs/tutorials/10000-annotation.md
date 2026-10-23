@@ -58,4 +58,4 @@ The panels show the same 10,000 cells on identical UMAP coordinates. One panel c
 
 ## Outputs and next step
 
-Outputs are written to `cellular_organization/`. Next, explore [metabolic activity](10000-metabolic.md) using the same fitted model. [Marker-based reassignment](10000-diagnostic.md) remains a separate optional diagnostic and is not the retention analysis.
+Outputs are written to `cellular_organization/`. Next, explore [metabolic activity](10000-metabolic.md) using the same fitted model.

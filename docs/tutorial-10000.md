@@ -32,4 +32,3 @@ Each analysis presents code, its figure and an explanation. Click a figure to vi
 
 [Other activity-based analyses](tutorials/10000-states.md) illustrates cell-state programs as an optional task. Choose activities for entities represented in the fitted graph. If a new question requires entities or relationships absent from that graph, supply an appropriate graph and refit before reconstructing their activities. Additional metadata or interaction resources may be needed for the chosen analysis.
 
-[Marker-based reassignment](tutorials/10000-diagnostic.md) is a separate optional diagnostic, outside the main workflow.
