@@ -12,14 +12,14 @@ Choose the graph before tuning and keep that exact graph fixed for the final fit
 
 The scKNIFE software license applies to the software. Biological relationships retain their applicable upstream terms whether distributed as individual graphs or as Version 1 or Version 2. Offering a custom-build option does not replace the redistribution requirements for graph files supplied in this repository.
 
-When users obtain upstream inputs themselves and build a graph locally, the input distribution occurs through those upstream sources; users still need to follow their applicable terms. See {doc}`graph-resources` for citations and recorded terms, and {doc}`release-checklist` for unresolved records. Availability of a file here is not a claim that every upstream resource has unrestricted reuse terms.
+When users obtain upstream inputs themselves and build a graph locally, the input distribution occurs through those upstream sources; users still need to follow their applicable terms. See {doc}`graph-resources` for citations, recorded terms and incomplete source records. Availability of a file here is not a claim that every upstream resource has unrestricted reuse terms.
 
 ## Supplied unified graphs
 
 | Graph | Intended use | Biological programs | Nodes | Edges |
 |---|---|---:|---:|---:|
-| **Version 1** | Frozen benchmarking graph | 7,521 | 22,951 | 216,079 |
-| **Version 2** | Manuscript/in-house graph: Version 1 plus Human-GEM | 7,668 | 39,247 | 336,225 |
+| **Version 1** | Version 1: tutorial graph | 7,521 | 22,951 | 216,079 |
+| **Version 2** | Version 1 plus Human-GEM | 7,668 | 39,247 | 336,225 |
 
 The biological-program count is a sum of category memberships, not the number of graph nodes. Both versions contain 50 Hallmark sets, 218 metabolic tasks, 787 reaction-associated programs, 95 cell-type marker sets, 83 cell-state programs, 6,036 GO biological processes, and 252 CellChat pathways. Version 2 additionally contains 147 Human-GEM pathways. It does not add KEGG or Cytopus collections.
 

@@ -2,13 +2,13 @@
 
 [Previous: Run full scKNIFE](10000-setup.md) · [Next: Metabolic analysis](10000-metabolic.md)
 
-This section assesses cell-type retention after fitting. First inspect the [optimization history](10000-setup.md), then assess whether the learned representation retains recognizable cell-type organization.
+Inspect cell-type organization in the fitted representation using two views of the same cells.
 
 ## Biological question
 
-Does the learned scKNIFE representation retain recognizable epithelial, immune and stromal organization? Compare clusters formed from H with source cell-type annotations on the same cells. The factorization does not use those per-cell labels as targets, although cell-identity gene sets enter through the knowledge graph and metadata are used for sample stratification.
+Compare H-space clusters with the dataset’s existing cell-type labels. The model fits expression with the knowledge graph; source labels are used for sampling and visualization.
 
-This is a visual exploration of cellular organization; scKNIFE does not assign new cell-type labels in this workflow.
+scKNIFE does not assign cell-type labels in this tutorial.
 
 ## Inputs and code
 

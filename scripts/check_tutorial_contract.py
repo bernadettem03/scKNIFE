@@ -21,3 +21,8 @@ print('All six tutorial stages match their documented code and quick-start comma
 
 import subprocess, sys
 subprocess.run([sys.executable, str(ROOT / "scripts/build_main_notebook.py"), "--check"], check=True)
+
+assert (ROOT / "package/scknife/tutorial_helpers.py").read_bytes() == (ROOT / "docs/downloads/factor_selection_helpers.py").read_bytes(), "Factor helper download drift"
+assert (ROOT / "scripts/run_tutorial_10000_factors.py").read_bytes() == (ROOT / "docs/downloads/factor_interpretation.py").read_bytes(), "Factor script download drift"
+assert (ROOT / "tutorial/scKNIFE_Bassez_Cohort_B_complete_tutorial.ipynb").read_bytes() == (ROOT / "docs/downloads/scKNIFE_10000_tutorial.ipynb").read_bytes(), "Notebook download drift"
+assert "run_tutorial_10000_validation.py" not in quick.split("## Optional:")[0], "Projection must stay optional in quick start"

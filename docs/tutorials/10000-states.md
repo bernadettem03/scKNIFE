@@ -65,11 +65,10 @@ fig.tight_layout(); fig.savefig(OUT / "state_activity_by_cluster.png", dpi=160, 
 
 Mean activity of selected state programs across H-space clusters.
 
+Rows are selected state-program nodes and columns are H-space clusters. Colors show mean reconstructed activity. Compare each row across clusters to see where the program has higher activity; several programs can be active in the same population.
 
-Rows are cell-state graph nodes, columns are H-space clusters and colour is mean reconstructed activity. Read a row across clusters to examine its relative distribution. These scores describe transcriptomic support for modeled programs; they do not assign new identities or independently establish a state’s biological truth. Coexisting programs are possible.
 
-This page characterizes state programs; the tutorial does not yet contain an independent state-label benchmark demonstrating retention of specific states.
 
 ## Outputs
 
-`state_activity_by_cluster.csv` and `state_activity_by_cluster.png` are saved in the configured output directory. Continue to [metabolic analysis](10000-metabolic.md) for task activities and descriptive condition contrasts.
+`state_activity_by_cluster.csv` and `state_activity_by_cluster.png` are saved in the configured output directory. Return to the [tutorial overview](../tutorial-10000.md) to choose another analysis.

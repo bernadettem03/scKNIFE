@@ -2,9 +2,11 @@
 
 [Tutorial overview](../tutorial-10000.md) · [Previous: Cell-type retention](10000-annotation.md) · [Next: Factor interpretation](10000-factors.md)
 
-Explore metabolic-task activity in five steps: **overview → spatial patterns → cell-level variation → linked reactions and genes → condition differences**. All analyses use the same 10,000-cell fit and source `cellType` metadata.
+Explore metabolic-task activity in five steps: **overview → UMAP activity patterns → cell-level variation → linked reactions and genes → condition differences**. All analyses use the same 10,000-cell fit and source `cellType` metadata.
 
 **Prerequisite:** complete [model fitting](10000-setup.md) and [cell-type retention](10000-annotation.md). [Download the complete runnable script](../downloads/metabolic_walkthrough.py). Each step provides one worked example; commented code shows alternative selections.
+
+Task activity is reconstructed from the fitted model; it is not a measurement of metabolic flux.
 
 ## Load aligned activities and metadata
 
@@ -64,7 +66,7 @@ heat(means.loc[chosen],'Selected metabolic-task activity','task_overview','Mean 
 :alt: 1. Overview of task activity across cell types
 ```
 
-Each row is a task and each column a source cell type. Colors show mean reconstructed activity. The task collection includes processing and trafficking functions as well as metabolic transformations. These are model-derived activity scores, not measured metabolic flux.
+Each row is a task and each column a cell type. Colors show mean reconstructed activity. The task collection includes metabolic transformations, processing and trafficking functions.
 
 ## 2. Locate task activity on the shared UMAP
 
@@ -97,7 +99,7 @@ fig.tight_layout();save('task_umaps')
 :alt: 2. Locate task activity on the shared UMAP
 ```
 
-All three panels contain the same 10,000 cells in identical positions. Color shows log(1 + task activity); each panel clips its display range at its own 2nd and 98th percentiles. Compare spatial patterns within each task rather than color intensity between panels. Task names describe the graph functions; they do not establish measured hypoxia, oxygen consumption or flux.
+Each panel shows the same 10,000 cells, colored by log(1 + task activity). Compare where higher activity occurs on the UMAP. Each panel uses its own 2nd–98th percentile color range, so equal colors across panels need not represent equal scores.
 
 ## 3. Examine variation within cell types
 
@@ -122,7 +124,7 @@ ax.set_title(textwrap.fill(EXAMPLE_TASK,65));fig.tight_layout();save('task_distr
 :alt: 3. Examine variation within cell types
 ```
 
-Each violin shows the distribution of reconstructed activity among cells of one source cell type, with its median and cell count. This reveals heterogeneity hidden by a mean heatmap. The seven mast cells provide limited information about distribution shape. These pooled cell distributions are descriptive, not independent patient replicates.
+Each violin shows the distribution of task activity within one cell type, with its median and cell count. Use it to inspect variation hidden by the mean heatmap; distributions from very small groups, such as the seven mast cells, are less well resolved.
 
 ## 4. Inspect connected reaction and gene activities
 
@@ -158,7 +160,7 @@ pd.DataFrame(edges).to_csv(OUT/'task_reaction_gene_links.csv',index=False)
 :alt: 4. Inspect connected reaction and gene activities
 ```
 
-Rows show the selected task and linked biological nodes. Each row is standardized across cell types after log-transforming its mean activity, so colors compare relative patterns within a node. The heatmap provides biological context through existing graph links. It shows reconstructed node activities rather than a decomposition of task flux. The full traced connections and displayed node means are exported.
+Rows show the selected task and linked reactions and genes. Colors are standardized across cell types within each row after log-transforming mean activity. Read across a row to compare its relative activity; the exported connections identify the graph links used.
 
 ## 5. Rank descriptive On-minus-Pre task differences
 
@@ -192,7 +194,7 @@ summary={'cells':fit.n_obs,'tasks':len(tasks),'example_tasks':example_tasks,'exa
 :alt: 5. Rank descriptive On-minus-Pre task differences
 ```
 
-Positive bars indicate higher pooled mean activity On-treatment; negative bars indicate higher activity Pre-treatment. These are unstandardized differences in model-derived scores, with no significance test or p-values. Differences can reflect patient composition and cellular-state composition as well as treatment-associated changes. The exported patient-by-timepoint counts document representation. 
+Positive bars indicate higher pooled mean activity On-treatment; negative bars indicate higher activity Pre-treatment. These descriptive differences have no p-values or patient adjustment. Use the exported patient-by-timepoint counts to check group representation.
 
 ## Outputs and next step
 

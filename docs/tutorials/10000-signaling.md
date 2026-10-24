@@ -4,7 +4,7 @@
 
 Explore activity-based signaling in seven steps: **communication overview → sender/receiver roles → ligand–receptor contributions → permutation FDR → network organization → VEGF → On-minus-Pre differences**.
 
-Run the code blocks in order in one Python session from the repository root, after fitting and activity reconstruction. Every analysis uses the same 10,000 cells and source `cellType` metadata. Scores are activity-based proxies, not CellChat communication probabilities or direct measurements of signaling. [Download the complete runnable script](../downloads/signaling_walkthrough.py).
+Run the blocks in order from the repository root after fitting and activity reconstruction. All analyses use the same 10,000 cells and source `cellType` labels. Signaling scores summarize reconstructed activities using directional ligand–receptor definitions; they are not CellChat probabilities. [Download the complete runnable script](../downloads/signaling_walkthrough.py).
 
 Set `SCKNIFE_INTERACTION_DB` to the directional interaction export described in [Input files](../tutorial-inputs.md). The interaction export supplies directional ligand–receptor definitions alongside the fitted activities.
 
@@ -55,7 +55,7 @@ pd.DataFrame({'reference_cell_type':groups,'cells':counts}).to_csv(out/'group_co
 pairs.to_csv(out/'matched_interaction_components.csv',index=False)
 ```
 
-Cell order is checked against the saved fit. Interaction-level scores must sum to the group communication matrix. Scores use group means and group-normalized specificity. Seven mast cells and 55 pDCs are retained; their small populations limit the stability of pooled summaries.
+The code aligns cells with the saved fit and checks that interaction scores sum to the group matrix. Scores combine group means with group-normalized specificity. Check the group counts when interpreting small populations.
 
 ## 1. Sender–receiver activity heatmap
 
@@ -74,7 +74,7 @@ fig.tight_layout();fig.savefig(out/'signaling_heatmap.png',dpi=160,bbox_inches='
 :alt: Sender–receiver activity scores
 ```
 
-Rows represent sender cell types and columns represent receivers. Color shows the sum of weighted interaction scores, including self-links. Higher scores indicate stronger activity-based support under this model; they do not indicate statistical significance.
+Rows are sender cell types and columns are receivers. Color shows summed interaction scores, including self-links. Use the FDR plot in step 4 to inspect statistical support.
 
 ## 2. Outgoing and incoming signaling strength
 
@@ -195,7 +195,7 @@ heatmap(-np.log10(fdr),'Cell-label permutation FDR · 1,000 permutations','permu
 :alt: Cell-label permutation FDR for sender–receiver pairs
 ```
 
-Color shows −log10 of the BH-adjusted p-value. The test concerns sender–receiver totals under this cell-label null; it is not patient-blocked and does not test treatment effects or individual ligand–receptor pairs. With 1,000 permutations, the smallest attainable unadjusted p-value is 1/1,001. This view complements the activity-score heatmap rather than replacing it.
+Color shows −log10 of the BH-adjusted p-value for the 64 sender–receiver totals. These global cell-label permutations preserve group sizes but do not block by patient. The FDR applies to these totals, not individual interactions or treatment contrasts; 1,000 permutations give a minimum unadjusted p-value of 1/1,001.
 
 ## 5. Network organization and centrality
 
@@ -209,7 +209,7 @@ plots.plot_network(comm, general, title='Cell-type communication network')
 :alt: Cell-type signaling network
 ```
 
-Arrows show direction for up to 40 positive links. Widths are scaled using the 2nd and 98th score percentiles; omitted links may still have positive scores. Circular positions are schematic, not physical locations.
+Arrows show direction for up to 40 positive links; widths use the 2nd–98th score percentiles. Circular positions arrange the network for display. Other positive links remain in the exported matrix.
 
 ```python
 # Network centrality: omit self-links; stronger edges have shorter inverse-score distances.
@@ -233,7 +233,7 @@ fig.suptitle('Descriptive centrality · self-links excluded');fig.tight_layout()
 :alt: Network centrality excluding self-links
 ```
 
-Centrality uses the full positive-score network with self-links excluded. Strength sums edge scores, betweenness uses inverse score as distance, and PageRank uses score as weight. These describe network structure, not causal control. Their self-link convention differs explicitly from the inclusive totals in step 2.
+Centrality uses the full positive-score network, excluding self-links. Strength sums edge scores, betweenness uses inverse score as distance, and PageRank uses score as weight. Step 2 includes self-links, so its totals differ.
 
 ## 6. Pathway example: VEGF
 
@@ -260,7 +260,7 @@ plots.plot_heatmaps(path_comm, None, path_dir, title=f'{SELECTED_PATHWAY} commun
 :alt: VEGF sender–receiver activity scores
 ```
 
-This heatmap uses only VEGF records from the same interaction table. Its display range uses pathway-specific score percentiles, so colors should not be compared directly with the global heatmap. The FDR in step 4 applies to global sender–receiver totals, not individual pathways. An unavailable pathway raises an explicit error.
+This heatmap summarizes VEGF records from the interaction table using a pathway-specific color range. Compare pairs within this plot. Step 4’s FDR covers global totals, not this pathway; choose another available pathway using the commented alternatives.
 
 ```python
 plots.plot_top_lr(frame, path_dir)
@@ -308,7 +308,7 @@ draw_contrast('timepoint', 'On', 'Pre', 'on_minus_pre', 'On minus Pre · pooled 
 :alt: Descriptive On-minus-Pre signaling differences
 ```
 
-Positive values indicate higher pooled scores On-treatment; negative values indicate higher scores Pre-treatment. Grey pairs lack sufficient cells in one or both conditions. This comparison is descriptive and unadjusted for patient composition, with no contrast p-values. The commented E/NE alternative refers to clonotype expansion/non-expansion, not clinical response.
+Positive values indicate higher pooled scores On-treatment; negative values indicate higher scores Pre-treatment. Grey pairs have fewer than ten cells in one or both conditions. This descriptive contrast has no patient adjustment or contrast p-values. The E/NE alternative groups clonotype expansion, not clinical response.
 
 ## Outputs and next step
 

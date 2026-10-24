@@ -1,6 +1,6 @@
 # Remaining release records
 
-This checklist contains only items still open after the source audit and 23 October 2026 documentation update. Human-GEM v1.19.0 and its CC BY 4.0 license are now verified by an exact upstream file match and removed from this checklist. Completed source identities and notices are recorded in {doc}`graph-resources`. Existing download notes, license files, source URLs with release information, or permission correspondence can complete these records. A suitable existing license may provide the needed coverage without separate correspondence.
+This checklist contains only items still open after the source audit and 23 October 2026 documentation update. Human-GEM v1.19.0 and its CC BY 4.0 license are now verified by an exact upstream file match and removed from this checklist. Completed source identities and notices are recorded in [Resource documentation](../docs/graph-resources.md). Existing download notes, license files, source URLs with release information, or permission correspondence can complete these records. A suitable existing license may provide the needed coverage without separate correspondence.
 
 ## Resource records to supply or locate
 
@@ -25,7 +25,7 @@ The MSigDB record must identify the older `real_msigdb_processed.csv`; the later
 - [x] **Clean release installed:** the new public `bernadettem03/scKNIFE` repository contains the reviewed 239-file release with a fresh synthetic-only root commit, including the updated README and graph guide. Manuscript figure-reproduction folders and the original history are excluded.
 - [x] **Original repository preserved:** `bernadettem03/scKNIFE-private-archive-20261023` is private and archived read-only. Separate repository and working-folder backups are retained.
 - [x] **Previous commit references checked:** the checked previous commit IDs are unavailable through the new repository; an old commit URL also returned 404 in the browser. The history remains available in the private archive.
-- [x] **Working clone synchronized:** the designated server clone matches the new private repository. All 19 supplied graph files are byte-for-byte unchanged.
+- [x] **Working clone synchronized:** the designated server clone matches the public repository. All 19 supplied graph files are byte-for-byte unchanged.
 - [x] **Prior GitHub validation passed:** Documentation and Tests and executable tutorials both completed successfully before fixture replacement. The synthetic working copy passed local regression checks; fresh GitHub checks run on the replacement commit. CI executes the bundled regression workflow; the complete 10,000-cell workflow was tested separately as described below.
 
 ## Remaining publication decisions

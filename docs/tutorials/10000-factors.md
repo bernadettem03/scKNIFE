@@ -81,7 +81,7 @@ factor_means.to_csv(OUT/'factor_usage.csv')
 :align: center
 ```
 
-Each row is one fitted H factor; each column is a source cell type. Colors show mean H activity. This is a descriptive view of factor usage, not a cell-label prediction.
+Each row is an H factor and each column a cell type. Colors show mean factor activity; compare rows to see which factors are used by each population.
 
 ## Choose the number of factor groups using W consensus
 
@@ -131,7 +131,7 @@ print(metrics.to_string(index=False),flush=True);print('SELECTED_K',SELECTED_K,f
 :align: center
 ```
 
-At **k=4**, the solution has PAC=0 and a consensus silhouette of approximately 0.998; every group has at least three factors. k=2 and k=3 also have strong support, so k=4 is a selected interpretation resolution rather than a uniquely established biological optimum. 
+The example uses **four factor groups (k=4)**. PAC is 0, the consensus silhouette is approximately 0.998, and each group contains at least three factors. The nearby k=2 and k=3 results are shown below for comparison.
 
 ## Inspect consensus and factor membership
 
@@ -187,228 +187,26 @@ Each row shows factor membership at one resolution. Group numbers are local to t
 
 ## Select representative biological nodes
 
-For each group, calculate the difference between mean node-wise W z-scores inside and outside the group. Assign each node to its strongest positive group. Within each group × node kind, rank nodes and use exp(−(rank−1)/5) weights to retain a prefix covering 95% of the weight, capped at 20 nodes. The selection procedure fills a globally unique budget of 20 mixed nodes per group, prioritizing strongest assignments and recording any local backfill.
+Select 20 representative biological nodes per factor group using their relative W loading profiles. The helper ranks candidates within node categories, applies a decay cutoff and fills a unique 20-node dictionary for each group. The settings below control this selection. The helper functions are included in scKNIFE; [download their source](../downloads/factor_selection_helpers.py) to inspect the selection rules.
 
 ```python
 DECAY_TAU=5.;DECAY_CUMULATIVE_MASS=.95;MAX_NODES_PER_CLUSTER_KIND=20;TOP_N=20
-def score_nodes(node_zscores, metadata, assignments):
-    labels_local = assignments["consensus_cluster"].to_numpy()
-    records = []
-    for cluster_id in range(SELECTED_K):
-        inside = labels_local == cluster_id
-        outside = ~inside
-        frame = metadata.copy()
-        frame["consensus_cluster"] = cluster_id
-        frame["n_cluster_components"] = int(inside.sum())
-        frame["mean_z_inside"] = node_zscores[:, inside].mean(axis=1)
-        frame["mean_z_outside"] = node_zscores[:, outside].mean(axis=1)
-        frame["enrichment_delta_z"] = (
-            frame["mean_z_inside"] - frame["mean_z_outside"]
-        )
-        frame["category_percentile"] = frame.groupby(
-            "node_kind"
-        )["enrichment_delta_z"].rank(method="average", pct=True)
-        records.append(frame)
-    return pd.concat(records, ignore_index=True)
+from scknife.tutorial_helpers import (
+    score_nodes, assign_nodes_to_strongest_cluster,
+    rank_nodes_with_exponential_decay, select_mixed_decay_budget,
+)
 
-def assign_nodes_to_strongest_cluster(scores):
-    """Assign each node once to its strongest positive-enrichment cluster."""
-    ordered = scores.sort_values(
-        [
-            "node_name",
-            "enrichment_delta_z",
-            "mean_z_inside",
-            "consensus_cluster",
-        ],
-        ascending=[True, False, False, True],
-        kind="mergesort",
-    )
-    assigned = ordered.drop_duplicates("node_name", keep="first").copy()
-    assigned = assigned[assigned["enrichment_delta_z"] > 0].copy()
-    return assigned.sort_values(
-        ["consensus_cluster", "node_kind", "node_name"],
-        kind="mergesort",
-    ).reset_index(drop=True)
-
-def rank_nodes_with_exponential_decay(
-    assigned,
-    tau=DECAY_TAU,
-    cumulative_mass=DECAY_CUMULATIVE_MASS,
-    max_per_group=MAX_NODES_PER_CLUSTER_KIND,
-):
-    """Rank independently within cluster × node kind and select a decay prefix."""
-    if tau <= 0:
-        raise ValueError("DECAY_TAU must be positive")
-    if not 0 < cumulative_mass <= 1:
-        raise ValueError("DECAY_CUMULATIVE_MASS must be in (0, 1]")
-    if int(max_per_group) < 1:
-        raise ValueError("MAX_NODES_PER_CLUSTER_KIND must be positive")
-
-    ranked_parts = []
-    summary_records = []
-    group_columns = ["consensus_cluster", "node_kind"]
-    for (cluster_id, node_kind), group in assigned.groupby(
-        group_columns, sort=True, observed=True
-    ):
-        group = group.sort_values(
-            ["enrichment_delta_z", "mean_z_inside", "node_name"],
-            ascending=[False, False, True],
-            kind="mergesort",
-        ).reset_index(drop=True)
-        group["category_rank"] = np.arange(1, len(group) + 1)
-        group["decay_weight"] = np.exp(
-            -(group["category_rank"].to_numpy(dtype=float) - 1.0) / tau
-        )
-        total_weight = float(group["decay_weight"].sum())
-        group["decay_mass_fraction"] = group["decay_weight"] / total_weight
-        group["decay_cumulative_mass"] = group[
-            "decay_mass_fraction"
-        ].cumsum()
-
-        reached = np.flatnonzero(
-            group["decay_cumulative_mass"].to_numpy() >= cumulative_mass
-        )
-        uncapped_cutoff = int(reached[0] + 1) if len(reached) else len(group)
-        cutoff_rank = min(uncapped_cutoff, int(max_per_group))
-        group["decay_cutoff_rank"] = cutoff_rank
-        group["category_quota"] = cutoff_rank
-        group["decay_selected"] = group["category_rank"] <= cutoff_rank
-        group["decay_backfill"] = False
-        group["selection_reason"] = np.where(
-            group["decay_selected"], "decay_prefix", "not_selected"
-        )
-        achieved_mass = float(
-            group.loc[cutoff_rank - 1, "decay_cumulative_mass"]
-        )
-        summary_records.append({
-            "consensus_cluster": int(cluster_id),
-            "node_kind": str(node_kind),
-            "eligible_positive": int(len(group)),
-            "decay_selected": int(cutoff_rank),
-            "decay_tau": float(tau),
-            "target_cumulative_mass": float(cumulative_mass),
-            "achieved_cumulative_mass": achieved_mass,
-            "maximum_per_cluster_kind": int(max_per_group),
-            "cap_reached": bool(uncapped_cutoff > max_per_group),
-            "target_reached": bool(achieved_mass >= cumulative_mass),
-        })
-        ranked_parts.append(group)
-
-    ranked = pd.concat(ranked_parts, ignore_index=True)
-    ranked = ranked.sort_values(
-        ["consensus_cluster", "node_kind", "category_rank"],
-        kind="mergesort",
-    ).reset_index(drop=True)
-    summary = pd.DataFrame(summary_records).sort_values(
-        ["consensus_cluster", "node_kind"], kind="mergesort"
-    ).reset_index(drop=True)
-    return ranked, summary
-
-def select_mixed_decay_budget(
-    assigned_ranked, cluster_local_ranked, per_cluster_budget, selected_k
-):
-    """Fill a globally unique fixed budget, prioritizing strongest assignments."""
-    selected_parts = []
-    used_nodes = set()
-    priority_columns = [
-        "decay_weight",
-        "enrichment_delta_z",
-        "mean_z_inside",
-        "node_name",
-    ]
-    priority_ascending = [False, False, False, True]
-
-    assigned_prefix_counts = (
-        assigned_ranked[assigned_ranked["decay_selected"]]
-        .groupby("consensus_cluster")
-        .size()
-        .reindex(range(selected_k), fill_value=0)
-    )
-    cluster_order = assigned_prefix_counts.sort_values(
-        ascending=True, kind="mergesort"
-    ).index.tolist()
-
-    for cluster_id in cluster_order:
-        assigned_rows = assigned_ranked[
-            assigned_ranked["consensus_cluster"].eq(cluster_id)
-            & assigned_ranked["decay_selected"]
-            & ~assigned_ranked["node_name"].isin(used_nodes)
-        ].sort_values(
-            priority_columns,
-            ascending=priority_ascending,
-            kind="mergesort",
-        )
-        chosen = assigned_rows.head(per_cluster_budget).copy()
-        chosen["decay_backfill"] = False
-        chosen["selection_reason"] = "strongest_cluster_decay_prefix"
-
-        if len(chosen) < per_cluster_budget:
-            local_rows = cluster_local_ranked[
-                cluster_local_ranked["consensus_cluster"].eq(cluster_id)
-                & cluster_local_ranked["decay_selected"]
-                & ~cluster_local_ranked["node_name"].isin(used_nodes)
-                & ~cluster_local_ranked["node_name"].isin(
-                    chosen["node_name"]
-                )
-            ].sort_values(
-                priority_columns,
-                ascending=priority_ascending,
-                kind="mergesort",
-            )
-            local_fill = local_rows.head(
-                per_cluster_budget - len(chosen)
-            ).copy()
-            local_fill["decay_backfill"] = True
-            local_fill["selection_reason"] = "cluster_local_decay_prefix"
-            chosen = pd.concat([chosen, local_fill], ignore_index=True)
-
-        if len(chosen) < per_cluster_budget:
-            remaining = cluster_local_ranked[
-                cluster_local_ranked["consensus_cluster"].eq(cluster_id)
-                & ~cluster_local_ranked["node_name"].isin(used_nodes)
-                & ~cluster_local_ranked["node_name"].isin(
-                    chosen["node_name"]
-                )
-            ].sort_values(
-                priority_columns,
-                ascending=priority_ascending,
-                kind="mergesort",
-            )
-            backfill = remaining.head(
-                per_cluster_budget - len(chosen)
-            ).copy()
-            backfill["decay_backfill"] = True
-            backfill["selection_reason"] = "budget_backfill"
-            chosen = pd.concat([chosen, backfill], ignore_index=True)
-
-        if len(chosen) != per_cluster_budget:
-            raise RuntimeError(
-                f"Cluster {cluster_id} has only {len(chosen)} available "
-                f"unique positive nodes for a {per_cluster_budget}-node budget"
-            )
-        chosen = chosen.sort_values(
-            priority_columns,
-            ascending=priority_ascending,
-            kind="mergesort",
-        ).reset_index(drop=True)
-        chosen["cluster_rank"] = np.arange(1, len(chosen) + 1)
-        used_nodes.update(chosen["node_name"].tolist())
-        selected_parts.append(chosen)
-
-    return pd.concat(selected_parts, ignore_index=True).sort_values(
-        ["consensus_cluster", "cluster_rank"], kind="mergesort"
-    ).reset_index(drop=True)
-ALL_NODE_SCORES=score_nodes(W_Z,NODE_METADATA_ELIGIBLE,COMPONENT_ASSIGNMENTS)
+ALL_NODE_SCORES=score_nodes(W_Z,NODE_METADATA_ELIGIBLE,COMPONENT_ASSIGNMENTS,SELECTED_K)
 assigned=assign_nodes_to_strongest_cluster(ALL_NODE_SCORES)
-ranked,decay_audit=rank_nodes_with_exponential_decay(assigned)
-local,local_audit=rank_nodes_with_exponential_decay(ALL_NODE_SCORES[ALL_NODE_SCORES.enrichment_delta_z>0])
+ranked,decay_audit=rank_nodes_with_exponential_decay(assigned,DECAY_TAU,DECAY_CUMULATIVE_MASS,MAX_NODES_PER_CLUSTER_KIND)
+local,local_audit=rank_nodes_with_exponential_decay(ALL_NODE_SCORES[ALL_NODE_SCORES.enrichment_delta_z>0],DECAY_TAU,DECAY_CUMULATIVE_MASS,MAX_NODES_PER_CLUSTER_KIND)
 selected=select_mixed_decay_budget(ranked,local,TOP_N,SELECTED_K)
 assert selected.node_name.is_unique and len(selected)==TOP_N*SELECTED_K
 assert selected.enrichment_delta_z.gt(0).all()
 selected.to_csv(OUT/'selected_nodes.csv',index=False);decay_audit.to_csv(OUT/'decay_audit.csv',index=False)
 ```
 
-The resulting dictionary contains 80 unique biological nodes. `selected_nodes.csv` records node kind, enrichment, rank and selection reason; `decay_audit.csv` records the category-specific cutoffs. Enrichment here is a relative loading contrast, not a statistical enrichment test.
+The dictionary contains 80 unique nodes. `selected_nodes.csv` records their categories, loading contrasts and selection reasons; `decay_audit.csv` records the category cutoffs. Here, enrichment means a relative loading contrast.
 
 ## Read the node dictionary and relative W profiles
 
@@ -468,7 +266,7 @@ ax.legend(title='Node kind',bbox_to_anchor=(1.02,1),loc='upper left',fontsize=10
 :align: center
 ```
 
-The first heatmap shows node-wise standardized loadings across all fitted factors; the second shows standardized mean loadings across the four CCs. Both use the same 80 nodes. These colors describe relative W loadings, not reconstructed cell activity. Use individual-factor profiles and exported enrichment values to assess differences in strength. The stacked bars count the selected node kinds; they do not measure activity or pathway flux.
+The heatmaps show standardized W loadings across individual factors and their CC means, using the same 80 nodes. Compare each row across columns. The stacked bars show how many selected nodes belong to each biological category.
 
 ## Examine category-specific loading profiles
 
@@ -512,7 +310,7 @@ for kind in entity_types:
 :align: center
 ```
 
-This gene-set heatmap uses node-wise z-scores of log(1 + W) across factors. Selection here follows the per-category decay prefixes, so these lists can differ from the mixed 20-node dictionary. A graph term is an annotation of model loading; its name alone does not establish that a tissue-specific process occurs in these cells.
+Rows show selected gene sets grouped by NG; columns show the four CCs. Colors summarize node-wise z-scores of log(1 + W). These category-specific selections can differ from the mixed 20-node dictionary.
 
 ## Reconstruct NG activity and summarize CC activity
 
@@ -574,7 +372,7 @@ plt.tight_layout();save('associations');pd.DataFrame(edges).to_csv(OUT/'all_asso
 :align: center
 ```
 
-Red edges are positive relative scores and blue edges negative scores; width scales with absolute score. These are descriptive associations between model summaries, not causal links, cell–cell communication, probabilities or mass-conserving flows. `all_associations.csv` retains every value.
+Red edges show positive relative scores and blue edges show negative scores; width scales with absolute score. The links summarize NG–CC and CC–cell-type associations. `all_associations.csv` contains every score.
 
 ## View all 10,000 cells with metadata tracks
 
@@ -602,11 +400,11 @@ fig.legend(handles=legend,loc='outside lower center',ncol=4,fontsize=9);save('al
 :align: center
 ```
 
-Every column represents one of the same 10,000 cells. Metadata strips identify the ordering; the activity color scale is clipped at ±2.5 for display only. This view reveals within-type heterogeneity hidden by mean summaries. The x-axis is an ordering, not pseudotime.
+Every column represents one cell, ordered by cell type, patient and timepoint. Metadata strips show those groups. The activity scale is clipped at ±2.5 for display; the horizontal axis is cell order.
 
 ## Check patient representation and summarize selected constituents
 
-Show sample coverage before inspecting constituent distributions. For a reproducible descriptive illustration, the violin plots use the first three ranked nodes in NG1; they are not selected using a clinical outcome or a significance test.
+Inspect sample coverage, then plot the first three ranked nodes in NG1. Change the selected group or node list to explore other constituents.
 
 ```python
 coverage=pd.crosstab(meta.cellType,meta.patient_id).reindex(types)
@@ -636,7 +434,7 @@ summary={'cells':a.n_obs,'factors':N_FACTORS,'selected_k':SELECTED_K,'group_size
 :align: center
 ```
 
-Coverage counts show where patient representation is uneven. Violin plots show log-transformed reconstructed activity for individual constituents, with medians. Cells are pooled within source cell type; these distributions are descriptive and do not establish a patient-level treatment effect. Sparse types, including seven mast cells, have limited distributional resolution.
+The coverage heatmap shows cells per patient and cell type. Violins show log-transformed constituent activity with medians, pooled within each cell type. Use the group counts when interpreting sparsely represented populations.
 
 ## Outputs and next step
 

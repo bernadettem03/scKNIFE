@@ -19,7 +19,7 @@ scKNIFE combines a cell-by-gene expression matrix with a biological graph contai
 | `adata.uns["Rg"]` | gene-to-node mapping |
 | `adata.uns["node_names"]` | graph-node order |
 
-Downstream workflows add clusters and biological assignments to `adata.obs`; UMAP and H-space representations are stored in `adata.obsm`.
+Clustering adds H-space cluster labels to `adata.obs`; existing cell-type labels remain grouping metadata. UMAP and H-space representations are stored in `adata.obsm`.
 
 ## Model output versus metadata
 

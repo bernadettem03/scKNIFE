@@ -75,32 +75,13 @@ print(rows,report)
 
 Relative held-out reconstruction error across the three tested ranks.
 
-Errors are **0.61273** at rank 8, **0.59949** at rank 16 and **0.59232** at rank 24. Because the gene-selection and parameter-tuning cells overlap this exploratory split, this is an exploratory reconstruction diagnostic, not an unbiased generalization benchmark or proof of an optimal biological rank.
+Relative reconstruction errors are **0.61273** at rank 8, **0.59949** at rank 16 and **0.59232** at rank 24. The plot shows how reconstruction changes with factor count on this split. Because tuning and gene selection overlap the split, use it as a projection example rather than an independent performance estimate.
 
-The diagnostic plot has factor count on the x-axis and relative held-out reconstruction error on the y-axis; lower error means better reconstruction for this split. It does not establish better cell identities.
+The x-axis is factor count and the y-axis is relative held-out reconstruction error. Lower values indicate closer reconstruction of the held-out expression.
 
 ## Save and review the primary outputs
 
 Primary results use `fitted_subset.h5ad` and `activity_scores.parquet`, with source `cellType` metadata retained. Review `sampling_audit.csv`, `sample_metadata.csv`, and results in `metabolic_walkthrough/`, `factor_interpretation_k4/` and `signaling/`. Preserve cell identifiers and ordering when reusing these outputs.
-
-## Clean-run verification
-
-The updated command sequence was executed in an isolated output directory using the prepared source inputs. All six stages completed, including 26 tuning fits and 1,000 fresh signaling permutations. The same 10,000 cell identifiers were retained. All 34 main tutorial figures and the optional state-program figure were regenerated; all graph-file checksums remained unchanged.
-
-| Stage | Wall time (seconds) |
-| --- | ---: |
-| Sampling, tuning, full fit and activity reconstruction | 470.30 |
-| Cell-type retention | 2.10 |
-| Metabolic analysis | 9.91 |
-| Factor interpretation | 12.96 |
-| Signaling, including 1,000 permutations | 45.08 |
-| Optional rank/projection diagnostic | 117.08 |
-
-Times include process startup and input loading on the tested machine; installation and input preparation are excluded. Tuning accounts for 327 seconds of the first stage. Peak process memory was approximately 3.57 GiB for tuning/full fitting and 2.31 GiB for the optional diagnostic. Other stages were not separately memory-profiled.
-
-Download the {download}`clean-run verification <../downloads/tutorial_clean_run_verification.json>`, {download}`fit report <../downloads/tutorial_10000_run_report.json>` and {download}`projection report <../downloads/tutorial_10000_validation_report.json>`.
-
-CI checks that the six command scripts match the documented Python code, alongside package tests, supplied-graph validation and a strict documentation build. The external-data biological run is verified separately; CI's bundled synthetic 1,000-cell fixture remains a regression check.
 
 ## View the generated plots
 

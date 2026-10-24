@@ -14,7 +14,7 @@ https://github.com/bernadettem03/scKNIFE
 
 The scKNIFE software and documentation are distributed under the MIT License. See `LICENSE` for the complete terms. Biological data and graph resources retain their applicable source-specific terms. See {doc}`graph-resources` for resource citations and links.
 
-The verified scCellFie MIT notice is included with the {doc}`graph-resources` records. See {doc}`release-checklist` for outstanding source and hosting records.
+The verified scCellFie MIT notice is included with the {doc}`graph-resources` records. Incomplete resource records are summarized on that page.
 
 ## Reproducibility
 

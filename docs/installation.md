@@ -10,7 +10,7 @@ conda activate scknife
 pip install "git+https://github.com/bernadettem03/scKNIFE.git"
 ```
 
-The repository is currently private, so GitHub authentication is required. Once public, the same command works without private-repository access.
+The repository is public; no GitHub authentication is required.
 
 ## Editable installation
 
@@ -48,6 +48,10 @@ H-space clustering uses Scanpy's Leiden implementation. The `tutorial` extra abo
 ```bash
 pip install python-igraph leidenalg
 ```
+
+## Expected resources
+
+For the documented 10,000-cell example, sampling, tuning and fitting took about 8 minutes and used approximately 3.6 GiB peak process memory on the tested machine. Input conversion and installation are additional. Runtime depends on hardware, graph size and settings.
 
 ## Build the documentation locally
 
