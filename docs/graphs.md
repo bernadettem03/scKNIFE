@@ -1,3 +1,7 @@
+---
+orphan: true
+---
+
 # Graph selection and unification
 
 Choose the graph before tuning and keep that exact graph fixed for the final fit.

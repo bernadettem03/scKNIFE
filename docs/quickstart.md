@@ -1,3 +1,7 @@
+---
+orphan: true
+---
+
 # Quick start
 
 Complete {doc}`installation` and {doc}`tutorial-inputs`. Activate the environment and set `SCKNIFE_COUNTS`, `SCKNIFE_METADATA` and `SCKNIFE_INTERACTION_DB`.

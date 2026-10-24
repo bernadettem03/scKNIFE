@@ -1,3 +1,7 @@
+---
+orphan: true
+---
+
 # API reference
 
 Import the primary workflow functions directly from `scknife`:

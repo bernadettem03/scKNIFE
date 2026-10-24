@@ -7,7 +7,7 @@ Connect expression data with biological knowledge graphs to learn cell factors, 
 ::::{grid} 1 2 2 2
 :gutter: 3
 
-:::{grid-item-card} Get started
+:::{grid-item-card} Getting started
 :link: quickstart
 :link-type: doc
 Install scKNIFE, prepare the source files and run the 10,000-cell workflow.
@@ -40,11 +40,12 @@ Start with {doc}`installation`, {doc}`tutorial-inputs` and {doc}`tutorials/10000
 
 ```{toctree}
 :hidden:
-:caption: Get started
+:caption: Getting started
 :maxdepth: 1
 
 Tutorial overview <tutorial-10000>
-Installation and inputs <installation>
+Installation <installation>
+Input files <tutorial-inputs>
 Run scKNIFE <tutorials/10000-setup>
 Clustering and cell-type retention <tutorials/10000-annotation>
 ```
@@ -60,39 +61,4 @@ Factor interpretation <tutorials/10000-factors>
 Cell–cell signaling <tutorials/10000-signaling>
 ```
 
-```{toctree}
-:hidden:
-:caption: Optional analyses
-:maxdepth: 1
-
-Optional: rank sensitivity and projection <tutorials/10000-validation>
-Other activity-based analyses <tutorials/10000-states>
-```
-
-```{toctree}
-:hidden:
-:caption: Reference and resources
-:maxdepth: 1
-
-tutorial-inputs
-quickstart
-concepts
-graphs
-api/index
-graph-resources
-citation
-troubleshooting
-```
-
-```{toctree}
-:hidden:
-:caption: Additional reference
-:maxdepth: 1
-
-Tutorial guide <tutorials/index>
-tuning
-pipeline
-projection
-downstream
-signaling
-```
+[Quick start](quickstart.md) · [Concepts](concepts.md) · [API reference](api/index.md) · [Resource references](graph-resources.md) · [Citation](citation.md) · [Troubleshooting](troubleshooting.md)

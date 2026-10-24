@@ -2,7 +2,7 @@
 
 Fit scKNIFE on 10,000 Bassez cells, explore clustering, then choose an analysis for your question.
 
-## Get started
+## Getting started
 
 1. [Install scKNIFE](installation.md) and [prepare the input files](tutorial-inputs.md).
 2. [Run scKNIFE](tutorials/10000-setup.md): sample cells, tune parameters, fit the model and save activities.

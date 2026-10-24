@@ -1,4 +1,4 @@
-# Installation and inputs
+# Installation
 
 scKNIFE currently supports **Python 3.9.21** with a reproducibility-focused dependency set. Use a clean environment rather than installing into an existing Scanpy environment.
 
@@ -64,4 +64,4 @@ See {doc}`troubleshooting` for common setup problems.
 
 ## Continue the tutorial
 
-Obtain the files in {doc}`tutorial-inputs`, then continue to {doc}`tutorials/10000-setup`. See {doc}`tutorial-10000` for the full numbered sequence.
+Obtain the files in {doc}`tutorial-inputs`, then continue to {doc}`tutorials/10000-setup`. Choose an analysis from {doc}`tutorial-10000` after fitting and clustering.

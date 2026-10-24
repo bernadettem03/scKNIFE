@@ -1,10 +1,9 @@
-# Downstream analysis of 10,000 cells
+---
+orphan: true
+---
 
-Complete {doc}`tutorials/10000-setup`, then examine {doc}`tutorials/10000-annotation` before exploring biological activities. These analyses reuse the same fitted model and node-by-cell activity scores. Source `cellType` labels provide grouping metadata; scKNIFE does not assign new cell-type labels in this workflow.
+# Analysis tasks
 
-1. **Metabolic-task analysis:** follow {doc}`tutorials/10000-metabolic` for MEAI, one task violin and metabolic differential activity.
-2. **GO differential activity:** follow {doc}`tutorials/10000-go` for GO activity differences across cell types and within one selected cell type.
-3. **Factor interpretation:** follow {doc}`tutorials/10000-factors` to summarize the fitted factors using four consensus clusters and representative biological node groups.
-4. **Cell–cell signaling:** follow {doc}`tutorials/10000-signaling` for sender–receiver scores, VEGF examples, permutation FDR, centrality and descriptive condition contrasts.
+Choose metabolic tasks, GO analysis, factor interpretation or cell–cell signaling from the tutorial overview.
 
-The {doc}`quickstart` lists the commands for these analyses. For additional questions, {doc}`tutorials/10000-states` illustrates cell-state program summaries. An analysis requiring entities absent from the fitted graph requires an appropriate graph and a new fit.
+[Open analysis tasks](tutorial-10000.md).

@@ -1,3 +1,7 @@
+---
+orphan: true
+---
+
 # Other activity-based analyses: cell-state programs
 
 [Tutorial overview](../tutorial-10000.md#choose-an-analysis)

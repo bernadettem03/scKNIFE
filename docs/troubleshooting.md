@@ -1,3 +1,7 @@
+---
+orphan: true
+---
+
 # Troubleshooting
 
 ## Python version is rejected

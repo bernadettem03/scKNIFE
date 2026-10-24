@@ -1,3 +1,7 @@
+---
+orphan: true
+---
+
 # Citation and license
 
 ## Citation

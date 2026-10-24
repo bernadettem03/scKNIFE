@@ -1,3 +1,7 @@
+---
+orphan: true
+---
+
 # Optional: rank sensitivity and projection
 
 [Tutorial overview](../tutorial-10000.md#choose-an-analysis)

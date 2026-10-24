@@ -1,3 +1,7 @@
+---
+orphan: true
+---
+
 # Concepts and data model
 
 scKNIFE combines a cell-by-gene expression matrix with a biological graph containing genes and higher-level nodes such as reactions, metabolic tasks, pathways, marker programs, cell states, or ligand-receptor knowledge.

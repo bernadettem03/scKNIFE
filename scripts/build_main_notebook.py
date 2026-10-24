@@ -22,7 +22,7 @@ add('markdown','''# scKNIFE: complete 10,000-cell Bassez tutorial
 
 Fit scKNIFE on 10,000 Bassez cells, explore clustering, then choose an analysis.
 
-**Get started:** prepare inputs → tune parameters → fit scKNIFE → explore clustering and cell-type retention.
+**Getting started:** prepare inputs → tune parameters → fit scKNIFE → explore clustering and cell-type retention.
 
 **Analysis tasks:** metabolic tasks, GO analysis, factor interpretation and cell–cell signaling. Each task uses the saved fit and activities; they do not depend on one another.
 
@@ -62,6 +62,7 @@ for page in PAGES:
  if page=='metabolic':
   add('markdown', '## Analysis tasks\n\nChoose any of the following tasks using the saved fit and activities. Each section loads its own inputs.')
  text=(ROOT/f'docs/tutorials/10000-{page}.md').read_text()
+ text=re.sub(r'\A---\n.*?\n---\n+', '', text, flags=re.S)
  if page=='setup':
   a=text.index('### Configure the tutorial');b=text.index('## Sample and fit')
   text=text[:a]+text[b:]

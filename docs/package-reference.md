@@ -17,4 +17,4 @@ Use `construct_unified_graph()` with Version 1, Version 2, individual supplied G
 - `run_scanpy_KNIFE_DE(...)` — differential analysis of activity features.
 - `run_activity_lr(...)` — compute activity-based ligand-receptor tables with input-fingerprinted, resumable permutation checkpoints.
 
-These signaling scores are activity proxies, not CellChat communication probabilities. Use {doc}`tutorial-10000` for the descriptive 10,000-cell scoring example; see {doc}`signaling` for the separate metadata-based API and permutation settings.
+These signaling scores are activity proxies, not CellChat communication probabilities. Use {doc}`tutorial-10000` for the descriptive 10,000-cell scoring example; see {doc}`api/signaling` for the signaling API and permutation settings.
