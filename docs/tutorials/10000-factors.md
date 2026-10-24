@@ -1,6 +1,6 @@
 # Factor interpretation
 
-[Tutorial overview](../tutorial-10000.md) · [Previous: Metabolic analysis](10000-metabolic.md) · [Next: Cell–cell signaling](10000-signaling.md)
+[Tutorial overview](../tutorial-10000.md) · [Previous: GO differential activity](10000-go.md) · [Next: Cell–cell signaling](10000-signaling.md)
 
 Interpret the fitted model through **factor usage → consensus clusters → representative biological nodes → cell-level activities**. This page uses the same 10,000 cells, fitted factors and source `cellType` metadata.
 

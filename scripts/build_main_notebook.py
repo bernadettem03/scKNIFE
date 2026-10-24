@@ -3,7 +3,7 @@ import argparse, json, re
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 TARGET=ROOT/'tutorial/scKNIFE_Bassez_Cohort_B_complete_tutorial.ipynb'
-PAGES=['setup','annotation','metabolic','factors','signaling','validation']
+PAGES=['setup','annotation','metabolic','go','factors','signaling','validation']
 cells=[]
 def add(kind,text,**meta):
  text=text.strip()
@@ -20,9 +20,9 @@ def clean(text):
  return text
 add('markdown','''# scKNIFE: complete 10,000-cell Bassez tutorial
 
-Analyze a representative sample of 10,000 cells, from parameter tuning to metabolic activity, factor interpretation and signaling.
+Analyze a representative sample of 10,000 cells, from parameter tuning to metabolic and GO activity, factor interpretation and signaling.
 
-**Workflow:** prepare inputs → tune on a representative subset → fit scKNIFE → examine cell-type retention → metabolic activity → factor interpretation → cell–cell signaling.
+**Workflow:** prepare inputs → tune on a representative subset → fit scKNIFE → examine cell-type retention → metabolic activity → GO differential activity → factor interpretation → cell–cell signaling.
 
 The primary fit uses parameters selected on a representative 2,000-cell subset before refitting all 10,000 cells. Factor interpretation groups the fitted factors into four consensus clusters (CC1–CC4); this is distinct from the model rank. Source cell types remain metadata for interpretation, not supervised training targets or newly assigned labels.
 
@@ -86,7 +86,7 @@ nb={'cells':cells,'metadata':{'kernelspec':{'display_name':'Python 3 (scKNIFE)',
 if '--check' in __import__('sys').argv:
  old=json.loads(TARGET.read_text())
  assert [(c['cell_type'],''.join(c['source'])) for c in old['cells']]==[(c['cell_type'],''.join(c['source'])) for c in cells], 'Notebook differs from reviewed pages; regenerate with scripts/build_main_notebook.py'
- print('Main notebook matches all six reviewed tutorial pages.')
+ print('Main notebook matches all seven reviewed tutorial pages.')
 else:
  TARGET.write_text(json.dumps(nb,indent=1)+'\n')
  print(f'Built {len(cells)} cells, {sum(c["metadata"].get("tutorial_role")=="figure" for c in cells)} generated figures')

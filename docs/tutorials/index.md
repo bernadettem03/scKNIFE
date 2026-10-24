@@ -5,9 +5,10 @@ Start with the [10,000-cell tutorial overview](../tutorial-10000.md), then follo
 1. [Installation and inputs](../installation.md)
 2. [Run full scKNIFE](10000-setup.md)
 3. [Cell-type retention](10000-annotation.md)
-4. [Metabolic analysis](10000-metabolic.md)
-5. [Factor interpretation](10000-factors.md)
-6. [Cell–cell signaling](10000-signaling.md)
+4. [Metabolic-task analysis](10000-metabolic.md)
+5. [GO differential activity](10000-go.md)
+6. [Factor interpretation](10000-factors.md)
+7. [Cell–cell signaling](10000-signaling.md)
 
 **Optional:** [Rank sensitivity and projection](10000-validation.md).
 

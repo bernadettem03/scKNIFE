@@ -15,7 +15,7 @@ Install scKNIFE, prepare the source files and run the 10,000-cell workflow.
 :::{grid-item-card} Run the tutorial
 :link: tutorial-10000
 :link-type: doc
-Analyze 10,000 cells: parameter tuning, fitting, cell-type retention, metabolism, factor interpretation and signaling.
+Analyze 10,000 cells: parameter tuning, fitting, cell-type retention, metabolism, GO activity, factor interpretation and signaling.
 :::
 :::{grid-item-card} Choose a graph
 :link: graphs
@@ -39,7 +39,7 @@ Find functions for fitting, clustering, activity analysis, projection, and signa
 1. **Install and prepare inputs.** Obtain expression, metadata and the appropriate graph.
 2. **Run full scKNIFE.** Sample 10,000 cells, tune parameters, fit W and H, and reconstruct node activities.
 3. **Check cell-type retention.** Compare learned clusters with known cell types to assess cell-type retention.
-4. **Explore downstream tasks.** Analyze metabolism, interpret factors, then investigate cell–cell signaling.
+4. **Explore downstream tasks.** Analyze metabolic tasks and GO activity, interpret factors, then investigate cell–cell signaling.
 
 ## A reproducible starting point
 
@@ -58,9 +58,10 @@ Overview <tutorial-10000>
 1. Installation and inputs <installation>
 2. Run full scKNIFE <tutorials/10000-setup>
 3. Cell-type retention <tutorials/10000-annotation>
-4. Metabolic analysis <tutorials/10000-metabolic>
-5. Factor interpretation <tutorials/10000-factors>
-6. Cell–cell signaling <tutorials/10000-signaling>
+4. Metabolic-task analysis <tutorials/10000-metabolic>
+5. GO differential activity <tutorials/10000-go>
+6. Factor interpretation <tutorials/10000-factors>
+7. Cell–cell signaling <tutorials/10000-signaling>
 ```
 
 ```{toctree}

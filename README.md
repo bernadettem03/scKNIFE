@@ -8,7 +8,7 @@
 [![Documentation](https://readthedocs.org/projects/scknife-docs/badge/?version=latest)](https://scknife-docs.readthedocs.io/en/latest/)
 [![Software license: MIT](https://img.shields.io/badge/software_license-MIT-blue.svg)](LICENSE)
 
-scKNIFE uses graph-regularized non-negative matrix factorization to learn cell factors and biological-node loadings. Their reconstructed activity scores support metabolic analysis, factor interpretation and cell–cell signaling. The tutorial also examines how the learned representation retains known cell-type organization.
+scKNIFE uses graph-regularized non-negative matrix factorization to learn cell factors and biological-node loadings. Their reconstructed activity scores support metabolic and GO activity analysis, factor interpretation and cell–cell signaling. The tutorial also examines how the learned representation retains known cell-type organization.
 
 <p align="center">
   <img src="docs/assets/scknife-workflow-v4.png" alt="scKNIFE workflow: gene expression and a biological knowledge graph lead to cell factors, node loadings and downstream biological activity analyses" width="850">
@@ -19,7 +19,8 @@ scKNIFE uses graph-regularized non-negative matrix factorization to learn cell f
 | Analysis | Biological question |
 |---|---|
 | [Cell-type retention](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-annotation.html) | Does the learned representation retain recognizable cell-type organization? |
-| [Metabolic activity](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-metabolic.html) | How do MEAI and GO-node activities differ between conditions within cell types? |
+| [Metabolic-task activity](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-metabolic.html) | How do metabolic-task scores differ between conditions within cell types? |
+| [GO differential activity](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-go.html) | Which GO biological-process activities differ between conditions within cell types? |
 | [Factor interpretation](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-factors.html) | Which biological entities characterize the learned factors and their consensus groups? |
 | [Cell–cell signaling](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-signaling.html) | Which sender–receiver groups and ligand–receptor relationships have transcriptomic support? |
 
@@ -43,7 +44,7 @@ See the [installation guide](https://scknife-docs.readthedocs.io/en/latest/insta
 
 The [complete notebook](tutorial/scKNIFE_Bassez_Cohort_B_complete_tutorial.ipynb) and [step-by-step tutorial](https://scknife-docs.readthedocs.io/en/latest/tutorial-10000.html) use a representative sample of 10,000 Bassez cohort-2 cells.
 
-**Prepare inputs → tune on a representative subset → fit scKNIFE → examine cell-type retention → metabolism → factors → signaling.**
+**Prepare inputs → tune on a representative subset → fit scKNIFE → examine cell-type retention → metabolism → GO activity → factors → signaling.**
 
 An optional [rank sensitivity and projection](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-validation.html) section demonstrates held-out projection within the same sample.
 

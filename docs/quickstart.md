@@ -11,6 +11,7 @@ export NUMBA_NUM_THREADS=2
 python scripts/run_tutorial_10000.py
 python scripts/run_tutorial_10000_organization.py
 python scripts/run_tutorial_10000_metabolic.py
+python scripts/run_tutorial_10000_go.py
 python scripts/run_tutorial_10000_factors.py
 python scripts/run_tutorial_10000_signaling.py
 ```

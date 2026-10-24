@@ -1,8 +1,8 @@
-# Metabolic and GO differential activity
+# Metabolic-task analysis
 
-[Tutorial overview](../tutorial-10000.md) · [Previous: Cell-type retention](10000-annotation.md) · [Next: Factor interpretation](10000-factors.md)
+[Tutorial overview](../tutorial-10000.md) · [Previous: Cell-type retention](10000-annotation.md) · [Next: GO differential activity](10000-go.md)
 
-Calculate metabolic scores, inspect one task, then compare metabolic-task and GO activities between conditions.
+Calculate MEAI, inspect one task, then compare metabolic-task activity between conditions.
 
 **Input:** the saved [10,000-cell fit](10000-setup.md). [Download the runnable script](../downloads/metabolic_walkthrough.py).
 
@@ -20,7 +20,7 @@ import networkx as nx
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from scknife import run_scanpy_KNIFE_DE
+from scknife.tutorial_differential import differential_activity, effect_overview, volcano
 
 BASE = Path(os.environ.get('SCKNIFE_TUTORIAL_OUTPUT', 'tutorial/outputs_10000'))
 OUT = BASE / 'metabolic_walkthrough'
@@ -67,9 +67,7 @@ def save(name):
 
 In this example, 6,924 cells belong to the expanded group. Six cell types, containing 6,875 cells, meet the minimum counts; mast cells and pDCs have too few Pre/On cells for these tests.
 
-## Metabolic-task analysis
-
-### 1. Calculate MEAI
+## 1. Calculate MEAI
 
 For each task, combine its activity with the mean activity of its linked reactions and genes, then divide by the sum across tasks in that cell:
 
@@ -123,7 +121,7 @@ metabolic_scores, SCORE_NAME = meai, 'MEAI'
 # metabolic_scores, SCORE_NAME = raw_task_activity, 'Task-node activity'
 ```
 
-### 2. Inspect one metabolic task
+## 2. Inspect one metabolic task
 
 Compare the cell-level distributions for one task in the selected cell type and expansion group.
 
@@ -153,59 +151,22 @@ fig.tight_layout(); save('task_violin')
 
 The violin width shows the density of cell scores; the horizontal line marks the median. Each condition is labelled with its cell count. The plotted score follows the choice above.
 
-### 3. Test metabolic-task activity
+## 3. Test metabolic-task activity
 
 Run two-sided Wilcoxon rank-sum tests within each eligible cell type. The package computes Cohen’s d, log₂(mean On / mean Pre), and BH-adjusted p-values across all tested task–cell-type combinations in this expansion group. Tests use the selected scores without a log transformation.
 
 Highlight results meeting **q < 0.05**, **|d| ≥ 0.3** and **|log₂FC| ≥ 0.25**. Positive effects indicate higher scores in On.
 
 ```python
-def differential_activity(scores):
-    aligned = scores.loc[test_meta.index]
-    assert aligned.index.equals(test_meta.index)
-    assert np.isfinite(aligned.to_numpy()).all() and (aligned.to_numpy() >= 0).all()
-    import warnings
-    with warnings.catch_warnings():
-        # Compatibility notices from the pinned Scanpy/Pandas versions.
-        warnings.filterwarnings('ignore', message='The behavior of DataFrame.sum with axis=None', category=FutureWarning)
-        warnings.filterwarnings('ignore', message='The previous implementation of stack is deprecated', category=FutureWarning)
-        result = run_scanpy_KNIFE_DE(
-            aligned, test_meta, cell_type_key='cellType', condition_key='timepoint',
-            contrasts=[CONTRAST], features=aligned.columns.tolist(), min_cells=MIN_CELLS)
-    assert not result.empty
-    result['passes_cutoffs'] = (result.adj_p_value.lt(Q_CUTOFF)
-                                & result.cohens_d.abs().ge(D_CUTOFF)
-                                & result.log2FC.abs().ge(LOGFC_CUTOFF))
-    return result
 
-task_de = differential_activity(metabolic_scores)
+task_de = differential_activity(metabolic_scores, test_meta, CONTRAST, MIN_CELLS,
+                                Q_CUTOFF, D_CUTOFF, LOGFC_CUTOFF)
 task_de['score'] = SCORE_NAME
 task_de.to_csv(OUT / 'metabolic_differential_activity.csv', index=False)
 
-def effect_overview(result, title, filename):
-    fig, ax = plt.subplots(figsize=(8, 4.8))
-    rng = np.random.default_rng(42)
-    types = sorted(result.cell_type.unique())
-    for i, celltype in enumerate(types):
-        rows = result.loc[result.cell_type.eq(celltype)]
-        colors = np.where(rows.passes_cutoffs,
-                          np.where(rows.cohens_d.ge(0), '#c86556', '#327e9b'), '#c4cbd1')
-        ax.scatter(rows.cohens_d, i + rng.uniform(-0.22, 0.22, len(rows)),
-                   c=colors, s=9, alpha=0.6, linewidths=0, rasterized=True)
-    ax.set_yticks(range(len(types)), types)
-    ax.invert_yaxis()
-    for x in [-D_CUTOFF, 0, D_CUTOFF]:
-        ax.axvline(x, color='#526171', lw=0.7, ls='--' if x else '-')
-    ax.set_xlabel("Cohen's d · On minus Pre")
-    ax.set_title(f'{title} · {GROUP_NAME}')
-    from matplotlib.lines import Line2D
-    ax.legend(handles=[Line2D([], [], color=c, marker='o', linestyle='', label=t)
-                       for c, t in [('#327e9b', 'Higher in Pre'), ('#c86556', 'Higher in On'),
-                                    ('#c4cbd1', 'Below display cutoffs')]],
-              loc='upper center', bbox_to_anchor=(0.5, -0.17), ncol=3, frameon=False)
-    fig.tight_layout(); save(filename)
 
-effect_overview(task_de, f'Metabolic tasks · {SCORE_NAME}', 'task_effects')
+effect_overview(task_de, f'Metabolic tasks · {SCORE_NAME}',
+                OUT / 'task_effects.png', GROUP_NAME, D_CUTOFF)
 ```
 
 ```{image} ../assets/tutorial-10000/metabolic_walkthrough/task_effects.png
@@ -216,35 +177,14 @@ effect_overview(task_de, f'Metabolic tasks · {SCORE_NAME}', 'task_effects')
 
 Each point is one task tested within a cell type. Colored points meet all three display cutoffs; grey points do not. The horizontal position gives the direction and standardized magnitude of the difference.
 
-### 4. Examine one cell type
+## 4. Examine one cell type
 
 Show all tested tasks for the selected cell type. Labels identify up to three tasks meeting the display cutoffs, ranked by |d| × −log₁₀(q).
 
 ```python
-def volcano(result, title, filename):
-    rows = result.loc[result.cell_type.eq(CELL_TYPE)].copy()
-    rows['neg_log_q'] = -np.log10(rows.adj_p_value.clip(lower=np.finfo(float).tiny))
-    colors = np.where(rows.passes_cutoffs,
-                      np.where(rows.cohens_d.ge(0), '#c86556', '#327e9b'), '#c4cbd1')
-    fig, ax = plt.subplots(figsize=(7.5, 5))
-    ax.scatter(rows.cohens_d, rows.neg_log_q, c=colors, s=16, alpha=0.65, linewidths=0)
-    ax.axhline(-np.log10(Q_CUTOFF), color='#526171', ls='--', lw=0.8)
-    for x in [-D_CUTOFF, D_CUTOFF]:
-        ax.axvline(x, color='#526171', ls='--', lw=0.8)
-    chosen = rows.loc[rows.passes_cutoffs].copy()
-    chosen['label_rank'] = chosen.cohens_d.abs() * chosen.neg_log_q
-    labels = chosen.sort_values(['label_rank', 'feature'], ascending=[False, True]).head(3)
-    for i, row in enumerate(labels.itertuples()):
-        ax.annotate(textwrap.fill(row.feature, 30), (row.cohens_d, row.neg_log_q),
-                    xytext=(0.03, 0.97 - i * 0.25), textcoords='axes fraction',
-                    fontsize=9, va='top', bbox=dict(facecolor='white', alpha=0.85, edgecolor='none'),
-                    arrowprops=dict(arrowstyle='-', color='#526171', lw=0.6))
-    ax.set_xlabel("Cohen's d · On minus Pre"); ax.set_ylabel('−log₁₀(BH-adjusted p-value)')
-    ax.set_title(f'{title}\n{CELL_TYPE} · {GROUP_NAME}')
-    ax.margins(x=0.15, y=0.15)
-    fig.tight_layout(); save(filename)
 
-volcano(task_de, f'Metabolic tasks · {SCORE_NAME}', 'task_volcano')
+volcano(task_de, f'Metabolic tasks · {SCORE_NAME}', OUT / 'task_volcano.png',
+        CELL_TYPE, GROUP_NAME, Q_CUTOFF, D_CUTOFF)
 ```
 
 ```{image} ../assets/tutorial-10000/metabolic_walkthrough/task_volcano.png
@@ -255,55 +195,18 @@ volcano(task_de, f'Metabolic tasks · {SCORE_NAME}', 'task_volcano')
 
 Each point is a metabolic task. Farther left or right means a larger standardized difference; higher points have smaller adjusted p-values. Colors use the same three cutoffs as the overview, including the fold-change threshold.
 
-## GO biological-process differential activity
-
-### 1. Compare GO activity across cell types
-
-Use reconstructed GO-node activities with the same cells, comparison and thresholds. GO scores are not MEAI. BH correction is applied separately across the tested GO-term–cell-type combinations; this is differential activity, not GO enrichment.
-
-```python
-go_scores = activity.loc[nodes_of_kind('GO_term')].T
-
-go_de = differential_activity(go_scores)
-go_de['score'] = 'GO-node activity'
-go_de.to_csv(OUT / 'go_differential_activity.csv', index=False)
-effect_overview(go_de, 'GO biological processes', 'go_effects')
-```
-
-```{image} ../assets/tutorial-10000/metabolic_walkthrough/go_effects.png
-:class: compact-scientific-plot
-:align: center
-:alt: Cell-level GO differential activity across cell types
-```
-
-Each point is a GO term. Colors identify terms passing the adjusted-p-value, effect-size and fold-change cutoffs within each cell type. GO terms can share genes, so these points do not represent independent biological processes.
-
-### 2. Examine GO differences in one cell type
-
-```python
-volcano(go_de, 'GO biological processes', 'go_volcano')
-```
-
-```{image} ../assets/tutorial-10000/metabolic_walkthrough/go_volcano.png
-:class: compact-scientific-plot
-:align: center
-:alt: GO differential activity volcano plot
-```
-
-The selected cell type uses the same color and axis conventions as the metabolic volcano plot. Labels identify up to three qualifying GO terms; the exported table contains every tested term.
-
 ## Save results
 
-The output directory contains MEAI scores, support mappings, condition cell counts, full differential-activity tables and the five figures.
+The output directory contains MEAI scores, support mappings, condition cell counts, the differential-activity table and three figures.
 
 ```python
 summary = {
     'fit_cells': int(fit.n_obs), 'selected_group': EXPANSION,
     'group_cells': int(len(selected_meta)), 'tested_cells': int(len(test_meta)),
     'eligible_cell_types': eligible.tolist(), 'metabolic_score': SCORE_NAME,
-    'tasks': len(tasks), 'go_terms': go_scores.shape[1],
-    'task_tests': len(task_de), 'go_tests': len(go_de),
-    'task_hits': int(task_de.passes_cutoffs.sum()), 'go_hits': int(go_de.passes_cutoffs.sum()),
+    'tasks': len(tasks),
+    'task_tests': len(task_de),
+    'task_hits': int(task_de.passes_cutoffs.sum()),
     'contrast': list(CONTRAST), 'minimum_cells': MIN_CELLS,
     'cutoffs': {'q': Q_CUTOFF, 'absolute_d': D_CUTOFF, 'absolute_log2FC': LOGFC_CUTOFF},
     'cell_id_sha256': hashlib.sha256('\n'.join(fit.obs_names).encode()).hexdigest(),
@@ -312,4 +215,4 @@ summary = {
 print(json.dumps(summary, indent=2))
 ```
 
-Next: [Factor interpretation](10000-factors.md).
+Next: [GO differential activity](10000-go.md).

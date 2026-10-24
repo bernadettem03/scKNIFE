@@ -29,3 +29,10 @@ CI checks that the six command scripts match the documented Python code, alongsi
 - Tested 218 tasks (1,308 comparisons) and 6,036 GO terms (36,216 comparisons). Display cutoffs: q < 0.05, |d| >= 0.3, |log2FC| >= 0.25. Twenty task–cell-type and 405 GO-term–cell-type comparisons pass all three cutoffs.
 - Independently verified 12 sampled Wilcoxon p-values, effect sizes and fold changes; recomputed BH corrections across each full result table. The raw task-activity option also completed all 1,308 comparisons.
 - Tests are pooled-cell exploratory comparisons, without patient adjustment. No graph or fitting changes.
+
+## Separate GO tutorial page — 24 October 2026
+
+- Added GO as its own page, executable script and notebook stage after metabolic tasks.
+- Executed GO first in a fresh Python kernel (6 code/figure cells, 78.8 seconds), then metabolic analysis in another fresh kernel (9 cells, 15.3 seconds). Both use the saved 10,000-cell fit.
+- All five figure PNGs, both differential-result CSVs and the MEAI score matrix are byte-identical to the combined-page results.
+- Shared statistical/plotting helpers accept explicit settings; GO does not depend on metabolic variables or outputs. The notebook preserves all other stage outputs.

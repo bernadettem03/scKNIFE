@@ -81,7 +81,7 @@ The x-axis is factor count and the y-axis is relative held-out reconstruction er
 
 ## Save and review the primary outputs
 
-Primary results use `fitted_subset.h5ad` and `activity_scores.parquet`, with source `cellType` metadata retained. Review `sampling_audit.csv`, `sample_metadata.csv`, and results in `metabolic_walkthrough/`, `factor_interpretation_k4/` and `signaling/`. Preserve cell identifiers and ordering when reusing these outputs.
+Primary results use `fitted_subset.h5ad` and `activity_scores.parquet`, with source `cellType` metadata retained. Review `sampling_audit.csv`, `sample_metadata.csv`, and results in `metabolic_walkthrough/`, `go_differential/`, `factor_interpretation_k4/` and `signaling/`. Preserve cell identifiers and ordering when reusing these outputs.
 
 ## View the generated plots
 

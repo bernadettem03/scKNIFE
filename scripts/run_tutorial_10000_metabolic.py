@@ -7,7 +7,7 @@ import networkx as nx
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from scknife import run_scanpy_KNIFE_DE
+from scknife.tutorial_differential import differential_activity, effect_overview, volcano
 
 BASE = Path(os.environ.get('SCKNIFE_TUTORIAL_OUTPUT', 'tutorial/outputs_10000'))
 OUT = BASE / 'metabolic_walkthrough'
@@ -114,98 +114,29 @@ ax.set_title(f'{CELL_TYPE} · {GROUP_NAME}\n' + textwrap.fill(EXAMPLE_TASK, 48))
 fig.tight_layout(); save('task_violin')
 
 
-def differential_activity(scores):
-    aligned = scores.loc[test_meta.index]
-    assert aligned.index.equals(test_meta.index)
-    assert np.isfinite(aligned.to_numpy()).all() and (aligned.to_numpy() >= 0).all()
-    import warnings
-    with warnings.catch_warnings():
-        # Compatibility notices from the pinned Scanpy/Pandas versions.
-        warnings.filterwarnings('ignore', message='The behavior of DataFrame.sum with axis=None', category=FutureWarning)
-        warnings.filterwarnings('ignore', message='The previous implementation of stack is deprecated', category=FutureWarning)
-        result = run_scanpy_KNIFE_DE(
-            aligned, test_meta, cell_type_key='cellType', condition_key='timepoint',
-            contrasts=[CONTRAST], features=aligned.columns.tolist(), min_cells=MIN_CELLS)
-    assert not result.empty
-    result['passes_cutoffs'] = (result.adj_p_value.lt(Q_CUTOFF)
-                                & result.cohens_d.abs().ge(D_CUTOFF)
-                                & result.log2FC.abs().ge(LOGFC_CUTOFF))
-    return result
 
-task_de = differential_activity(metabolic_scores)
+task_de = differential_activity(metabolic_scores, test_meta, CONTRAST, MIN_CELLS,
+                                Q_CUTOFF, D_CUTOFF, LOGFC_CUTOFF)
 task_de['score'] = SCORE_NAME
 task_de.to_csv(OUT / 'metabolic_differential_activity.csv', index=False)
 
-def effect_overview(result, title, filename):
-    fig, ax = plt.subplots(figsize=(8, 4.8))
-    rng = np.random.default_rng(42)
-    types = sorted(result.cell_type.unique())
-    for i, celltype in enumerate(types):
-        rows = result.loc[result.cell_type.eq(celltype)]
-        colors = np.where(rows.passes_cutoffs,
-                          np.where(rows.cohens_d.ge(0), '#c86556', '#327e9b'), '#c4cbd1')
-        ax.scatter(rows.cohens_d, i + rng.uniform(-0.22, 0.22, len(rows)),
-                   c=colors, s=9, alpha=0.6, linewidths=0, rasterized=True)
-    ax.set_yticks(range(len(types)), types)
-    ax.invert_yaxis()
-    for x in [-D_CUTOFF, 0, D_CUTOFF]:
-        ax.axvline(x, color='#526171', lw=0.7, ls='--' if x else '-')
-    ax.set_xlabel("Cohen's d · On minus Pre")
-    ax.set_title(f'{title} · {GROUP_NAME}')
-    from matplotlib.lines import Line2D
-    ax.legend(handles=[Line2D([], [], color=c, marker='o', linestyle='', label=t)
-                       for c, t in [('#327e9b', 'Higher in Pre'), ('#c86556', 'Higher in On'),
-                                    ('#c4cbd1', 'Below display cutoffs')]],
-              loc='upper center', bbox_to_anchor=(0.5, -0.17), ncol=3, frameon=False)
-    fig.tight_layout(); save(filename)
 
-effect_overview(task_de, f'Metabolic tasks · {SCORE_NAME}', 'task_effects')
+effect_overview(task_de, f'Metabolic tasks · {SCORE_NAME}',
+                OUT / 'task_effects.png', GROUP_NAME, D_CUTOFF)
 
 
-def volcano(result, title, filename):
-    rows = result.loc[result.cell_type.eq(CELL_TYPE)].copy()
-    rows['neg_log_q'] = -np.log10(rows.adj_p_value.clip(lower=np.finfo(float).tiny))
-    colors = np.where(rows.passes_cutoffs,
-                      np.where(rows.cohens_d.ge(0), '#c86556', '#327e9b'), '#c4cbd1')
-    fig, ax = plt.subplots(figsize=(7.5, 5))
-    ax.scatter(rows.cohens_d, rows.neg_log_q, c=colors, s=16, alpha=0.65, linewidths=0)
-    ax.axhline(-np.log10(Q_CUTOFF), color='#526171', ls='--', lw=0.8)
-    for x in [-D_CUTOFF, D_CUTOFF]:
-        ax.axvline(x, color='#526171', ls='--', lw=0.8)
-    chosen = rows.loc[rows.passes_cutoffs].copy()
-    chosen['label_rank'] = chosen.cohens_d.abs() * chosen.neg_log_q
-    labels = chosen.sort_values(['label_rank', 'feature'], ascending=[False, True]).head(3)
-    for i, row in enumerate(labels.itertuples()):
-        ax.annotate(textwrap.fill(row.feature, 30), (row.cohens_d, row.neg_log_q),
-                    xytext=(0.03, 0.97 - i * 0.25), textcoords='axes fraction',
-                    fontsize=9, va='top', bbox=dict(facecolor='white', alpha=0.85, edgecolor='none'),
-                    arrowprops=dict(arrowstyle='-', color='#526171', lw=0.6))
-    ax.set_xlabel("Cohen's d · On minus Pre"); ax.set_ylabel('−log₁₀(BH-adjusted p-value)')
-    ax.set_title(f'{title}\n{CELL_TYPE} · {GROUP_NAME}')
-    ax.margins(x=0.15, y=0.15)
-    fig.tight_layout(); save(filename)
 
-volcano(task_de, f'Metabolic tasks · {SCORE_NAME}', 'task_volcano')
-
-
-go_scores = activity.loc[nodes_of_kind('GO_term')].T
-
-go_de = differential_activity(go_scores)
-go_de['score'] = 'GO-node activity'
-go_de.to_csv(OUT / 'go_differential_activity.csv', index=False)
-effect_overview(go_de, 'GO biological processes', 'go_effects')
-
-
-volcano(go_de, 'GO biological processes', 'go_volcano')
+volcano(task_de, f'Metabolic tasks · {SCORE_NAME}', OUT / 'task_volcano.png',
+        CELL_TYPE, GROUP_NAME, Q_CUTOFF, D_CUTOFF)
 
 
 summary = {
     'fit_cells': int(fit.n_obs), 'selected_group': EXPANSION,
     'group_cells': int(len(selected_meta)), 'tested_cells': int(len(test_meta)),
     'eligible_cell_types': eligible.tolist(), 'metabolic_score': SCORE_NAME,
-    'tasks': len(tasks), 'go_terms': go_scores.shape[1],
-    'task_tests': len(task_de), 'go_tests': len(go_de),
-    'task_hits': int(task_de.passes_cutoffs.sum()), 'go_hits': int(go_de.passes_cutoffs.sum()),
+    'tasks': len(tasks),
+    'task_tests': len(task_de),
+    'task_hits': int(task_de.passes_cutoffs.sum()),
     'contrast': list(CONTRAST), 'minimum_cells': MIN_CELLS,
     'cutoffs': {'q': Q_CUTOFF, 'absolute_d': D_CUTOFF, 'absolute_log2FC': LOGFC_CUTOFF},
     'cell_id_sha256': hashlib.sha256('\n'.join(fit.obs_names).encode()).hexdigest(),
