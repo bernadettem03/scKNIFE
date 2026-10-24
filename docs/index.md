@@ -15,7 +15,7 @@ Install scKNIFE, prepare the source files and run the 10,000-cell workflow.
 :::{grid-item-card} Run the tutorial
 :link: tutorial-10000
 :link-type: doc
-Analyze 10,000 cells: parameter tuning, fitting, cell-type retention, metabolism, GO activity, factor interpretation and signaling.
+Fit and cluster 10,000 cells, then choose a biological analysis.
 :::
 :::{grid-item-card} Choose a graph
 :link: graphs
@@ -36,32 +36,28 @@ Find functions for fitting, clustering, activity analysis, projection, and signa
 :align: center
 ```
 
-1. **Install and prepare inputs.** Obtain expression, metadata and the appropriate graph.
-2. **Run full scKNIFE.** Sample 10,000 cells, tune parameters, fit W and H, and reconstruct node activities.
-3. **Check cell-type retention.** Compare learned clusters with known cell types to assess cell-type retention.
-4. **Explore downstream tasks.** Analyze metabolic tasks and GO activity, interpret factors, then investigate cell–cell signaling.
-
-## A reproducible starting point
-
-The {doc}`tutorial-10000` uses a stratified sample of 10,000 cells with donor, timepoint and cell-type metadata.
-
-Follow {doc}`tutorial-inputs` to obtain and prepare the source data, then use {doc}`quickstart` to generate every result. The quick start and detailed tutorial run the same 10,000-cell analysis.
-
-See {doc}`installation` for the Python environment and {doc}`graph-resources` for biological-resource citations.
+Start with {doc}`installation`, {doc}`tutorial-inputs` and {doc}`tutorials/10000-setup`. Explore clustering and cell-type retention, then choose metabolic tasks, GO analysis, factor interpretation or signaling from the {doc}`tutorial-10000`.
 
 ```{toctree}
 :hidden:
-:caption: 10,000-cell tutorial
+:caption: Get started
 :maxdepth: 1
 
-Overview <tutorial-10000>
-1. Installation and inputs <installation>
-2. Run full scKNIFE <tutorials/10000-setup>
-3. Cell-type retention <tutorials/10000-annotation>
-4. Metabolic-task analysis <tutorials/10000-metabolic>
-5. GO differential activity <tutorials/10000-go>
-6. Factor interpretation <tutorials/10000-factors>
-7. Cell–cell signaling <tutorials/10000-signaling>
+Tutorial overview <tutorial-10000>
+Installation and inputs <installation>
+Run scKNIFE <tutorials/10000-setup>
+Clustering and cell-type retention <tutorials/10000-annotation>
+```
+
+```{toctree}
+:hidden:
+:caption: Analysis tasks
+:maxdepth: 1
+
+Metabolic tasks <tutorials/10000-metabolic>
+GO analysis <tutorials/10000-go>
+Factor interpretation <tutorials/10000-factors>
+Cell–cell signaling <tutorials/10000-signaling>
 ```
 
 ```{toctree}

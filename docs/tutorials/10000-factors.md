@@ -1,14 +1,12 @@
 # Factor interpretation
 
-[Tutorial overview](../tutorial-10000.md) · [Previous: GO differential activity](10000-go.md) · [Next: Cell–cell signaling](10000-signaling.md)
+[Tutorial overview](../tutorial-10000.md#choose-an-analysis)
 
-Interpret the fitted model through **factor usage → consensus clusters → representative biological nodes → cell-level activities**. This page uses the same 10,000 cells, fitted factors and source `cellType` metadata.
+Explore how fitted factors relate to biological programs and cell types.
 
-**Prerequisite:** complete [model fitting](10000-setup.md). [Download the complete runnable script](../downloads/factor_interpretation.py).
+**Input:** the saved [10,000-cell fit](10000-setup.md). [Download the runnable script](../downloads/factor_interpretation.py).
 
-## How to read the output
-
-**CC** (consensus cluster) identifies a group of factors with related W profiles; **NG** identifies the biological nodes selected to interpret that group. NG activity reconstructs those nodes using all aligned factors. CC activity averages H over the factors assigned to that group. The interpretation resolution is **k=4**, while the fitted model rank is selected before the full fit. NG activity and CC activity summarize different aspects of the fitted model.
+**CC** groups factors with similar node loadings. **NG** is the set of biological nodes selected to describe each group. This example uses four groups (`k=4`); this is separate from the model’s factor count.
 
 ## Load the fitted model
 
@@ -85,7 +83,7 @@ Each row is an H factor and each column a cell type. Colors show mean factor act
 
 ## Choose the number of factor groups using W consensus
 
-The analysis standardizes log(1 + W) within each node, resamples 80% of eligible nodes with replacement 200 times, and clusters factors using correlation distance and average linkage. We test consensus resolutions from 2 to the smaller of 12 and one less than the fitted rank. PAC measures the fraction of factor pairs with ambiguous consensus (between 0.1 and 0.9). After reviewing these diagnostics, this tutorial uses the chosen resolution **k=4**. The fitted model rank is selected before the full fit.
+Compare factor groupings by resampling biological nodes 200 times. Lower PAC indicates fewer ambiguously grouped factor pairs. This example uses **k=4**; adjust `SELECTED_K` to explore another grouping.
 
 ```python
 SEED=42;BOOTSTRAPS=200;RESAMPLE_FRACTION=.8
@@ -187,7 +185,7 @@ Each row shows factor membership at one resolution. Group numbers are local to t
 
 ## Select representative biological nodes
 
-Select 20 representative biological nodes per factor group using their relative W loading profiles. The helper ranks candidates within node categories, applies a decay cutoff and fills a unique 20-node dictionary for each group. The settings below control this selection. The helper functions are included in scKNIFE; [download their source](../downloads/factor_selection_helpers.py) to inspect the selection rules.
+Select 20 biological nodes per group from their relative W loadings. Adjust the settings below to change the selection; [helper functions](../downloads/factor_selection_helpers.py) provide the selection rules.
 
 ```python
 DECAY_TAU=5.;DECAY_CUMULATIVE_MASS=.95;MAX_NODES_PER_CLUSTER_KIND=20;TOP_N=20
@@ -270,7 +268,7 @@ The heatmaps show standardized W loadings across individual factors and their CC
 
 ## Examine category-specific loading profiles
 
-Compare selected gene sets across the four programs. Uncomment the corresponding `entity_types.append(...)` line to generate the same view for genes, GO terms, reactions, metabolic tasks or CellChat entities. Rows are grouped by NG and columns by CC; divider lines mark the group boundaries. Node labels identify their NG membership. A group with no selected nodes of that type contributes no rows, while all factor groups remain visible.
+Compare gene sets across the four programs. Uncomment an `entity_types.append(...)` option to show genes, GO terms, reactions, metabolic tasks or CellChat entities instead.
 
 ```python
 # Select one entity type for the worked example.
@@ -436,8 +434,6 @@ summary={'cells':a.n_obs,'factors':N_FACTORS,'selected_k':SELECTED_K,'group_size
 
 The coverage heatmap shows cells per patient and cell type. Violins show log-transformed constituent activity with medians, pooled within each cell type. Use the group counts when interpreting sparsely represented populations.
 
-## Outputs and next step
+## Outputs
 
 The `factor_interpretation_k4/` output folder contains the consensus diagnostics, factor assignments, selected-node dictionary, node-selection audit, group means, signed associations, run summary and figures. The groups and activity profiles summarize this 10,000-cell fit.
-
-Continue to [cell–cell signaling](10000-signaling.md).

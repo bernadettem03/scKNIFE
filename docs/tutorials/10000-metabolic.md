@@ -1,6 +1,6 @@
 # Metabolic-task analysis
 
-[Tutorial overview](../tutorial-10000.md) · [Previous: Cell-type retention](10000-annotation.md) · [Next: GO differential activity](10000-go.md)
+[Tutorial overview](../tutorial-10000.md#choose-an-analysis)
 
 Calculate MEAI, inspect one task, then compare metabolic-task activity between conditions.
 
@@ -65,7 +65,7 @@ def save(name):
     plt.close()
 ```
 
-In this example, 6,924 cells belong to the expanded group. Six cell types, containing 6,875 cells, meet the minimum counts; mast cells and pDCs have too few Pre/On cells for these tests.
+Six cell types meet the minimum counts in this example.
 
 ## 1. Calculate MEAI
 
@@ -73,7 +73,7 @@ For each task, combine its activity with the mean activity of its linked reactio
 
 **MEAI = task activity × √(reaction support × gene support), normalized across tasks per cell.**
 
-Reaction and gene support use the pinned [scCellFie human task tables](https://github.com/earmingol/scCellFie/tree/c66c6be030a8ac871d998f17e592477b97781bf9/task_data/homo_sapiens). The code downloads and verifies these tables once; the support table records the nodes included. MEAI describes relative metabolic support, not metabolic flux. Uncomment the alternative to use raw task-node activity; its scale and differential results can differ.
+The code downloads the [scCellFie human task tables](https://github.com/earmingol/scCellFie/tree/c66c6be030a8ac871d998f17e592477b97781bf9/task_data/homo_sapiens) for reaction and gene support. Uncomment the alternative to use raw task activities; the score scale and test results can differ.
 
 ```python
 from urllib.request import urlopen
@@ -214,5 +214,3 @@ summary = {
 (OUT / 'differential_summary.json').write_text(json.dumps(summary, indent=2))
 print(json.dumps(summary, indent=2))
 ```
-
-Next: [GO differential activity](10000-go.md).

@@ -42,9 +42,11 @@ See the [installation guide](https://scknife-docs.readthedocs.io/en/latest/insta
 
 ## Run the 10,000-cell tutorial
 
-The [complete notebook](tutorial/scKNIFE_Bassez_Cohort_B_complete_tutorial.ipynb) and [step-by-step tutorial](https://scknife-docs.readthedocs.io/en/latest/tutorial-10000.html) use a representative sample of 10,000 Bassez cohort-2 cells.
+The [complete notebook](tutorial/scKNIFE_Bassez_Cohort_B_complete_tutorial.ipynb) and [tutorial guide](https://scknife-docs.readthedocs.io/en/latest/tutorial-10000.html) use a representative sample of 10,000 Bassez cohort-2 cells.
 
-**Prepare inputs → tune on a representative subset → fit scKNIFE → examine cell-type retention → metabolism → GO activity → factors → signaling.**
+**Prepare inputs → tune parameters → fit scKNIFE → explore clustering and cell-type retention.**
+
+Then choose any analysis: **metabolic tasks**, **GO activity**, **factor interpretation** or **cell–cell signaling**. Each uses the saved fit and activities.
 
 An optional [rank sensitivity and projection](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-validation.html) section demonstrates held-out projection within the same sample.
 

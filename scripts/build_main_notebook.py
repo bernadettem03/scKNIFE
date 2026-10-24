@@ -20,11 +20,11 @@ def clean(text):
  return text
 add('markdown','''# scKNIFE: complete 10,000-cell Bassez tutorial
 
-Analyze a representative sample of 10,000 cells, from parameter tuning to metabolic and GO activity, factor interpretation and signaling.
+Fit scKNIFE on 10,000 Bassez cells, explore clustering, then choose an analysis.
 
-**Workflow:** prepare inputs → tune on a representative subset → fit scKNIFE → examine cell-type retention → metabolic activity → GO differential activity → factor interpretation → cell–cell signaling.
+**Get started:** prepare inputs → tune parameters → fit scKNIFE → explore clustering and cell-type retention.
 
-The primary fit uses parameters selected on a representative 2,000-cell subset before refitting all 10,000 cells. Factor interpretation groups the fitted factors into four consensus clusters (CC1–CC4); this is distinct from the model rank. Source cell types remain metadata for interpretation, not supervised training targets or newly assigned labels.
+**Analysis tasks:** metabolic tasks, GO analysis, factor interpretation and cell–cell signaling. Each task uses the saved fit and activities; they do not depend on one another.
 
 Use the Python 3.9 environment from the [installation guide](../docs/installation.md) and install the tutorial dependencies:
 
@@ -59,6 +59,8 @@ def show_generated(relative_path):
         raise FileNotFoundError(f"Run the preceding analysis cell to generate {path.name}")
     display(Image(filename=str(path), width=850))''',tutorial_role='configuration')
 for page in PAGES:
+ if page=='metabolic':
+  add('markdown', '## Analysis tasks\n\nChoose any of the following tasks using the saved fit and activities. Each section loads its own inputs.')
  text=(ROOT/f'docs/tutorials/10000-{page}.md').read_text()
  if page=='setup':
   a=text.index('### Configure the tutorial');b=text.index('## Sample and fit')
@@ -77,11 +79,9 @@ for page in PAGES:
    add('code',f'show_generated({filename!r})',tutorial_role='figure',figure_path=filename)
   elif chunk.startswith('```bash'):continue
   else:add('markdown',clean(chunk))
-add('markdown','''## Completion
+add('markdown','''## Further resources
 
-All main analyses use the same 10,000-cell fit and preserve source labels. The optional rank sensitivity and projection section uses an 8,000/2,000 split within that sample. Reuse the exported activities with biological relationships appropriate to your next question. Change the commented settings to explore pathways beyond VEGF or other condition comparisons.
-
-See [biological resources and citations](../docs/graph-resources.md) for upstream resource details.''')
+See [biological resources and citations](../docs/graph-resources.md) for the resources used in these examples.''')
 nb={'cells':cells,'metadata':{'kernelspec':{'display_name':'Python 3 (scKNIFE)','language':'python','name':'python3'},'language_info':{'name':'python','version':'3.9.21'}},'nbformat':4,'nbformat_minor':4}
 if '--check' in __import__('sys').argv:
  old=json.loads(TARGET.read_text())

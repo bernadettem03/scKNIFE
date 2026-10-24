@@ -1,12 +1,10 @@
 # Cell–cell signaling
 
-[Tutorial overview](../tutorial-10000.md) · [Previous: Factor interpretation](10000-factors.md) · [Optional: rank sensitivity and projection](10000-validation.md)
+[Tutorial overview](../tutorial-10000.md#choose-an-analysis)
 
-Explore activity-based signaling in seven steps: **communication overview → sender/receiver roles → ligand–receptor contributions → permutation FDR → network organization → VEGF → On-minus-Pre differences**.
+Explore sender–receiver activity, ligand–receptor contributions and VEGF signaling.
 
-Use the saved activities and source `cellType` labels from the [10,000-cell fit](10000-setup.md). Signaling scores summarize reconstructed activities using directional ligand–receptor definitions; they are not CellChat probabilities. [Download the complete runnable script](../downloads/signaling_walkthrough.py).
-
-Set `SCKNIFE_INTERACTION_DB` to the directional interaction export described in [Input files](../tutorial-inputs.md). The interaction export supplies directional ligand–receptor definitions alongside the fitted activities.
+**Inputs:** the saved [10,000-cell fit](10000-setup.md) and directional interaction table from [input preparation](../tutorial-inputs.md). Set `SCKNIFE_INTERACTION_DB` to this table. [Download the runnable script](../downloads/signaling_walkthrough.py).
 
 ## Load and validate signaling inputs
 
@@ -55,7 +53,7 @@ pd.DataFrame({'reference_cell_type':groups,'cells':counts}).to_csv(out/'group_co
 pairs.to_csv(out/'matched_interaction_components.csv',index=False)
 ```
 
-The code aligns cells with the saved fit and checks that interaction scores sum to the group matrix. Scores combine group means with group-normalized specificity. Check the group counts when interpreting small populations.
+Scores combine reconstructed group activities with group-normalized specificity; they are not CellChat probabilities.
 
 ## 1. Sender–receiver activity heatmap
 
@@ -103,7 +101,7 @@ plots.plot_sender_receiver(comm, general)
 :alt: Outgoing and incoming signaling strength
 ```
 
-Outgoing strength sums each row of the communication matrix; incoming strength sums each column. Both include self-links. These summarize scores rather than cell counts and identify prominent senders and receivers under the scoring model.
+Outgoing and incoming strength summarize each cell type’s sender and receiver scores, including self-links.
 
 ## 3. Ligand–receptor contributions
 
@@ -137,7 +135,7 @@ fig.tight_layout(rect=(0,.04,1,1));fig.savefig(out/'signaling_lr_bubbles.png',dp
 :alt: Ligand–receptor scores in selected sender–receiver contexts
 ```
 
-The ten highest-scoring ligand–receptor components and six strongest sender–receiver contexts are selected by pooled score. Bubble area represents score and color represents log(1 + score); neither represents FDR. The plot identifies interactions contributing to the group-level summaries.
+The plot shows the top ten ligand–receptor components across six sender–receiver contexts. Bubble area shows score; color shows log(1 + score).
 
 ## 4. Cell-label permutation FDR
 
@@ -195,7 +193,7 @@ heatmap(-np.log10(fdr),'Cell-label permutation FDR · 1,000 permutations','permu
 :alt: Cell-label permutation FDR for sender–receiver pairs
 ```
 
-Color shows −log10 of the BH-adjusted p-value for the 64 sender–receiver totals. These global cell-label permutations preserve group sizes but do not block by patient. The FDR applies to these totals, not individual interactions or treatment contrasts; 1,000 permutations give a minimum unadjusted p-value of 1/1,001.
+Color shows −log10 of the adjusted p-value for sender–receiver totals. These tests do not adjust for patient or test individual interactions and treatment differences.
 
 ## 5. Network organization and centrality
 
@@ -310,6 +308,6 @@ draw_contrast('timepoint', 'On', 'Pre', 'on_minus_pre', 'On minus Pre · pooled 
 
 Positive values indicate higher pooled scores On-treatment; negative values indicate higher scores Pre-treatment. Grey pairs have fewer than ten cells in one or both conditions. This descriptive contrast has no patient adjustment or contrast p-values. The E/NE alternative groups clonotype expansion, not clinical response.
 
-## Outputs and next step
+## Outputs
 
-Scores and interaction tables are saved in `signaling/`; network plots in `signaling/general/`; permutation results, centrality and contrasts in `signaling/inference/`; pathway plots in `signaling/pathways/VEGF/`. For an optional extension, see [rank sensitivity and projection](10000-validation.md).
+Scores and interaction tables are saved in `signaling/`; network plots in `signaling/general/`; permutation results, centrality and contrasts in `signaling/inference/`; pathway plots in `signaling/pathways/VEGF/`.

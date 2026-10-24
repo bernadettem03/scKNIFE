@@ -1,6 +1,6 @@
 # Optional: rank sensitivity and projection
 
-[Tutorial overview](../tutorial-10000.md) · [Previous: Cell–cell signaling](10000-signaling.md)
+[Tutorial overview](../tutorial-10000.md#choose-an-analysis)
 
 **Input:** the saved object from [model fitting](10000-setup.md). Use the command below to generate the projection results, or use the Python example to adjust the settings.
 
@@ -73,15 +73,9 @@ print(rows,report)
 :alt: Relative held-out reconstruction error across the three tested ranks.
 ```
 
-Relative held-out reconstruction error across the three tested ranks.
-
 Relative reconstruction errors are **0.61273** at rank 8, **0.59949** at rank 16 and **0.59232** at rank 24. The plot shows how reconstruction changes with factor count on this split. Because tuning and gene selection overlap the split, use it as a projection example rather than an independent performance estimate.
 
-The x-axis is factor count and the y-axis is relative held-out reconstruction error. Lower values indicate closer reconstruction of the held-out expression.
-
-## Save and review the primary outputs
-
-Primary results use `fitted_subset.h5ad` and `activity_scores.parquet`, with source `cellType` metadata retained. Review `sampling_audit.csv`, `sample_metadata.csv`, and results in `metabolic_walkthrough/`, `go_differential/`, `factor_interpretation_k4/` and `signaling/`. Preserve cell identifiers and ordering when reusing these outputs.
+Lower error indicates closer reconstruction of held-out expression.
 
 ## View the generated plots
 
@@ -95,4 +89,4 @@ result_dir = Path(os.environ.get("SCKNIFE_TUTORIAL_OUTPUT", "tutorial/outputs_10
 display(Image(filename=str(result_dir / "rank_sensitivity.png")))
 ```
 
-[Tutorial overview](../tutorial-10000.md) · [Previous: Cell–cell signaling](10000-signaling.md)
+[Tutorial overview](../tutorial-10000.md#choose-an-analysis)

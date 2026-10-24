@@ -1,17 +1,19 @@
 # Tutorial guide
 
-Start with the [10,000-cell tutorial overview](../tutorial-10000.md), then follow:
+[Install scKNIFE](../installation.md), [run the model](10000-setup.md), then [explore clustering and cell-type retention](10000-annotation.md).
 
-1. [Installation and inputs](../installation.md)
-2. [Run full scKNIFE](10000-setup.md)
-3. [Cell-type retention](10000-annotation.md)
-4. [Metabolic-task analysis](10000-metabolic.md)
-5. [GO differential activity](10000-go.md)
-6. [Factor interpretation](10000-factors.md)
-7. [Cell–cell signaling](10000-signaling.md)
+## Analysis tasks
 
-**Optional:** [Rank sensitivity and projection](10000-validation.md).
+Choose a task using the saved fit and activities:
 
-The analysis pages reuse the fitted model and reconstructed activities. Each provides runnable code, figures and interpretation, with commented alternatives for further exploration.
+- [Metabolic tasks](10000-metabolic.md)
+- [GO analysis](10000-go.md)
+- [Factor interpretation](10000-factors.md)
+- [Cell–cell signaling](10000-signaling.md)
 
-[Other activity-based analyses](10000-states.md) are an optional extension.
+## More examples
+
+- [Rank sensitivity and projection](10000-validation.md)
+- [Cell-state activity](10000-states.md)
+
+See the [tutorial overview](../tutorial-10000.md) for the notebook and input files.

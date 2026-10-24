@@ -1,18 +1,8 @@
-# Cell-type retention
+# Clustering and cell-type retention
 
-[Previous: Run full scKNIFE](10000-setup.md) · [Next: Metabolic analysis](10000-metabolic.md)
+[Run scKNIFE](10000-setup.md) · [Choose an analysis](../tutorial-10000.md#choose-an-analysis)
 
-Inspect cell-type organization in the fitted representation using two views of the same cells.
-
-## Biological question
-
-Compare H-space clusters with the dataset’s existing cell-type labels. The model fits expression with the knowledge graph; source labels are used for sampling and visualization.
-
-scKNIFE does not assign cell-type labels in this tutorial.
-
-## Inputs and code
-
-Load the H-space clusters, UMAP coordinates and source cell-type labels saved during [model fitting](10000-setup.md).
+Compare the saved H-space clusters with the dataset’s cell-type labels. scKNIFE does not assign new cell-type labels.
 
 ## Compare the learned organization with source labels
 
@@ -50,12 +40,6 @@ plt.close(fig)
 :alt: Shared UMAP coordinates colored by H-space cluster and source cell type.
 ```
 
-Shared UMAP coordinates colored by H-space cluster and source cell type.
+Both panels show the same 10,000 cells on identical UMAP coordinates, colored by cluster or source cell type.
 
-## Interpretation
-
-The panels show the same 10,000 cells on identical UMAP coordinates. One panel colors H-space clusters and the other colors the source cell types, allowing visual inspection of cell-type organization in the learned representation.
-
-## Outputs and next step
-
-Outputs are written to `cellular_organization/`. Next, explore [metabolic activity](10000-metabolic.md) using the same fitted model.
+The plot is saved in `cellular_organization/`. [Choose an analysis](../tutorial-10000.md#choose-an-analysis) to explore the fitted activities.

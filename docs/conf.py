@@ -56,3 +56,22 @@ html_theme_options = {
         "color-foreground-secondary": "#526171",
     },
 }
+
+
+ANALYSIS_PAGES = {
+    "tutorials/10000-metabolic", "tutorials/10000-go",
+    "tutorials/10000-factors", "tutorials/10000-signaling",
+    "tutorials/10000-validation", "tutorials/10000-states",
+}
+
+
+def task_navigation(app, pagename, templatename, context, doctree):
+    """Keep independent analysis topics out of sequential page navigation."""
+    if pagename in ANALYSIS_PAGES:
+        context["prev"] = context["next"] = None
+    elif pagename == "tutorials/10000-annotation":
+        context["next"] = None
+
+
+def setup(app):
+    app.connect("html-page-context", task_navigation)

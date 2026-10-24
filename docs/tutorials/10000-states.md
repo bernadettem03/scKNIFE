@@ -1,16 +1,8 @@
 # Other activity-based analyses: cell-state programs
 
-[Tutorial overview](../tutorial-10000.md) · [Prerequisite: Run full scKNIFE](10000-setup.md)
+[Tutorial overview](../tutorial-10000.md#choose-an-analysis)
 
-This optional task uses the fitted model’s activity scores. It is independent of the metabolic, factor and cell–cell analysis pages. Select graph-node activities that address your question; absent entities require an appropriate graph and a new fit.
-
-## Biological question
-
-Which graph-linked cell-state programs characterize the learned clusters? This complements cell-type organization by describing functional activity. A state program can vary within a cell type and need not define a separate population.
-
-## Inputs and code
-
-Use the fitted 10,000-cell object, its clusters and the node-by-cell activity matrix from [model fitting](10000-setup.md). The fixed selection below uses the eight highest pooled-mean state nodes, without using reference agreement or p-values.
+Compare graph-linked cell-state activity across clusters using the saved [fit and activities](10000-setup.md). This example selects the eight state nodes with the highest pooled mean activity.
 
 ## Summarize cell-state programs across H-space clusters
 
@@ -54,7 +46,7 @@ fig.tight_layout(); fig.savefig(OUT / "state_activity_by_cluster.png", dpi=160, 
 
 ```
 
-## Plot and interpretation
+## Plot cell-state activity
 
 
 ```{image} ../assets/tutorial-10000/state_activity_by_cluster.png
@@ -62,8 +54,6 @@ fig.tight_layout(); fig.savefig(OUT / "state_activity_by_cluster.png", dpi=160, 
 :align: center
 :alt: Mean activity of selected state programs across H-space clusters.
 ```
-
-Mean activity of selected state programs across H-space clusters.
 
 Rows are selected state-program nodes and columns are H-space clusters. Colors show mean reconstructed activity. Compare each row across clusters to see where the program has higher activity; several programs can be active in the same population.
 
