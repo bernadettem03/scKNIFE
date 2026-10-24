@@ -18,23 +18,19 @@ def clean(text):
  text=re.sub(r'\]\((10000-[^)]+\.md)(#[^)]*)?\)',r'](../docs/tutorials/\1\2)',text)
  text=text.replace('](../downloads/','](../docs/downloads/').replace('](../tutorial-','](../docs/tutorial-')
  return text
-add('markdown','''# scKNIFE: complete 10,000-cell Bassez tutorial
+add('markdown','''# scKNIFE: 10,000-cell tutorial
 
-Fit scKNIFE on 10,000 Bassez cells, explore clustering, then choose an analysis.
+Fit scKNIFE on Bassez cohort-2 cells, explore clustering, then choose a biological analysis.
 
-**Getting started:** prepare inputs → tune parameters → fit scKNIFE → explore clustering and cell-type retention.
+## Getting started
 
-**Analysis tasks:** metabolic tasks, GO analysis, factor interpretation and cell–cell signaling. Each task uses the saved fit and activities; they do not depend on one another.
-
-Use the Python 3.9 environment from the [installation guide](../docs/installation.md) and install the tutorial dependencies:
+Use the Python 3.9 environment from the [installation guide](../docs/installation.md):
 
 ```bash
 python -m pip install -e '.[tutorial]'
 ```
 
-Follow [input preparation](../docs/tutorial-inputs.md) to obtain and convert the cohort-2 counts, matching metadata and pinned CellChat interaction export. Set `SCKNIFE_COUNTS`, `SCKNIFE_METADATA` and `SCKNIFE_INTERACTION_DB` before launching Jupyter, or set them in the first cell. Input data are not bundled with this notebook.
-
-Open this notebook in Jupyter, or use `python scripts/run_tutorial.py` to save an executed copy. Choose a new output directory for a fresh analysis.''')
+Prepare the [input files](../docs/tutorial-inputs.md) and set `SCKNIFE_COUNTS`, `SCKNIFE_METADATA` and `SCKNIFE_INTERACTION_DB` in your environment or in the first cell. Choose a new output directory for a fresh fit.''')
 add('code','''import os
 from pathlib import Path
 ROOT = next(p for p in [Path.cwd(), *Path.cwd().parents]
@@ -60,13 +56,38 @@ def show_generated(relative_path):
     display(Image(filename=str(path), width=850))''',tutorial_role='configuration')
 for page in PAGES:
  if page=='metabolic':
-  add('markdown', '## Analysis tasks\n\nChoose any of the following tasks using the saved fit and activities. Each section loads its own inputs.')
+  add('markdown', '## Analysis tasks\n\nChoose any task below using the saved fit and activities.')
  text=(ROOT/f'docs/tutorials/10000-{page}.md').read_text()
  text=re.sub(r'\A---\n.*?\n---\n+', '', text, flags=re.S)
+ # Keep website navigation and repeated prerequisites out of the notebook.
+ text=re.sub(r'^\[(?:Tutorial overview|Previous:|Run scKNIFE)\].*$', '', text, flags=re.M)
  if page=='setup':
-  a=text.index('### Configure the tutorial');b=text.index('## Sample and fit')
-  text=text[:a]+text[b:]
- if page=='validation':text=text.split('## Clean-run verification')[0]
+  text='# Run scKNIFE\n\n'+text[text.index('## 1. Select the 10,000-cell sample'):]
+  text=text.split('## Continue with the fitted outputs')[0]
+ elif page=='annotation':
+  text=text.replace('## Compare the learned organization with source labels\n', '')
+  text=re.sub(r' \[Choose an analysis\].*?\n', '\n', text)
+ elif page in ('metabolic','go','factors'):
+  text=re.sub(r'^\*\*Input:\*\*.*\n', '', text, flags=re.M)
+ elif page=='signaling':
+  text=re.sub(r'^\*\*Inputs:\*\*.*\n', 'Set `SCKNIFE_INTERACTION_DB` to the prepared directional interaction table.\n', text, flags=re.M)
+ if page=='validation':
+  text=text.split('## Clean-run verification')[0]
+  text=re.sub(r'^\*\*Input:\*\*.*\n', '', text, flags=re.M)
+  text=text.replace('## Rank sensitivity and projection code\n', '')
+ # One title, two main sections, then task headings and their code/figure topics.
+ titles={'metabolic':'Metabolic tasks','go':'GO analysis'}
+ if page in titles:
+  text=re.sub(r'^# .*$', '# '+titles[page], text, count=1, flags=re.M)
+ renames={
+  'metabolic':{'Load activities and choose a comparison':'Load metabolic activities and choose a comparison','Save results':'Save metabolic results'},
+  'go':{'Load activities and choose a comparison':'Load GO activities and choose a comparison','2. Examine one cell type':'2. Examine GO activity in one cell type','Save results':'Save GO results'},
+  'factors':{'Outputs':'Factor outputs'},
+  'signaling':{'Outputs':'Signaling outputs'},
+ }
+ for old,new in renames.get(page,{}).items():
+  text=text.replace('## '+old+'\n','## '+new+'\n')
+ offset=1 if page=='validation' else 2
  for chunk in re.split(r'(```[^\n]*\n.*?```)',text,flags=re.S):
   if chunk.startswith('```python\n'):
    add('code',chunk[len('```python\n'):-3],tutorial_stage=page)
@@ -79,7 +100,9 @@ for page in PAGES:
     filename='signaling/'+mapping.get(name,name)
    add('code',f'show_generated({filename!r})',tutorial_role='figure',figure_path=filename)
   elif chunk.startswith('```bash'):continue
-  else:add('markdown',clean(chunk))
+  else:
+   chunk=re.sub(r'^(#{1,4}) ', lambda m: '#'*(len(m[1])+offset)+' ', chunk, flags=re.M)
+   add('markdown',re.sub(r'\n{3,}', '\n\n', clean(chunk)))
 add('markdown','''## Further resources
 
 See [biological resources and citations](../docs/graph-resources.md) for the resources used in these examples.''')

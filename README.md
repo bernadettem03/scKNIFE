@@ -8,27 +8,15 @@
 [![Documentation](https://readthedocs.org/projects/scknife-docs/badge/?version=latest)](https://scknife-docs.readthedocs.io/en/latest/)
 [![Software license: MIT](https://img.shields.io/badge/software_license-MIT-blue.svg)](LICENSE)
 
-scKNIFE uses graph-regularized non-negative matrix factorization to learn cell factors and biological-node loadings. Their reconstructed activity scores support metabolic and GO activity analysis, factor interpretation and cell–cell signaling. The tutorial also examines how the learned representation retains known cell-type organization.
+scKNIFE uses graph-regularized non-negative matrix factorization to learn cell factors and biological-node activities.
 
 <p align="center">
   <img src="docs/assets/scknife-workflow-v4.png" alt="scKNIFE workflow: gene expression and a biological knowledge graph lead to cell factors, node loadings and downstream biological activity analyses" width="850">
 </p>
 
-## What you can explore
+## Getting started
 
-| Analysis | Biological question |
-|---|---|
-| [Cell-type retention](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-annotation.html) | Does the learned representation retain recognizable cell-type organization? |
-| [Metabolic-task activity](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-metabolic.html) | How do metabolic-task scores differ between conditions within cell types? |
-| [GO differential activity](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-go.html) | Which GO biological-process activities differ between conditions within cell types? |
-| [Factor interpretation](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-factors.html) | Which biological entities characterize the learned factors and their consensus groups? |
-| [Cell–cell signaling](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-signaling.html) | Which sender–receiver groups and ligand–receptor relationships have transcriptomic support? |
-
-Activity scores are model-derived summaries. The main workflow uses source cell-type labels for interpretation and grouping; it does not assign new cell-type labels.
-
-## Installation
-
-Use a Python 3.9 environment; the tutorial environment was tested with Python 3.9.21.
+Use Python 3.9.21 and install the tutorial dependencies:
 
 ```bash
 git clone https://github.com/bernadettem03/scKNIFE.git
@@ -38,27 +26,26 @@ source .venv/bin/activate
 python -m pip install -e '.[tutorial]'
 ```
 
-See the [installation guide](https://scknife-docs.readthedocs.io/en/latest/installation.html) for environment details and the [API reference](https://scknife-docs.readthedocs.io/en/latest/api/index.html) for package functions.
-
-## Run the 10,000-cell tutorial
-
-The [complete notebook](tutorial/scKNIFE_Bassez_Cohort_B_complete_tutorial.ipynb) and [tutorial guide](https://scknife-docs.readthedocs.io/en/latest/tutorial-10000.html) use a representative sample of 10,000 Bassez cohort-2 cells.
-
-**Prepare inputs → tune parameters → fit scKNIFE → explore clustering and cell-type retention.**
-
-Then choose any analysis: **metabolic tasks**, **GO activity**, **factor interpretation** or **cell–cell signaling**. Each uses the saved fit and activities.
-
-An optional [rank sensitivity and projection](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-validation.html) section demonstrates held-out projection within the same sample.
-
-1. Follow [input preparation](https://scknife-docs.readthedocs.io/en/latest/tutorial-inputs.html) to obtain counts and metadata from the original source and prepare the directional interaction table.
-2. Set the input paths as shown in the [quick start](https://scknife-docs.readthedocs.io/en/latest/quickstart.html).
-3. Open the notebook in Jupyter, or execute it with:
+Prepare the [input files](https://scknife-docs.readthedocs.io/en/latest/tutorial-inputs.html) and set their paths using the [quick start](https://scknife-docs.readthedocs.io/en/latest/quickstart.html). Open the [10,000-cell notebook](tutorial/scKNIFE_Bassez_Cohort_B_complete_tutorial.ipynb) in Jupyter, or run all examples with:
 
 ```bash
 python scripts/run_tutorial.py
 ```
 
-The run saves the fitted model, activity scores, tables, figures and executed notebook in your configured output directory. Real cohort inputs are obtained separately. For the equivalent command-line stages, follow the [quick start](https://scknife-docs.readthedocs.io/en/latest/quickstart.html).
+The tutorial covers parameter tuning, fitting and [clustering and cell-type retention](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-annotation.html). Existing cell-type labels are used for interpretation; scKNIFE does not assign new labels. Results are saved in your configured output directory.
+
+## Analysis tasks
+
+Choose any task using the saved fit and activities:
+
+| Task | What you can do |
+|---|---|
+| [Metabolic tasks](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-metabolic.html) | Calculate MEAI, plot a task and compare conditions. |
+| [GO analysis](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-go.html) | Compare GO biological-process activities between conditions. |
+| [Factor interpretation](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-factors.html) | Group factors and explore their biological programs. |
+| [Cell–cell signaling](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-signaling.html) | Explore sender–receiver scores, ligand–receptor pairs and pathways. |
+
+See the [tutorial overview](https://scknife-docs.readthedocs.io/en/latest/tutorial-10000.html) for optional examples, including H projection, and the [API reference](https://scknife-docs.readthedocs.io/en/latest/api/index.html) for package functions.
 
 ## Choose a graph
 
