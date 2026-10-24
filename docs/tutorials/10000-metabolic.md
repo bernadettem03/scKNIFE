@@ -67,7 +67,9 @@ def save(name):
 
 In this example, 6,924 cells belong to the expanded group. Six cell types, containing 6,875 cells, meet the minimum counts; mast cells and pDCs have too few Pre/On cells for these tests.
 
-## 1. Calculate MEAI
+## Metabolic-task analysis
+
+### 1. Calculate MEAI
 
 For each task, combine its activity with the mean activity of its linked reactions and genes, then divide by the sum across tasks in that cell:
 
@@ -121,7 +123,7 @@ metabolic_scores, SCORE_NAME = meai, 'MEAI'
 # metabolic_scores, SCORE_NAME = raw_task_activity, 'Task-node activity'
 ```
 
-## 2. Inspect one metabolic task
+### 2. Inspect one metabolic task
 
 Compare the cell-level distributions for one task in the selected cell type and expansion group.
 
@@ -151,7 +153,7 @@ fig.tight_layout(); save('task_violin')
 
 The violin width shows the density of cell scores; the horizontal line marks the median. Each condition is labelled with its cell count. The plotted score follows the choice above.
 
-## 3. Test metabolic-task activity
+### 3. Test metabolic-task activity
 
 Run two-sided Wilcoxon rank-sum tests within each eligible cell type. The package computes Cohen’s d, log₂(mean On / mean Pre), and BH-adjusted p-values across all tested task–cell-type combinations in this expansion group. Tests use the selected scores without a log transformation.
 
@@ -214,7 +216,7 @@ effect_overview(task_de, f'Metabolic tasks · {SCORE_NAME}', 'task_effects')
 
 Each point is one task tested within a cell type. Colored points meet all three display cutoffs; grey points do not. The horizontal position gives the direction and standardized magnitude of the difference.
 
-### Examine one cell type
+### 4. Examine one cell type
 
 Show all tested tasks for the selected cell type. Labels identify up to three tasks meeting the display cutoffs, ranked by |d| × −log₁₀(q).
 
@@ -253,7 +255,9 @@ volcano(task_de, f'Metabolic tasks · {SCORE_NAME}', 'task_volcano')
 
 Each point is a metabolic task. Farther left or right means a larger standardized difference; higher points have smaller adjusted p-values. Colors use the same three cutoffs as the overview, including the fold-change threshold.
 
-## 4. Test GO biological-process activity
+## GO biological-process differential activity
+
+### 1. Compare GO activity across cell types
 
 Use reconstructed GO-node activities with the same cells, comparison and thresholds. GO scores are not MEAI. BH correction is applied separately across the tested GO-term–cell-type combinations; this is differential activity, not GO enrichment.
 
@@ -274,7 +278,7 @@ effect_overview(go_de, 'GO biological processes', 'go_effects')
 
 Each point is a GO term. Colors identify terms passing the adjusted-p-value, effect-size and fold-change cutoffs within each cell type. GO terms can share genes, so these points do not represent independent biological processes.
 
-### Examine GO differences in one cell type
+### 2. Examine GO differences in one cell type
 
 ```python
 volcano(go_de, 'GO biological processes', 'go_volcano')
