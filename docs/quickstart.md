@@ -1,6 +1,6 @@
 # Quick start
 
-Complete {doc}`installation` and {doc}`tutorial-inputs`. Activate the environment and set `SCKNIFE_COUNTS`, `SCKNIFE_METADATA` and `SCKNIFE_INTERACTION_DB`. Run from the repository root.
+Complete {doc}`installation` and {doc}`tutorial-inputs`. Activate the environment and set `SCKNIFE_COUNTS`, `SCKNIFE_METADATA` and `SCKNIFE_INTERACTION_DB`.
 
 ```bash
 export SCKNIFE_TUTORIAL_OUTPUT="$PWD/tutorial/outputs_10000"

@@ -4,7 +4,7 @@
 
 Explore activity-based signaling in seven steps: **communication overview → sender/receiver roles → ligand–receptor contributions → permutation FDR → network organization → VEGF → On-minus-Pre differences**.
 
-Run the blocks in order from the repository root after fitting and activity reconstruction. All analyses use the same 10,000 cells and source `cellType` labels. Signaling scores summarize reconstructed activities using directional ligand–receptor definitions; they are not CellChat probabilities. [Download the complete runnable script](../downloads/signaling_walkthrough.py).
+Use the saved activities and source `cellType` labels from the [10,000-cell fit](10000-setup.md). Signaling scores summarize reconstructed activities using directional ligand–receptor definitions; they are not CellChat probabilities. [Download the complete runnable script](../downloads/signaling_walkthrough.py).
 
 Set `SCKNIFE_INTERACTION_DB` to the directional interaction export described in [Input files](../tutorial-inputs.md). The interaction export supplies directional ligand–receptor definitions alongside the fitted activities.
 

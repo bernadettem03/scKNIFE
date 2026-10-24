@@ -41,7 +41,7 @@ See the [installation guide](https://scknife-docs.readthedocs.io/en/latest/insta
 
 ## Run the 10,000-cell tutorial
 
-The [complete notebook](tutorial/scKNIFE_Bassez_Cohort_B_complete_tutorial.ipynb) and [step-by-step tutorial](https://scknife-docs.readthedocs.io/en/latest/tutorial-10000.html) follow the same representative 10,000-cell Bassez cohort-2 sample, with executable code, generated figures and interpretation.
+The [complete notebook](tutorial/scKNIFE_Bassez_Cohort_B_complete_tutorial.ipynb) and [step-by-step tutorial](https://scknife-docs.readthedocs.io/en/latest/tutorial-10000.html) use a representative sample of 10,000 Bassez cohort-2 cells.
 
 **Prepare inputs → tune on a representative subset → fit scKNIFE → examine cell-type retention → metabolism → factors → signaling.**
 
@@ -49,7 +49,7 @@ An optional [rank sensitivity and projection](https://scknife-docs.readthedocs.i
 
 1. Follow [input preparation](https://scknife-docs.readthedocs.io/en/latest/tutorial-inputs.html) to obtain counts and metadata from the original source and prepare the directional interaction table.
 2. Set the input paths as shown in the [quick start](https://scknife-docs.readthedocs.io/en/latest/quickstart.html).
-3. Open the notebook in your installed environment, or run every cell with:
+3. Open the notebook in Jupyter, or execute it with:
 
 ```bash
 python scripts/run_tutorial.py

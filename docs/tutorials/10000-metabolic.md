@@ -4,13 +4,13 @@
 
 Explore metabolic-task activity in five steps: **overview → UMAP activity patterns → cell-level variation → linked reactions and genes → condition differences**. All analyses use the same 10,000-cell fit and source `cellType` metadata.
 
-**Prerequisite:** complete [model fitting](10000-setup.md) and [cell-type retention](10000-annotation.md). [Download the complete runnable script](../downloads/metabolic_walkthrough.py). Each step provides one worked example; commented code shows alternative selections.
+**Prerequisite:** complete [model fitting](10000-setup.md) and [cell-type retention](10000-annotation.md). [Download the complete runnable script](../downloads/metabolic_walkthrough.py). Commented alternatives let you select other tasks or cell types.
 
 Task activity is reconstructed from the fitted model; it is not a measurement of metabolic flux.
 
 ## Load aligned activities and metadata
 
-Run the following blocks in order in one Python session from the repository root. They load the saved activity matrix and UMAP; no new fit or embedding is computed.
+Load the saved activity matrix, UMAP coordinates and cell metadata.
 
 ```python
 from pathlib import Path
@@ -103,7 +103,7 @@ Each panel shows the same 10,000 cells, colored by log(1 + task activity). Compa
 
 ## 3. Examine variation within cell types
 
-Use glycolytic ATP generation as the single worked example. Uncomment one of the alternative EXAMPLE_TASK assignments to inspect another task.
+Plot glycolytic ATP-generation activity by cell type. Change `EXAMPLE_TASK` to inspect another task.
 
 ```python
 EXAMPLE_TASK=example_tasks[0]
@@ -164,7 +164,7 @@ Rows show the selected task and linked reactions and genes. Colors are standardi
 
 ## 5. Rank descriptive On-minus-Pre task differences
 
-Use cancer cells as the worked example; T cells and myeloid cells remain commented alternatives. Calculate pooled mean task activity within each timepoint, then display eight tasks with the largest absolute On-minus-Pre differences.
+Compare cancer cells before and during treatment. Change `CELL_TYPE` to compare another population. Calculate pooled mean task activity within each timepoint, then display eight tasks with the largest absolute On-minus-Pre differences.
 
 ```python
 CELL_TYPE='Cancer_cell'

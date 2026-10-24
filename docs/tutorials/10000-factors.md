@@ -4,7 +4,7 @@
 
 Interpret the fitted model through **factor usage → consensus clusters → representative biological nodes → cell-level activities**. This page uses the same 10,000 cells, fitted factors and source `cellType` metadata.
 
-**Prerequisite:** complete [model fitting](10000-setup.md). Run the blocks in order in one Python session from the repository root. [Download the complete runnable script](../downloads/factor_interpretation.py).
+**Prerequisite:** complete [model fitting](10000-setup.md). [Download the complete runnable script](../downloads/factor_interpretation.py).
 
 ## How to read the output
 
@@ -183,7 +183,7 @@ fig.tight_layout();save('resolution_sensitivity')
 :align: center
 ```
 
-Each row shows factor membership at one resolution. Group numbers are local to that row. To explore a finer resolution, set SELECTED_K to a reviewed value after the sweep and rerun every subsequent block; do not mix figures from different resolutions.
+Each row shows factor membership at one resolution. Group numbers are local to that row. Change `SELECTED_K` and regenerate the downstream summaries to explore another resolution.
 
 ## Select representative biological nodes
 
@@ -270,7 +270,7 @@ The heatmaps show standardized W loadings across individual factors and their CC
 
 ## Examine category-specific loading profiles
 
-Use gene sets as the worked example, showing the decay-selected nodes across all four programs. Uncomment the corresponding `entity_types.append(...)` line to generate the same view for genes, GO terms, reactions, metabolic tasks or CellChat entities. Rows are grouped by NG and columns by CC; divider lines mark the group boundaries. Node labels identify their NG membership. A group with no selected nodes of that type contributes no rows, while all factor groups remain visible.
+Compare selected gene sets across the four programs. Uncomment the corresponding `entity_types.append(...)` line to generate the same view for genes, GO terms, reactions, metabolic tasks or CellChat entities. Rows are grouped by NG and columns by CC; divider lines mark the group boundaries. Node labels identify their NG membership. A group with no selected nodes of that type contributes no rows, while all factor groups remain visible.
 
 ```python
 # Select one entity type for the worked example.
@@ -438,6 +438,6 @@ The coverage heatmap shows cells per patient and cell type. Violins show log-tra
 
 ## Outputs and next step
 
-The `factor_interpretation_k4/` output folder contains the consensus diagnostics, factor assignments, selected-node dictionary, node-selection audit, group means, signed associations, run summary and regenerated figures. The groups and activity profiles summarize this 10,000-cell fit.
+The `factor_interpretation_k4/` output folder contains the consensus diagnostics, factor assignments, selected-node dictionary, node-selection audit, group means, signed associations, run summary and figures. The groups and activity profiles summarize this 10,000-cell fit.
 
 Continue to [cell–cell signaling](10000-signaling.md).

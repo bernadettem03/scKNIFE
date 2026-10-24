@@ -12,7 +12,7 @@ scKNIFE does not assign cell-type labels in this tutorial.
 
 ## Inputs and code
 
-Complete [model fitting](10000-setup.md). Load its H-space clusters, UMAP and original source cell-type labels. Run from the repository root:
+Load the H-space clusters, UMAP coordinates and source cell-type labels saved during [model fitting](10000-setup.md).
 
 ## Compare the learned organization with source labels
 

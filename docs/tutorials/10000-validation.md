@@ -2,7 +2,7 @@
 
 [Tutorial overview](../tutorial-10000.md) · [Previous: Cell–cell signaling](10000-signaling.md)
 
-**Prerequisite:** [model fitting](10000-setup.md) for projection; complete the topic pages before reviewing their exported results. Run the command or its Python block, then review the exported results.
+**Input:** the saved object from [model fitting](10000-setup.md). Use the command below to generate the projection results, or use the Python example to adjust the settings.
 
 ```bash
 python scripts/run_tutorial_10000_validation.py

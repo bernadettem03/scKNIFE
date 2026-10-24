@@ -20,13 +20,13 @@ def clean(text):
  return text
 add('markdown','''# scKNIFE: complete 10,000-cell Bassez tutorial
 
-Run this notebook from top to bottom in the scKNIFE environment. It fits a representative 10,000-cell sample and generates every figure from that run.
+Analyze a representative sample of 10,000 cells, from parameter tuning to metabolic activity, factor interpretation and signaling.
 
 **Workflow:** prepare inputs → tune on a representative subset → fit scKNIFE → examine cell-type retention → metabolic activity → factor interpretation → cell–cell signaling.
 
 The primary fit uses parameters selected on a representative 2,000-cell subset before refitting all 10,000 cells. Factor interpretation groups the fitted factors into four consensus clusters (CC1–CC4); this is distinct from the model rank. Source cell types remain metadata for interpretation, not supervised training targets or newly assigned labels.
 
-Install Python 3.9 and the package from the repository root:
+Use the Python 3.9 environment from the [installation guide](../docs/installation.md) and install the tutorial dependencies:
 
 ```bash
 python -m pip install -e '.[tutorial]'
@@ -34,7 +34,7 @@ python -m pip install -e '.[tutorial]'
 
 Follow [input preparation](../docs/tutorial-inputs.md) to obtain and convert the cohort-2 counts, matching metadata and pinned CellChat interaction export. Set `SCKNIFE_COUNTS`, `SCKNIFE_METADATA` and `SCKNIFE_INTERACTION_DB` before launching Jupyter, or set them in the first cell. Input data are not bundled with this notebook.
 
-Run interactively, or execute the entire notebook with `python scripts/run_tutorial.py`. The latter saves an executed copy in the selected output directory. Use a new output directory for a fresh run. Existing graph files are used without modification.''')
+Open this notebook in Jupyter, or use `python scripts/run_tutorial.py` to save an executed copy. Choose a new output directory for a fresh analysis.''')
 add('code','''import os
 from pathlib import Path
 ROOT = next(p for p in [Path.cwd(), *Path.cwd().parents]
@@ -61,7 +61,7 @@ def show_generated(relative_path):
 for page in PAGES:
  text=(ROOT/f'docs/tutorials/10000-{page}.md').read_text()
  if page=='setup':
-  a=text.index('Run from the repository root');b=text.index('## Sample and fit')
+  a=text.index('### Configure the tutorial');b=text.index('## Sample and fit')
   text=text[:a]+text[b:]
  if page=='validation':text=text.split('## Clean-run verification')[0]
  for chunk in re.split(r'(```[^\n]*\n.*?```)',text,flags=re.S):
@@ -79,7 +79,7 @@ for page in PAGES:
   else:add('markdown',clean(chunk))
 add('markdown','''## Completion
 
-All main analyses use the same 10,000-cell fit and preserve source labels. The optional rank sensitivity and projection section uses an 8,000/2,000 split within that sample. Reuse the exported activities with biological relationships appropriate to your next question. VEGF and On minus Pre are worked examples; commented choices show where to select alternatives.
+All main analyses use the same 10,000-cell fit and preserve source labels. The optional rank sensitivity and projection section uses an 8,000/2,000 split within that sample. Reuse the exported activities with biological relationships appropriate to your next question. Change the commented settings to explore pathways beyond VEGF or other condition comparisons.
 
 See [biological resources and citations](../docs/graph-resources.md) for upstream resource details.''')
 nb={'cells':cells,'metadata':{'kernelspec':{'display_name':'Python 3 (scKNIFE)','language':'python','name':'python3'},'language_info':{'name':'python','version':'3.9.21'}},'nbformat':4,'nbformat_minor':4}

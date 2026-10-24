@@ -17,7 +17,7 @@ The original matrix contains 50,693 cells, including 36,721 TNBC cells. Those nu
 
 ## 2. Convert the R counts to AnnData
 
-Install R with the Matrix package, and complete {doc}`installation` for the Python environment. Run from the scKNIFE repository root:
+Install R with the Matrix package, and complete {doc}`installation` for the Python environment. Convert the source files with:
 
 ```bash
 mkdir -p tutorial/inputs/converted_counts

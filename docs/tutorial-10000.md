@@ -17,11 +17,11 @@ Run the model on one representative sample of 10,000 cells, then use its learned
 
 ## Run as a notebook
 
-Download the {download}`complete executed 10,000-cell notebook <downloads/scKNIFE_10000_tutorial.ipynb>` for the same code, generated figures and explanations in one document. Prepare the inputs first, then run its cells in order or use `python scripts/run_tutorial.py` from the repository root. The command uses your active Python environment and saves a newly executed copy in the selected output directory.
+Download the {download}`10,000-cell notebook <downloads/scKNIFE_10000_tutorial.ipynb>` to explore the workflow in Jupyter. To execute it from the command line, use `python scripts/run_tutorial.py`; the completed notebook is saved in your output directory.
 
 ## Shared inputs and terminology
 
-The three analysis pages reuse the same saved 10,000-cell fit and reconstructed activities. After fitting, each page can be run independently in a fresh Python session from the repository root. Run that page's blocks in order, or use its downloadable script; commented alternatives show how to change the worked examples.
+Metabolic, factor and signaling analyses reuse the saved fit and activity scores. Each page includes the inputs, plotting code and downloadable script for that analysis.
 
 - **Source cell type** means the original `cellType` metadata used to group and describe cells. Cell-type retention concerns biological organization in the learned representation.
 - **H** contains cell-factor activities; **W** contains biological-node loadings. The factor page uses **CC** for a consensus cluster of factors and **NG** for its selected biological nodes. The fitted rank is selected by pre-fit tuning; the interpretation resolution is k=4.
