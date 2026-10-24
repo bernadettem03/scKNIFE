@@ -23,4 +23,4 @@ Clustering adds H-space cluster labels to `adata.obs`; existing cell-type labels
 
 ## Model output versus metadata
 
-Cell type, patient, site, and response labels do not generate scKNIFE factors. They are joined by cell identity after fitting and used to summarize model-derived activity. When authentic sample identifiers are available, metadata can group cell-level scores into sample summaries. The main 10,000-cell tutorial retains authentic patient IDs and timepoints and presents descriptive metabolic and signaling contrasts.
+Cell type, patient, site, and response labels do not generate scKNIFE factors. They are joined by cell identity after fitting and used to summarize model-derived activity. When authentic sample identifiers are available, metadata can group cell-level scores into sample summaries. The main 10,000-cell tutorial retains authentic patient IDs and timepoints and presents exploratory cell-level metabolic and GO tests alongside descriptive signaling contrasts.

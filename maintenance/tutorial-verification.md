@@ -19,3 +19,13 @@ Download the {download}`clean-run verification <../docs/downloads/tutorial_clean
 
 CI checks that the six command scripts match the documented Python code, alongside package tests, supplied-graph validation and a strict documentation build. The external-data biological run is verified separately; CI's bundled synthetic 1,000-cell fixture remains a regression check.
 
+
+## Metabolic and GO differential activity — 24 October 2026
+
+- Executed all 13 code/figure cells of the replacement metabolic section on the existing 10,000-cell fit; five figures generated. Other notebook code and outputs preserved.
+- Cell identity hash: `a47ad5d98b131c0e47129c7657dcc35515c675cddd510c60e89f986c21212d63`.
+- Expanded group: 6,924 cells; 6,875 cells in six types meet the 20-cell minimum per condition.
+- MEAI uses the pinned scCellFie task-support tables, byte-identical to the original analysis inputs. Comparison with the original MEAI function: maximum absolute difference 1.19e-7 (float32 summation order).
+- Tested 218 tasks (1,308 comparisons) and 6,036 GO terms (36,216 comparisons). Display cutoffs: q < 0.05, |d| >= 0.3, |log2FC| >= 0.25. Twenty task–cell-type and 405 GO-term–cell-type comparisons pass all three cutoffs.
+- Independently verified 12 sampled Wilcoxon p-values, effect sizes and fold changes; recomputed BH corrections across each full result table. The raw task-activity option also completed all 1,308 comparisons.
+- Tests are pooled-cell exploratory comparisons, without patient adjustment. No graph or fitting changes.

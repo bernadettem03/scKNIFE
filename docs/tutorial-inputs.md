@@ -50,4 +50,4 @@ export SCKNIFE_INTERACTION_DB="$PWD/tutorial/inputs/interactions.csv"
 
 Keep the same terminal and activated environment for the {doc}`quickstart`. The scripts check and align cell identifiers; metadata must match the counts. Patient IDs and `Pre`/`On` timepoints are retained for grouping and interpretation. E/NE labels describe clonotype expansion, not clinical response.
 
-Input files stay on your machine. They are not fetched automatically or redistributed as part of these instructions. No graph construction or graph editing is needed.
+The cohort inputs stay on your machine. The metabolic example downloads two small, pinned scCellFie task-support tables to `task_support/` in the output directory and verifies their checksums. For offline use, place `Task_by_Rxn.csv` and `Task_by_Gene.csv` from the [pinned human task resources](https://github.com/earmingol/scCellFie/tree/c66c6be030a8ac871d998f17e592477b97781bf9/task_data/homo_sapiens) there first. See {doc}`graph-resources` for the resource license and citation.

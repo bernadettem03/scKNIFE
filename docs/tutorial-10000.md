@@ -9,7 +9,7 @@ Run the model on one representative sample of 10,000 cells, then use its learned
 1. [Installation and inputs](installation.md): install the environment and obtain expression, metadata and graph inputs.
 2. [Run full scKNIFE](tutorials/10000-setup.md): sample cells, prepare expression, tune on a representative subset, fit the graph model, reconstruct activities and save the fitted objects.
 3. [Cell-type retention](tutorials/10000-annotation.md): compare H-space clusters and source cell types on the same UMAP.
-4. [Metabolic analysis](tutorials/10000-metabolic.md): explore task activity, UMAP patterns, linked reactions and genes, and descriptive On-minus-Pre differences.
+4. [Metabolic analysis](tutorials/10000-metabolic.md): calculate MEAI, inspect one task distribution, and test metabolic-task and GO differential activity.
 5. [Factor interpretation](tutorials/10000-factors.md): group the fitted factors into four consensus clusters (CCs), interpret representative node groups (NGs), and examine their activities.
 6. [Cell–cell signaling](tutorials/10000-signaling.md): summarize ligand–receptor scores, permutation FDR, network roles, VEGF signaling and descriptive On-minus-Pre differences.
 
@@ -25,7 +25,7 @@ Metabolic, factor and signaling analyses use the saved fit and activity scores.
 
 - **Source cell type** means the original `cellType` metadata used to group and describe cells. Cell-type retention concerns biological organization in the learned representation.
 - **H** contains cell-factor activities; **W** contains biological-node loadings. The factor page uses **CC** for a consensus cluster of factors and **NG** for its selected biological nodes. The fitted rank is selected by pre-fit tuning; the interpretation resolution is k=4.
-- **On minus Pre** means on-treatment minus pre-treatment. Both metabolic and signaling contrasts are descriptive pooled comparisons, without patient adjustment or treatment-effect tests.
+- **On minus Pre** means on-treatment minus pre-treatment. Metabolic and GO comparisons use exploratory cell-level tests; signaling contrasts show pooled differences. Neither accounts for patient pairing.
 
 Click a figure to view it at full resolution.
 

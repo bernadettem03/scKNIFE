@@ -15,7 +15,7 @@ python scripts/run_tutorial_10000_factors.py
 python scripts/run_tutorial_10000_signaling.py
 ```
 
-The first command samples 10,000 cells, tunes parameters on a representative 2,000-cell subset, refits all 10,000 cells with the selected settings and reconstructs activities. The following commands assess cell-type retention, explore metabolic activity, interpret factors at k=4, and analyze signaling. Each command matches the code on its corresponding tutorial page.
+The first command samples 10,000 cells, tunes parameters on a representative 2,000-cell subset, refits all 10,000 cells with the selected settings and reconstructs activities. The following commands assess cell-type retention, test metabolic-task and GO activity, interpret factors at k=4, and analyze signaling. Each command matches the code on its corresponding tutorial page.
 
 The original `cellType` metadata provides grouping and comparison labels. Cell-state activity analysis is an optional extension; it is not required by these commands.
 

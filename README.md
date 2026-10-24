@@ -19,7 +19,7 @@ scKNIFE uses graph-regularized non-negative matrix factorization to learn cell f
 | Analysis | Biological question |
 |---|---|
 | [Cell-type retention](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-annotation.html) | Does the learned representation retain recognizable cell-type organization? |
-| [Metabolic activity](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-metabolic.html) | How do metabolic-task activities and their linked reactions and genes vary across cells? |
+| [Metabolic activity](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-metabolic.html) | How do MEAI and GO-node activities differ between conditions within cell types? |
 | [Factor interpretation](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-factors.html) | Which biological entities characterize the learned factors and their consensus groups? |
 | [Cell–cell signaling](https://scknife-docs.readthedocs.io/en/latest/tutorials/10000-signaling.html) | Which sender–receiver groups and ligand–receptor relationships have transcriptomic support? |
 
