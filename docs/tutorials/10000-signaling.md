@@ -1,6 +1,6 @@
 # Cell–cell signaling
 
-[Tutorial overview](../tutorial-10000.md#choose-an-analysis)
+[Tutorial overview](../tutorial-10000.md#analysis-tasks)
 
 Explore sender–receiver activity, ligand–receptor contributions and VEGF signaling.
 

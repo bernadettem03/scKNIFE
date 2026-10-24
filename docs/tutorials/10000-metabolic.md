@@ -1,6 +1,6 @@
-# Metabolic-task analysis
+# Metabolic tasks
 
-[Tutorial overview](../tutorial-10000.md#choose-an-analysis)
+[Tutorial overview](../tutorial-10000.md#analysis-tasks)
 
 Calculate MEAI, inspect one task, then compare metabolic-task activity between conditions.
 

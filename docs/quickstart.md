@@ -20,7 +20,7 @@ python scripts/run_tutorial_10000_organization.py
 
 The first script samples 10,000 cells, tunes on 2,000 cells, fits the full sample and saves activities. The second displays clusters alongside the existing cell-type labels. Use a new output directory for a fresh fit.
 
-## Choose an analysis
+## Analysis tasks
 
 Run any of these tasks using the saved outputs above.
 

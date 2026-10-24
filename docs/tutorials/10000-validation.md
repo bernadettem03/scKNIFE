@@ -4,7 +4,7 @@ orphan: true
 
 # Optional: rank sensitivity and projection
 
-[Tutorial overview](../tutorial-10000.md#choose-an-analysis)
+[Tutorial overview](../tutorial-10000.md#analysis-tasks)
 
 **Input:** the saved object from [model fitting](10000-setup.md). Use the command below to generate the projection results, or use the Python example to adjust the settings.
 
@@ -93,4 +93,4 @@ result_dir = Path(os.environ.get("SCKNIFE_TUTORIAL_OUTPUT", "tutorial/outputs_10
 display(Image(filename=str(result_dir / "rank_sensitivity.png")))
 ```
 
-[Tutorial overview](../tutorial-10000.md#choose-an-analysis)
+[Tutorial overview](../tutorial-10000.md#analysis-tasks)

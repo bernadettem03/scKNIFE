@@ -4,7 +4,7 @@ orphan: true
 
 # Other activity-based analyses: cell-state programs
 
-[Tutorial overview](../tutorial-10000.md#choose-an-analysis)
+[Tutorial overview](../tutorial-10000.md#analysis-tasks)
 
 Compare graph-linked cell-state activity across clusters using the saved [fit and activities](10000-setup.md). This example selects the eight state nodes with the highest pooled mean activity.
 

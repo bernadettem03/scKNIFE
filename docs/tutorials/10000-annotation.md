@@ -1,6 +1,6 @@
 # Clustering and cell-type retention
 
-[Run scKNIFE](10000-setup.md) · [Choose an analysis](../tutorial-10000.md#choose-an-analysis)
+[Run scKNIFE](10000-setup.md) · [Choose an analysis](../tutorial-10000.md#analysis-tasks)
 
 Compare the saved H-space clusters with the dataset’s cell-type labels. scKNIFE does not assign new cell-type labels.
 
@@ -42,4 +42,4 @@ plt.close(fig)
 
 Both panels show the same 10,000 cells on identical UMAP coordinates, colored by cluster or source cell type.
 
-The plot is saved in `cellular_organization/`. [Choose an analysis](../tutorial-10000.md#choose-an-analysis) to explore the fitted activities.
+The plot is saved in `cellular_organization/`. [Choose an analysis](../tutorial-10000.md#analysis-tasks) to explore the fitted activities.
