@@ -2,7 +2,7 @@
 
 [Tutorial overview](../tutorial-10000.md) · [Prerequisite: Run full scKNIFE](10000-setup.md)
 
-This optional task uses the fitted model’s activity scores. It is independent of the metabolic, factor and cell–cell analysis pages. Select graph-node activities that address your question; absent entities require an appropriate graph and a new fit. The graph used in this tutorial remains unchanged.
+This optional task uses the fitted model’s activity scores. It is independent of the metabolic, factor and cell–cell analysis pages. Select graph-node activities that address your question; absent entities require an appropriate graph and a new fit.
 
 ## Biological question
 

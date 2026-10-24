@@ -30,7 +30,7 @@ After cloning the repository, install the tutorial dependencies:
 pip install -e '.[tutorial]'
 ```
 
-Follow {doc}`tutorial-inputs` to obtain and prepare the external data. Then run the commands in {doc}`quickstart`. The {doc}`tutorial-10000` explains the same analysis in detail. The supplied graphs are loaded unchanged; this workflow does not require graph reconstruction or the graph-building extras.
+Follow {doc}`tutorial-inputs` to obtain and prepare the external data. Then run the commands in {doc}`quickstart`. The {doc}`tutorial-10000` explains the same analysis in detail. The tutorial uses the supplied Version 1 graph and does not require the optional graph-building dependencies.
 
 ## Verify
 

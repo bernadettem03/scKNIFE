@@ -5,7 +5,7 @@ Choose the graph before tuning and keep that exact graph fixed for the final fit
 ## Three ways to choose a graph
 
 1. **Use a supplied unified graph.** Choose Version 1, used throughout the main tutorial, or Version 2, which extends Version 1 with Human-GEM relationships.
-2. **Use an individual graph collection.** Choose from the seven preserved collections in `graphs/individual/`: Hallmark, CellChat, GO, markers, cell states, reactions, and metabolic tasks. These are focused collections; they can include relationships from multiple upstream resources, as listed below.
+2. **Use an individual graph collection.** Choose from the seven supplied collections in `graphs/individual/`: Hallmark, CellChat, GO, markers, cell states, reactions, and metabolic tasks. These are focused collections; they can include relationships from multiple upstream resources, as listed below.
 3. **Build a custom graph.** Use the graph-building APIs with source files you obtain for your analysis. Select the biological relationships relevant to your question, use consistent gene identifiers, and record the resulting graph checksum. See {doc}`api/graphs`. A custom graph need not reproduce either supplied unified graph.
 
 ### Source terms for supplied and custom graphs

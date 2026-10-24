@@ -26,4 +26,4 @@ Tune on a representative subset, run full factorization once, and persist W, H, 
 
 ## Read the Docs does not rerun the tutorial
 
-This is intentional. The site renders committed code and outputs to keep documentation builds deterministic and affordable.
+The site displays saved notebook outputs. To regenerate results with your inputs, run `python scripts/run_tutorial.py` after completing {doc}`tutorial-inputs`.

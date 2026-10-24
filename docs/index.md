@@ -15,7 +15,7 @@ Install scKNIFE, prepare the source files and run the 10,000-cell workflow.
 :::{grid-item-card} Run the tutorial
 :link: tutorial-10000
 :link-type: doc
-Work through 10,000 cells: fitting, retention of cell-type organization, metabolism and signaling, using the dataset’s cell-type labels.
+Analyze 10,000 cells: parameter tuning, fitting, cell-type retention, metabolism, factor interpretation and signaling.
 :::
 :::{grid-item-card} Choose a graph
 :link: graphs
@@ -43,7 +43,7 @@ Find functions for fitting, clustering, activity analysis, projection, and signa
 
 ## A reproducible starting point
 
-The {doc}`tutorial-10000` is the main end-to-end walkthrough. It uses one stratified sample with donor, timepoint and cell-type metadata, and explains the executable code and figures at every stage. It requires the external cohort inputs described in the guide.
+The {doc}`tutorial-10000` uses a stratified sample of 10,000 cells with donor, timepoint and cell-type metadata.
 
 Follow {doc}`tutorial-inputs` to obtain and prepare the source data, then use {doc}`quickstart` to generate every result. The quick start and detailed tutorial run the same 10,000-cell analysis.
 

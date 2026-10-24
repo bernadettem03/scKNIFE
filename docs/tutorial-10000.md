@@ -21,13 +21,13 @@ Download the {download}`10,000-cell notebook <downloads/scKNIFE_10000_tutorial.i
 
 ## Shared inputs and terminology
 
-Metabolic, factor and signaling analyses reuse the saved fit and activity scores. Each page includes the inputs, plotting code and downloadable script for that analysis.
+Metabolic, factor and signaling analyses use the saved fit and activity scores.
 
 - **Source cell type** means the original `cellType` metadata used to group and describe cells. Cell-type retention concerns biological organization in the learned representation.
 - **H** contains cell-factor activities; **W** contains biological-node loadings. The factor page uses **CC** for a consensus cluster of factors and **NG** for its selected biological nodes. The fitted rank is selected by pre-fit tuning; the interpretation resolution is k=4.
 - **On minus Pre** means on-treatment minus pre-treatment. Both metabolic and signaling contrasts are descriptive pooled comparisons, without patient adjustment or treatment-effect tests.
 
-Each analysis presents code, its figure and an explanation. Click a figure to view it at full resolution. The graph inputs are reused throughout.
+Click a figure to view it at full resolution.
 
 ## Extend the activity-based analysis
 

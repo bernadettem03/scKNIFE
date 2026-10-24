@@ -10,9 +10,9 @@ Interpret the fitted model through **factor usage → consensus clusters → rep
 
 **CC** (consensus cluster) identifies a group of factors with related W profiles; **NG** identifies the biological nodes selected to interpret that group. NG activity reconstructs those nodes using all aligned factors. CC activity averages H over the factors assigned to that group. The interpretation resolution is **k=4**, while the fitted model rank is selected before the full fit. NG activity and CC activity summarize different aspects of the fitted model.
 
-## Load the same fitted model
+## Load the fitted model
 
-Load W, its aligned H columns and cell metadata. Exclude cell-type and cell-state nodes only from the interpretation view of W; this does not modify the graph or fit.
+Load W, its aligned H columns and cell metadata. For this interpretation, select W rows outside the cell-type and cell-state categories.
 
 ```python
 from pathlib import Path

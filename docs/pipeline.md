@@ -6,7 +6,7 @@ Run the main model on the 10,000-cell sample prepared from the source cohort:
 python scripts/run_tutorial_10000.py
 ```
 
-The script uses the unchanged version-1 graph, 2,000 normalized/log-transformed shared genes, parameters selected on 1,500 fitting and 500 validation cells, 100 updates and seed 42. Follow {doc}`tutorial-inputs` and {doc}`quickstart` before running. The complete executable code is in {doc}`tutorial-10000`.
+The script uses the Version 1 graph, 2,000 normalized/log-transformed shared genes, parameters selected on 1,500 fitting and 500 validation cells, 100 updates and seed 42. Follow {doc}`tutorial-inputs` and {doc}`quickstart` before running. The complete executable code is in {doc}`tutorial-10000`.
 
 The pipeline maps expression genes to graph nodes, initializes NMF on overlapping genes, propagates node embeddings, optimizes graph-regularized W and H, records losses, and compares reconstruction with standard NMF.
 

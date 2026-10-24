@@ -1,6 +1,6 @@
 # Cell–cell signaling with 10,000 cells
 
-Follow {doc}`tutorials/10000-signaling` for the complete seven-step analysis with code, figures and explanations. It uses the same fitted 10,000 cells, reconstructed node activities and source `cellType` labels as the main workflow.
+Follow {doc}`tutorials/10000-signaling` for the seven-step signaling analysis. It uses the same fitted 10,000 cells, reconstructed node activities and source `cellType` labels as the main workflow.
 
 Prepare the directional interaction CSV using {doc}`tutorial-inputs`, complete {doc}`tutorials/10000-setup`, then run:
 

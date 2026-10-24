@@ -1,6 +1,6 @@
 # Obtain and prepare the 10,000-cell tutorial inputs
 
-The quick start and full tutorial use the same files, sample seed (42), unchanged version-1 graph and output directory. You download the source cohort once; the script selects exactly 10,000 TNBC cells with donor, timepoint and reference cell-type coverage. You do not need to download a separate preselected 10,000-cell dataset.
+The quick start and full tutorial use the same files, sample seed (42), Version 1 graph and output directory. You download the source cohort once; the script selects exactly 10,000 TNBC cells with donor, timepoint and reference cell-type coverage. You do not need to download a separate preselected 10,000-cell dataset.
 
 ## 1. Get the Bassez cohort-2 data
 
@@ -25,7 +25,7 @@ Rscript scripts/prepare_bassez_counts.R /absolute/path/1867-counts_cells_cohort2
 python scripts/prepare_bassez_counts.py tutorial/inputs/converted_counts tutorial/inputs/bassez_cohort2_counts.h5ad
 ```
 
-The converter transposes genes × cells to cells × genes and preserves values, gene symbols and cell barcodes. This conversion was tested against the existing cohort input and matched all counts and identifiers exactly. Temporary Matrix Market files need extra disk space. If you already have the equivalent unnormalized H5AD file, skip conversion. Do not supply normalized or log-transformed expression: the tutorial performs that step itself.
+The converter transposes genes × cells to cells × genes and preserves values, gene symbols and cell barcodes. Temporary Matrix Market files need extra disk space. If you already have the equivalent unnormalized H5AD file, skip conversion. Do not supply normalized or log-transformed expression: the tutorial performs that step itself.
 
 ## 3. Obtain the directional interaction table for signaling
 
@@ -36,7 +36,7 @@ curl --fail --location https://raw.githubusercontent.com/jinworks/CellChat/592ba
 Rscript scripts/prepare_tutorial_interactions.R tutorial/inputs/CellChatDB.human.rda tutorial/inputs/interactions.csv
 ```
 
-The exported CSV has 3,233 rows before the scoring module's annotation filter. Expected SHA-256: `098d8c21cf43d486a548dfc6e4ecdca89221254d6b378ab331973efe98ad4905`. Retain the [upstream license](https://github.com/jinworks/CellChat/blob/592ba49cf4b72130e27eb47a217faf5f84a54f07/LICENSE) and resource citation. The directional table is an external scoring input; this step does not rebuild or change any graph.
+The exported CSV has 3,233 rows before the scoring module's annotation filter. Expected SHA-256: `098d8c21cf43d486a548dfc6e4ecdca89221254d6b378ab331973efe98ad4905`. Retain the [upstream license](https://github.com/jinworks/CellChat/blob/592ba49cf4b72130e27eb47a217faf5f84a54f07/LICENSE) and resource citation. The directional table supplies interaction definitions for signaling scores.
 
 ## 4. Set the three input paths
 
