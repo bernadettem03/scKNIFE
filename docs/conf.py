@@ -27,6 +27,7 @@ autodoc_typehints = "description"
 napoleon_google_docstring = True
 napoleon_numpy_docstring = True
 myst_enable_extensions = ["colon_fence", "deflist", "fieldlist", "substitution"]
+myst_heading_anchors = 3
 nbsphinx_execute = "never"
 nbsphinx_allow_errors = False
 templates_path = ["_templates"]

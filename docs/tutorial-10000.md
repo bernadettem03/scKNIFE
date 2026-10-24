@@ -8,7 +8,6 @@ Fit scKNIFE on 10,000 Bassez cells, explore clustering, then choose an analysis 
 2. [Run scKNIFE](tutorials/10000-setup.md): sample cells, tune parameters, fit the model and save activities.
 3. [Explore clustering and cell-type retention](tutorials/10000-annotation.md).
 
-(choose-an-analysis)=
 ## Choose an analysis
 
 Each task uses the saved model and activities. Choose any task; the analysis pages do not depend on one another.
