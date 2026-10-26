@@ -1,0 +1,99 @@
+{
+  "cells": 10000,
+  "genes": 2000,
+  "cell_id_sha256": "a47ad5d98b131c0e47129c7657dcc35515c675cddd510c60e89f986c21212d63",
+  "main_figures": 34,
+  "optional_state_figures": 1,
+  "graph_files_unchanged": true,
+  "graph_file_count": 19,
+  "selected_params": {
+    "k": 24,
+    "lambda_reg": 0.1,
+    "beta_W": 0.001,
+    "beta_H": 0.1
+  },
+  "factor_group_sizes": [
+    10,
+    3,
+    8,
+    3
+  ],
+  "stages": [
+    {
+      "stage": "sampling_tuning_fit",
+      "seconds": 470.30246613989584,
+      "exit_code": 0
+    },
+    {
+      "stage": "organization",
+      "seconds": 2.1006920859217644,
+      "exit_code": 0
+    },
+    {
+      "stage": "metabolic",
+      "seconds": 9.907650623004884,
+      "exit_code": 0
+    },
+    {
+      "stage": "factors",
+      "seconds": 12.9566284569446,
+      "exit_code": 0
+    },
+    {
+      "stage": "signaling",
+      "seconds": 45.076502131065354,
+      "exit_code": 0
+    },
+    {
+      "stage": "validation",
+      "seconds": 117.07676322897896,
+      "exit_code": 0
+    }
+  ],
+  "figures": [
+    "sample_representation.png",
+    "tuning/subset_representation.png",
+    "tuning/parameter_selection.png",
+    "convergence.png",
+    "organization_umap.png",
+    "metabolic_walkthrough/task_overview.png",
+    "metabolic_walkthrough/task_umaps.png",
+    "metabolic_walkthrough/task_distribution.png",
+    "metabolic_walkthrough/linked_support.png",
+    "metabolic_walkthrough/ranked_differences.png",
+    "factor_interpretation_k4/factor_usage.png",
+    "factor_interpretation_k4/choose_k.png",
+    "factor_interpretation_k4/consensus.png",
+    "factor_interpretation_k4/resolution_sensitivity.png",
+    "factor_interpretation_k4/node_factors_all.png",
+    "factor_interpretation_k4/node_dictionary_all.png",
+    "factor_interpretation_k4/composition.png",
+    "factor_interpretation_k4/category_all_geneset.png",
+    "factor_interpretation_k4/node_activity.png",
+    "factor_interpretation_k4/factor_activity.png",
+    "factor_interpretation_k4/associations.png",
+    "factor_interpretation_k4/all_cells.png",
+    "factor_interpretation_k4/coverage.png",
+    "factor_interpretation_k4/constituents.png",
+    "signaling-seven/signaling_heatmap.png",
+    "signaling-seven/01_sender_receiver.png",
+    "signaling-seven/signaling_lr_bubbles.png",
+    "signaling-seven/permutation_fdr.png",
+    "signaling-seven/06_hierarchical_network.png",
+    "signaling-seven/network_centrality.png",
+    "signaling-seven/VEGF_heatmap.png",
+    "signaling-seven/VEGF_top_lr.png",
+    "signaling-seven/on_minus_pre.png",
+    "rank_sensitivity.png",
+    "state_activity_by_cluster.png"
+  ],
+  "notebook": {
+    "executed_code_cells": 70,
+    "generated_figures": 34,
+    "same_cell_ids": true,
+    "same_selected_genes": true,
+    "same_selected_parameters": true,
+    "same_W_and_H": true,
+    "errors": 0
+  }
+}

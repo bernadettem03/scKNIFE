@@ -1,0 +1,61 @@
+name: Tests and executable tutorials
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    env:
+      MPLBACKEND: Agg
+      OMP_NUM_THREADS: '2'
+      OPENBLAS_NUM_THREADS: '2'
+      NUMBA_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.9.21'
+      - run: python -m pip install -e '.[test,tutorial]'
+      - run: python -m pip check
+      - name: Check current 10,000-cell tutorial commands
+        run: python scripts/check_tutorial_contract.py
+      - run: python -m pytest -q
+      - run: python scripts/validate_supplied_graphs.py
+      - name: Run synthetic regression fixture
+        run: python scripts/run_focused_plots.py
+      - name: Verify bundled regression outputs
+        run: |
+          python - <<'PYCODE'
+          import json
+          from pathlib import Path
+          import anndata as ad
+          data = ad.read_h5ad("tutorial/data/synthetic_regression_1000.h5ad")
+          assert data.shape == (1000, 1000)
+          assert data.uns["generation_seed"] == 42
+          assert list(data.obs.columns) == ["synthetic_group"]
+          assert all(x.startswith("synthetic_cell_") for x in data.obs_names)
+          assert not Path("tutorial/data/bassez_B_subset.h5ad").exists()
+          root = Path('tutorial/outputs_focused')
+          report = json.loads((root / 'focused_run_report.json').read_text())
+          assert report['cells'] == 1000 and report['genes'] == 1000
+          for name in ('convergence.png', 'cluster_and_celltype_umap.png',
+                       'cell_states.png', 'metabolic_tasks.png'):
+              assert (root / name).read_bytes().startswith(b'\x89PNG\r\n\x1a\n'), name
+          PYCODE
+      - name: Run bundled regression notebook and synthetic signaling checks
+        run: python scripts/run_tutorial.py --regression
+      # Biological signaling uses an external interaction resource and is not
+      # downloaded or redistributed by CI. Synthetic permutation checks remain above.
+      - name: Upload bundled regression outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bundled-regression-fixture
+          if-no-files-found: warn
+          path: |
+            tutorial/outputs_focused/*.png
+            tutorial/outputs_focused/*.csv
+            tutorial/outputs_focused/focused_run_report.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: executed-tutorial
+          path: tutorial/outputs/

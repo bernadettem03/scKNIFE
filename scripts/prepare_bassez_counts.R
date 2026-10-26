@@ -1,0 +1,11 @@
+# Convert the source gene-by-cell sparse count matrix without changing values.
+args <- commandArgs(trailingOnly=TRUE)
+stopifnot(length(args)==2)
+suppressPackageStartupMessages(library(Matrix))
+x <- readRDS(args[1])
+stopifnot(inherits(x, 'sparseMatrix'), !is.null(rownames(x)), !is.null(colnames(x)))
+dir.create(args[2], recursive=TRUE, showWarnings=FALSE)
+writeMM(x, file.path(args[2], 'counts.mtx'))
+writeLines(rownames(x), file.path(args[2], 'genes.txt'))
+writeLines(colnames(x), file.path(args[2], 'cells.txt'))
+print(dim(x))

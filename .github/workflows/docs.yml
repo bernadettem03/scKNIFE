@@ -1,0 +1,43 @@
+name: Documentation
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.9.21"
+      - name: Install pinned Pandoc binary
+        timeout-minutes: 5
+        run: |
+          # Avoid slow Ubuntu mirror downloads; this wheel bundles Pandoc.
+          python -m pip install --only-binary=:all: --timeout 30 --retries 2 pypandoc_binary==1.15
+          python - <<'PYCODE'
+          import os
+          import subprocess
+          from pathlib import Path
+          import pypandoc
+
+          binary = Path(pypandoc.get_pandoc_path()).resolve()
+          with open(os.environ["GITHUB_PATH"], "a") as handle:
+              handle.write(str(binary.parent) + "\n")
+          subprocess.run([str(binary), "--version"], check=True)
+          PYCODE
+      - name: Install package and documentation dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+          pip install -r docs/requirements.txt
+      - name: Validate supplied graph releases
+        run: python scripts/validate_supplied_graphs.py
+      - name: Check tutorial command consistency
+        run: python scripts/check_tutorial_contract.py
+      - name: Build documentation
+        run: sphinx-build -W --keep-going -b html docs docs/_build/html

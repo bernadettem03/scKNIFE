@@ -1,0 +1,4407 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d5" for="edge" attr.name="pathway" attr.type="string" />
+  <key id="d4" for="edge" attr.name="source" attr.type="string" />
+  <key id="d3" for="edge" attr.name="type" attr.type="string" />
+  <key id="d2" for="node" attr.name="bipartite" attr.type="string" />
+  <key id="d1" for="node" attr.name="kind" attr.type="string" />
+  <key id="d0" for="node" attr.name="bipartite" attr.type="long" />
+  <graph edgedefault="undirected">
+    <node id="AGR2">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="LEPR">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="c-Kit">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Nestin">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Luminal progenitor cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="GZMH">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CSC">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD34">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="Endothelial cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="CD117">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD49f">
+      <data key="d1">gene</data>
+    </node>
+    <node id="AKR1A1">
+      <data key="d2">gene</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="KRT15">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="B cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="PDPN">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD90">
+      <data key="d1">gene</data>
+    </node>
+    <node id="JAG1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="PN1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="SOX2">
+      <data key="d1">gene</data>
+    </node>
+    <node id="ALDH2">
+      <data key="d2">gene</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="TLL1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CDH5">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="CXCL10">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="HLA-DQB1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="PDCD1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="CD14">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="NOTCH1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="SEMA6A">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="CLEC5A">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="BMI1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="ALDH1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="IGLL1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD45RA">
+      <data key="d1">gene</data>
+    </node>
+    <node id="INPP5F">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="MSN">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD166">
+      <data key="d1">gene</data>
+    </node>
+    <node id="M1 macrophage">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="CD29">
+      <data key="d1">gene</data>
+    </node>
+    <node id="SSR4">
+      <data key="d2">gene</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="Naive T(Th0) cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="Pan-macrophage">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="IRF9">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD7">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="VEGFR2/KDR">
+      <data key="d1">gene</data>
+    </node>
+    <node id="KIR2DS4">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="Nectin-4">
+      <data key="d1">gene</data>
+    </node>
+    <node id="PDGFRB">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="TPST2">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="PLAT">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="LAMP3">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD248">
+      <data key="d1">gene</data>
+    </node>
+    <node id="EGFR">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="IL7R">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="Her-2">
+      <data key="d1">gene</data>
+    </node>
+    <node id="ENTPD1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="Plasmablast">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="Myeloid cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="CLU">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="CYP3A4">
+      <data key="d2">gene</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD28">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="MCAM">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="CPNE1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Cancer stem cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="LOX">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="Luminal cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="KRT7">
+      <data key="d1">gene</data>
+    </node>
+    <node id="MCCS">
+      <data key="d1">gene</data>
+    </node>
+    <node id="MMP2">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="Mature luminal cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="SOX9">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD40">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="CD82">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="ER">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Regulatory T(Treg) cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="Cancer cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="CD1C">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CSF1R">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="NRP2">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="TMPRSS11D">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD79A">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="GLI1">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD206">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Cancer-associated fibroblast">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="SERPINH1">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="OAS1">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="KLRB1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="KIR3DL3">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="CD133">
+      <data key="d1">gene</data>
+    </node>
+    <node id="AFF6">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD209">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="41BB">
+      <data key="d1">gene</data>
+    </node>
+    <node id="proteases">
+      <data key="d1">gene</data>
+    </node>
+    <node id="ESR1">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="HLA-DPB1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="Naive CD4 T cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="CDH2">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="COL3A1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="Monocyte">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="FAM177A1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD61">
+      <data key="d1">gene</data>
+    </node>
+    <node id="FOXA1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="IGHG4">
+      <data key="d1">gene</data>
+    </node>
+    <node id="IgD">
+      <data key="d1">gene</data>
+    </node>
+    <node id="GrB+ Regulatory B cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="TGFBR2">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="KLRD1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="ALCAM">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="Notch2">
+      <data key="d1">gene</data>
+    </node>
+    <node id="TIE1 (soluble)">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD3E">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="THSD1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="VEGFR3/FLT4">
+      <data key="d1">gene</data>
+    </node>
+    <node id="ENG">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="JCHAIN">
+      <data key="d1">gene</data>
+    </node>
+    <node id="MS4A1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="MET">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="KIR3DL1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="KRT17">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="Gamma delta(gamadelta) T cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="Pericyte">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="CD8A">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="HLA-DRB1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="Macrophage">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="CK14">
+      <data key="d1">gene</data>
+    </node>
+    <node id="THY1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="Feline sarcoma-related tyrosine kinase">
+      <data key="d1">gene</data>
+    </node>
+    <node id="KLRF1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD70">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="LYVE1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="T helper 1(Th1) cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="ALDH1B1">
+      <data key="d2">gene</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="ID2">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="BRCA2">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="HBA2">
+      <data key="d1">gene</data>
+    </node>
+    <node id="ACTA2">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="CXCL9">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="EMT non-cancer stem cell(EMT non-CSC)">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="HER-2">
+      <data key="d1">gene</data>
+    </node>
+    <node id="VCAM1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="Stem cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="CD15">
+      <data key="d1">gene</data>
+    </node>
+    <node id="IGJ">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Tumor-infiltrating B cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="STAT1">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="PTPRC">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="IGHM">
+      <data key="d1">gene</data>
+    </node>
+    <node id="E-Cadherin">
+      <data key="d1">gene</data>
+    </node>
+    <node id="IL21">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="CD8">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CK5">
+      <data key="d1">gene</data>
+    </node>
+    <node id="PLOD2">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="IFITM3">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD104">
+      <data key="d1">gene</data>
+    </node>
+    <node id="M2 macrophage">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="DOCK9">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="PDGFRA">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="CD36">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="CD19">
+      <data key="d1">gene</data>
+    </node>
+    <node id="ITGAX">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="KIR3DL2">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="MLANA">
+      <data key="d1">gene</data>
+    </node>
+    <node id="KRT10">
+      <data key="d1">gene</data>
+    </node>
+    <node id="MYC">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="CAV1">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="CYP3A5">
+      <data key="d2">gene</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="KIT">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="STOM">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="CTSG">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="CD25">
+      <data key="d1">gene</data>
+    </node>
+    <node id="IL1B">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="PD-L1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="MX1">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="tryptase">
+      <data key="d1">gene</data>
+    </node>
+    <node id="IgM">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Src">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD163">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD1d">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Natural killer cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="FN1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="CCL5">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="CD127">
+      <data key="d1">gene</data>
+    </node>
+    <node id="POU5F1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="MYLK">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="CLDN12">
+      <data key="d1">gene</data>
+    </node>
+    <node id="IFI6">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Myo-epithelial cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="KRT86">
+      <data key="d1">gene</data>
+    </node>
+    <node id="KDR">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="GTAT3">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Zeb-1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="panCK">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Proliferating T cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="Luminal epithelial cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="Exhausted T(Tex) cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="NRP1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="TWIST1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Mast cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="POSTN">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="Lymphatic endothelial cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="Connexin 43">
+      <data key="d1">gene</data>
+    </node>
+    <node id="SIGLEC1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="Tumor-associated macrophage (TAM)">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="ZEB2">
+      <data key="d1">gene</data>
+    </node>
+    <node id="B10 Regulatory B cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="VWF">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="Dendritic cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="CFD">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="PRDM1">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="MSR1">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="GABRP">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CLEC4C">
+      <data key="d1">gene</data>
+    </node>
+    <node id="ProC-R">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Antigen presentation cancer-associated fibroblast">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="CD20">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Basal progenitor cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="MMP11">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="GZMA">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="Fibronectin">
+      <data key="d1">gene</data>
+    </node>
+    <node id="C1GALT1C1">
+      <data key="d2">gene</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="Basal cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="NANOG">
+      <data key="d1">gene</data>
+    </node>
+    <node id="VEGF">
+      <data key="d1">gene</data>
+    </node>
+    <node id="KRT5">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="GZMB">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="Stromal cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="FBN1">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="NKG7">
+      <data key="d1">gene</data>
+    </node>
+    <node id="TPSD1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD27">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="vimentin">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Myeloid dendritic cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="CD31">
+      <data key="d1">gene</data>
+    </node>
+    <node id="OCT3/4">
+      <data key="d1">gene</data>
+    </node>
+    <node id="FAP">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="Perivascular cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="CD44">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="JAK1">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="FOXP3">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD45">
+      <data key="d1">gene</data>
+    </node>
+    <node id="BCAM">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="Tumor-infiltrating T cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="Effector CD8 T cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="GOLM1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Naive memory B cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="Cycling epithelial cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="ACTA3">
+      <data key="d1">gene</data>
+    </node>
+    <node id="GD2">
+      <data key="d1">gene</data>
+    </node>
+    <node id="SELP">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="SCARA5">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CK">
+      <data key="d1">gene</data>
+    </node>
+    <node id="ITGAM">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="IFI27">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="PBCS">
+      <data key="d1">gene</data>
+    </node>
+    <node id="smooth muscle myosin heavy chain">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Cav-1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="HLA-E">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="RSPO3">
+      <data key="d1">gene</data>
+    </node>
+    <node id="ISG15">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="PTPRB">
+      <data key="d1">gene</data>
+    </node>
+    <node id="PODXL-1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD147">
+      <data key="d1">gene</data>
+    </node>
+    <node id="SNAI1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CAMK1D">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="fibronectin">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Conventional T(Tconv) cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="CXCL13">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="VIM">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="FASLG (soluble)">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Oct4">
+      <data key="d1">gene</data>
+    </node>
+    <node id="TGFB1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="CD8+ T cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="CCR7">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="EPCAM">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="APOD">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="SPARC">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="CMA1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="NCR1">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="DCN">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="ITGB1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="ERBB2">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="IGHG2">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD2">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="CCR5">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="FAK">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CA153">
+      <data key="d1">gene</data>
+    </node>
+    <node id="EDNRA">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="CD68">
+      <data key="d1">gene</data>
+    </node>
+    <node id="PIP">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD3D">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="TTF-1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="ALDH">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Adipocyte">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="LIFR (soluble)">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Fibroblast">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="Myoepithelial cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="LYZ">
+      <data key="d1">gene</data>
+    </node>
+    <node id="KIN">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Neutrophil">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="KRT18">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="EZH2">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="MYH11">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="Exhausted CD8+ T cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="KIR2DL3">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="IGKC">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD10">
+      <data key="d1">gene</data>
+    </node>
+    <node id="MKI67">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="IFIT3">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="Twist">
+      <data key="d1">gene</data>
+    </node>
+    <node id="LAYN">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD4">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="KRT23">
+      <data key="d1">gene</data>
+    </node>
+    <node id="PRF1">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="Immune cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="Polyploid giant cancer cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="CD33">
+      <data key="d1">gene</data>
+    </node>
+    <node id="HLA-DPA1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="Plasmacytoid dendritic cell(pDC)">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="CD3G">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="HLA-DRB5">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="N-cadherin">
+      <data key="d1">gene</data>
+    </node>
+    <node id="TRPS1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="HBB">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="DUSP1">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="IGLL5">
+      <data key="d1">gene</data>
+    </node>
+    <node id="IGFIR (soluble)">
+      <data key="d1">gene</data>
+    </node>
+    <node id="GCDFP-15">
+      <data key="d1">gene</data>
+    </node>
+    <node id="TAGLN">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="IL2RA">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="TCRgamadelta">
+      <data key="d1">gene</data>
+    </node>
+    <node id="ARHGAP10">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="GATA3">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="MARCO">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="ESA">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD86">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="GZMK">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="BANK1">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="HLA-DQA2">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="CXADR">
+      <data key="d1">gene</data>
+    </node>
+    <node id="ALDH1A3">
+      <data key="d2">gene</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="RGS5">
+      <data key="d1">gene</data>
+    </node>
+    <node id="SDC1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="IFI44L">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="T helper(Th) cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="CXCR4">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="Twist1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="KLRC1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="PD-1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CXCL12">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="CD3">
+      <data key="d1">gene</data>
+    </node>
+    <node id="BATF">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="OCLN">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="LAPTM5">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="HER2">
+      <data key="d1">gene</data>
+    </node>
+    <node id="ZEB1">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="GNA13">
+      <data key="d1">gene</data>
+    </node>
+    <node id="iNOS">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Endothelial progenitor cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="HLA-DRA">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="CRYBB2">
+      <data key="d1">gene</data>
+    </node>
+    <node id="KIR2DL4">
+      <data key="d1">gene</data>
+    </node>
+    <node id="STAT5B">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Basal epithelial cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="B3GNT2">
+      <data key="d2">gene</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="ADH1B">
+      <data key="d2">gene</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="IGHG1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CPS-II">
+      <data key="d1">gene</data>
+    </node>
+    <node id="STAT2">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="IFI44">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="ICOC">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Epithelial cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="Paget cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="p63">
+      <data key="d1">gene</data>
+    </node>
+    <node id="PROCR">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="CD140b">
+      <data key="d1">gene</data>
+    </node>
+    <node id="T follicular helper(Tfh) cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="GPR25">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Rac1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="MYD88">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="EMCN">
+      <data key="d1">gene</data>
+    </node>
+    <node id="IGHD">
+      <data key="d1">gene</data>
+    </node>
+    <node id="SULF2">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="Hematopoietic stem cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="Mammary stem cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="CLEC14A">
+      <data key="d1">gene</data>
+    </node>
+    <node id="LY6E">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="Plasma cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="CD200">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="Slug">
+      <data key="d1">gene</data>
+    </node>
+    <node id="calponin">
+      <data key="d1">gene</data>
+    </node>
+    <node id="IL17">
+      <data key="d1">gene</data>
+    </node>
+    <node id="SELE">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="Proliferative cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="KRT8">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="KRT14">
+      <data key="d1">gene</data>
+    </node>
+    <node id="IR">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Leukocyte">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="CD146">
+      <data key="d1">gene</data>
+    </node>
+    <node id="ZO-1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="BRCA1">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="ALDH6A1">
+      <data key="d2">gene</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="pKARMA">
+      <data key="d1">gene</data>
+    </node>
+    <node id="IL10">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="Vimentin">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Hematopoietic cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="CD38">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="CD141">
+      <data key="d1">gene</data>
+    </node>
+    <node id="DLK1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="MAGEH1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CCL2">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="IFIT1">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="BST2">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="GNLY">
+      <data key="d1">gene</data>
+    </node>
+    <node id="ANKRD30A">
+      <data key="d1">gene</data>
+    </node>
+    <node id="EpCAM">
+      <data key="d1">gene</data>
+    </node>
+    <node id="HAVCR2">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="KRT19">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="SOCS3">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD276">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="PGR">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="CPA3">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Perivascular-like cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="C5aR1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="BCL6">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="CSF1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="SOX18">
+      <data key="d1">gene</data>
+    </node>
+    <node id="LEF1">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="TNS2">
+      <data key="d1">gene</data>
+    </node>
+    <node id="PECAM1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="ALOX5AP">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD235a">
+      <data key="d1">gene</data>
+    </node>
+    <node id="S100A4">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="AR">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="ALDH1A1">
+      <data key="d2">gene</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="ALDH1A2">
+      <data key="d2">gene</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="Breast cancer stem-like cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="TIMP1">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD40LG">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="ALPI">
+      <data key="d1">gene</data>
+    </node>
+    <node id="GLI-1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD59">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="Red blood cell (erythrocyte)">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="Myofibroblast">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="MMP9">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="Suprabasal epithelial cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="CXCR6">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="IDO1">
+      <data key="d2">gene</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD74">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="Melanocyte">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="ISLR2">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CK19">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Natural killer T(NKT) cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="RIC8A">
+      <data key="d1">gene</data>
+    </node>
+    <node id="COL1A2">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="KLF4">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="Mesenchymal cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="N-Cadherin">
+      <data key="d1">gene</data>
+    </node>
+    <node id="WIF1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="FBLN5">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="FCGR3A">
+      <data key="d1">gene</data>
+    </node>
+    <node id="P63">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Progenitor cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="MYL9">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="Snail">
+      <data key="d1">gene</data>
+    </node>
+    <node id="T cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="Cytotoxic T cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="COL1A1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="Muscle cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="EMT cancer stem cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="CCL3">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="LSD1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CD16">
+      <data key="d1">gene</data>
+    </node>
+    <node id="Epithelial-mesenchymal transition cancer stem cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="CD4+ T cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="LGR4">
+      <data key="d1">gene</data>
+    </node>
+    <node id="KIR2DL1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="Nanog">
+      <data key="d1">gene</data>
+    </node>
+    <node id="NCAM1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="Tumor-initiating cell">
+      <data key="d1">cell_state</data>
+    </node>
+    <node id="CHST15">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CTSC">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="UKBGS">
+      <data key="d1">gene</data>
+    </node>
+    <node id="ABCG2">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="ETS1">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="CCR8">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="EMT">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CTNNA1">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="CYP3A7">
+      <data key="d2">gene</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="IL3RA">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="MUC1">
+      <data key="d0">1</data>
+      <data key="d1">gene</data>
+    </node>
+    <node id="XCL1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="PSD">
+      <data key="d1">gene</data>
+    </node>
+    <node id="KRT81">
+      <data key="d1">gene</data>
+    </node>
+    <node id="TMP1">
+      <data key="d1">gene</data>
+    </node>
+    <node id="LGR5">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CDH1">
+      <data key="d1">cellchat_entity</data>
+    </node>
+    <node id="CD24">
+      <data key="d1">gene</data>
+    </node>
+    <node id="collagens">
+      <data key="d1">gene</data>
+    </node>
+    <node id="CK18">
+      <data key="d1">gene</data>
+    </node>
+    <edge source="AGR2" target="Mature luminal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="LEPR" target="Stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="c-Kit" target="Cancer stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Nestin" target="Cancer stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Luminal progenitor cell" target="ALDH1A3">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Luminal progenitor cell" target="KIT">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Luminal progenitor cell" target="EZH2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Luminal progenitor cell" target="CK5">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Luminal progenitor cell" target="GABRP">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="GZMH" target="CD8+ T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CSC" target="Cancer cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD34" target="SELP">
+      <data key="d5">CD34</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="CD34" target="Cancer stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD34" target="Endothelial cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD34" target="Hematopoietic stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Endothelial cell" target="MCAM">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Endothelial cell" target="KDR">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Endothelial cell" target="IL3RA">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Endothelial cell" target="CDH5">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Endothelial cell" target="VWF">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Endothelial cell" target="PECAM1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Endothelial cell" target="VIM">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Endothelial cell" target="SERPINH1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Endothelial cell" target="CLEC14A">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Endothelial cell" target="EMCN">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Endothelial cell" target="SOX18">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Endothelial cell" target="CD31">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Endothelial cell" target="PTPRB">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD117" target="Cancer stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD49f" target="Stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD49f" target="Cancer stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD49f" target="Myeloid cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="AKR1A1" target="Cancer cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="KRT15" target="Luminal epithelial cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="B cell" target="SSR4">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="B cell" target="CD74">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="B cell" target="CD27">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="B cell" target="PTPRC">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="B cell" target="CD40">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="B cell" target="CD38">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="B cell" target="CD79A">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="B cell" target="CD14">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="B cell" target="VIM">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="B cell" target="BANK1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="B cell" target="LAPTM5">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="B cell" target="MS4A1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="B cell" target="IGHD">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="B cell" target="IGHM">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="B cell" target="IGKC">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="B cell" target="CD19">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="B cell" target="IGLL1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="B cell" target="IGLL5">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="B cell" target="CD20">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="B cell" target="TMP1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="B cell" target="IGJ">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="PDPN" target="Cancer-associated fibroblast">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="PDPN" target="Paget cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD90" target="Stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD90" target="Cancer stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD90" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="JAG1" target="NOTCH1">
+      <data key="d5">NOTCH</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="JAG1" target="Cancer cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="PN1" target="Fibroblast">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="SOX2" target="Cancer stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ALDH2" target="Stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ALDH2" target="Cancer stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="TLL1" target="Cancer cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CDH5" target="CDH5">
+      <data key="d5">CDH5</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="CDH5" target="Stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CDH5" target="Cancer cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CDH5" target="Macrophage">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CXCL10" target="M2 macrophage">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CXCL10" target="CD8+ T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CXCL10" target="M1 macrophage">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="HLA-DQB1" target="CD4">
+      <data key="d5">MHC-II</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="HLA-DQB1" target="Dendritic cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="PDCD1" target="T follicular helper(Tfh) cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD14" target="Myeloid cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD14" target="Macrophage">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD14" target="Monocyte">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="NOTCH1" target="DLK1">
+      <data key="d5">NOTCH</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="NOTCH1" target="Cancer cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="SEMA6A" target="Cancer cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CLEC5A" target="Macrophage">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="BMI1" target="Cancer stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ALDH1" target="Stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ALDH1" target="Cancer stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD45RA" target="Naive T(Th0) cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD45RA" target="Conventional T(Tconv) cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="INPP5F" target="Exhausted T(Tex) cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="MSN" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD166" target="Cancer stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="M1 macrophage" target="CXCL9">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="M1 macrophage" target="SOCS3">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="M1 macrophage" target="iNOS">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD29" target="Stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD29" target="Cancer stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Naive T(Th0) cell" target="CCR7">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Naive T(Th0) cell" target="LEF1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Pan-macrophage" target="CD68">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="IRF9" target="Cancer cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD7" target="T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="VEGFR2/KDR" target="Cancer cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="KIR2DS4" target="Natural killer cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Nectin-4" target="Cancer stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="PDGFRB" target="Cancer-associated fibroblast">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="PDGFRB" target="Fibroblast">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="PDGFRB" target="Perivascular cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="PDGFRB" target="Perivascular-like cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="PDGFRB" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="TPST2" target="Cancer cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="PLAT" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="LAMP3" target="Myeloid dendritic cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD248" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="EGFR" target="Stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="EGFR" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="IL7R" target="Conventional T(Tconv) cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="IL7R" target="CD4+ T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Her-2" target="Cancer stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ENTPD1" target="Exhausted CD8+ T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Plasmablast" target="JCHAIN">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Myeloid cell" target="CD86">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Myeloid cell" target="CD1C">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Myeloid cell" target="CD68">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Myeloid cell" target="CD127">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Myeloid cell" target="CD141">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Myeloid cell" target="CD16">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Myeloid cell" target="PD-L1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CLU" target="Antigen presentation cancer-associated fibroblast">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CYP3A4" target="Cancer cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD28" target="CD86">
+      <data key="d5">CD86</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="CD28" target="T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD28" target="Cytotoxic T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="MCAM" target="Pericyte">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="MCAM" target="Perivascular cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="MCAM" target="Perivascular-like cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="MCAM" target="Muscle cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CPNE1" target="Cancer cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="ALDH1A1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="ALDH1A3">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="ALDH6A1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="CXCR4">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="CD44">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="ALCAM">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="THY1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="PROCR">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="CD200">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="MYC">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="VIM">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="PGR">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="SOX9">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="GLI1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="ABCG2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="EPCAM">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="ESR1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="CD24">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="ALDH">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="CD10">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="CD133">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="CD15">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="ESA">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="Feline sarcoma-related tyrosine kinase">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="GD2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="GTAT3">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="HER2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="LGR5">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="LSD1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="Nanog">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="OCT3/4">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="Oct4">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="P63">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="POU5F1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="VEGF">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="CD61">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="Connexin 43">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="EpCAM">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="GLI-1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="NANOG">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer stem cell" target="PODXL-1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="LOX" target="Tumor-associated macrophage (TAM)">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Luminal cell" target="KRT8">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Luminal cell" target="KRT18">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="KRT7" target="Cancer cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="KRT7" target="Paget cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="MCCS" target="Cancer cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="MMP2" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Mature luminal cell" target="PGR">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Mature luminal cell" target="ESR1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Mature luminal cell" target="FOXA1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Mature luminal cell" target="AFF6">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Mature luminal cell" target="ANKRD30A">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD40" target="CD40LG">
+      <data key="d5">CD40</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="CD82" target="Exhausted CD8+ T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ER" target="Cancer cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Regulatory T(Treg) cell" target="TGFB1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Regulatory T(Treg) cell" target="CCR7">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Regulatory T(Treg) cell" target="CCR8">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Regulatory T(Treg) cell" target="IL2RA">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Regulatory T(Treg) cell" target="KLRB1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Regulatory T(Treg) cell" target="CD3G">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Regulatory T(Treg) cell" target="CD3D">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Regulatory T(Treg) cell" target="LAYN">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Regulatory T(Treg) cell" target="BATF">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Regulatory T(Treg) cell" target="FOXP3">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Regulatory T(Treg) cell" target="MAGEH1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Regulatory T(Treg) cell" target="STAT5B">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="ADH1B">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="B3GNT2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="C1GALT1C1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="CYP3A5">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="CYP3A7">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="ERBB2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="IL3RA">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="EDNRA">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="MET">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="CD36">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="SELP">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="CDH1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="SELE">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="VCAM1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="STOM">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="BRCA1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="STAT1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="KRT8">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="KRT19">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="CTNNA1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="GATA3">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="SULF2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="KRT18">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="DOCK9">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="BCAM">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="BRCA2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="MKI67">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="VIM">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="JAK1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="STAT2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="ISG15">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="OAS1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="CAMK1D">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="PRDM1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="ENG">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="ARHGAP10">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="EPCAM">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="ESR1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="KLRF1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="PD-1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="ALPI">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="CA153">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="CHST15">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="CK19">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="CPS-II">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="CRYBB2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="EMT">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="FAM177A1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="FASLG (soluble)">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="GCDFP-15">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="GNA13">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="GOLM1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="HER2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="IGFIR (soluble)">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="IR">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="ISLR2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="KIN">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="LIFR (soluble)">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="panCK">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="PBCS">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="pKARMA">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="PSD">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="RIC8A">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="RSPO3">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="THSD1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="TIE1 (soluble)">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="TMPRSS11D">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="TNS2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="TRPS1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="TTF-1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="UKBGS">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="VEGFR3/FLT4">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer cell" target="HER-2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD1C" target="Dendritic cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CSF1R" target="CSF1">
+      <data key="d5">CSF</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="CSF1R" target="Macrophage">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="NRP2" target="M2 macrophage">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD79A" target="Plasma cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD206" target="M2 macrophage">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer-associated fibroblast" target="PDGFRA">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer-associated fibroblast" target="COL1A1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer-associated fibroblast" target="THY1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer-associated fibroblast" target="ACTA2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cancer-associated fibroblast" target="FAP">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="SERPINH1" target="Myofibroblast">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="OAS1" target="Exhausted CD8+ T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="KLRB1" target="Natural killer cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="KIR3DL3" target="Natural killer cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD133" target="Stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD133" target="Polyploid giant cancer cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD209" target="Macrophage">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="41BB" target="T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="proteases" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ESR1" target="Epithelial cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ESR1" target="Basal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ESR1" target="Luminal epithelial cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="HLA-DPB1" target="CD4">
+      <data key="d5">MHC-II</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="HLA-DPB1" target="Dendritic cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Naive CD4 T cell" target="CCR7">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Naive CD4 T cell" target="CD3G">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Naive CD4 T cell" target="CD3D">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CDH2" target="CDH2">
+      <data key="d5">CDH</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="CDH2" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="COL3A1" target="Myofibroblast">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Monocyte" target="CD4">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Monocyte" target="ITGAM">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Monocyte" target="ITGAX">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Monocyte" target="PTPRC">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Monocyte" target="VIM">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Monocyte" target="LAPTM5">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Monocyte" target="LYZ">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Monocyte" target="FCGR3A">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Monocyte" target="CD33">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD61" target="Stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="IGHG4" target="Plasma cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="IgD" target="Naive memory B cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="GrB+ Regulatory B cell" target="CD38">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="GrB+ Regulatory B cell" target="CD19">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="GrB+ Regulatory B cell" target="CD147">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="GrB+ Regulatory B cell" target="CD1d">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="GrB+ Regulatory B cell" target="IgM">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="TGFBR2" target="TGFB1">
+      <data key="d5">TGFb</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="TGFBR2" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="KLRD1" target="HLA-E">
+      <data key="d5">MHC-I</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="KLRD1" target="Natural killer cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="KLRD1" target="Natural killer T(NKT) cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Notch2" target="Stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD3E" target="T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD3E" target="Cytotoxic T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="JCHAIN" target="Plasma cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="JCHAIN" target="Plasmacytoid dendritic cell(pDC)">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="MET" target="Stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="KIR3DL1" target="Natural killer cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="KRT17" target="Basal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="KRT17" target="Myo-epithelial cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Gamma delta(gamadelta) T cell" target="CCR5">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Gamma delta(gamadelta) T cell" target="CXCR6">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Gamma delta(gamadelta) T cell" target="TCRgamadelta">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Pericyte" target="COL1A2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Pericyte" target="DCN">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Pericyte" target="TAGLN">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Pericyte" target="ACTA2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Pericyte" target="MYH11">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD8A" target="HLA-E">
+      <data key="d5">MHC-I</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="CD8A" target="T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD8A" target="Effector CD8 T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD8A" target="Natural killer cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD8A" target="Cytotoxic T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD8A" target="CD8+ T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="HLA-DRB1" target="CD4">
+      <data key="d5">MHC-II</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="HLA-DRB1" target="Exhausted CD8+ T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Macrophage" target="CD74">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Macrophage" target="IL1B">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Macrophage" target="CSF1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Macrophage" target="CD4">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Macrophage" target="ITGAM">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Macrophage" target="ITGAX">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Macrophage" target="PTPRC">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Macrophage" target="CD86">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Macrophage" target="HLA-DPA1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Macrophage" target="VIM">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Macrophage" target="MSR1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Macrophage" target="LAPTM5">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Macrophage" target="LYZ">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Macrophage" target="FCGR3A">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Macrophage" target="CD163">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Macrophage" target="CD33">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Macrophage" target="CD68">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CK14" target="Basal epithelial cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CK14" target="Myoepithelial cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="THY1" target="ITGAM">
+      <data key="d5">THY1</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="THY1" target="ITGAX">
+      <data key="d5">THY1</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="THY1" target="Fibroblast">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="THY1" target="Perivascular cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="THY1" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="KLRF1" target="Natural killer cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD70" target="CD27">
+      <data key="d5">CD70</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="CD70" target="Stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="LYVE1" target="Lymphatic endothelial cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="T helper 1(Th1) cell" target="ZEB2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ALDH1B1" target="Stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ID2" target="Stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="HBA2" target="Red blood cell (erythrocyte)">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ACTA2" target="Epithelial cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ACTA2" target="Fibroblast">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ACTA2" target="Myofibroblast">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ACTA2" target="Perivascular cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ACTA2" target="Perivascular-like cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ACTA2" target="Stromal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ACTA2" target="Muscle cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CXCL9" target="CD8+ T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="EMT non-cancer stem cell(EMT non-CSC)" target="CD44">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Stem cell" target="ALDH1A1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Stem cell" target="ALDH1A2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Stem cell" target="ALDH1A3">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Stem cell" target="CXCR4">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Stem cell" target="CD44">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Stem cell" target="KLF4">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Stem cell" target="ABCG2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Stem cell" target="CD24">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Stem cell" target="LGR4">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Stem cell" target="NANOG">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Stem cell" target="Oct4">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Stem cell" target="EpCAM">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Stem cell" target="LGR5">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Stem cell" target="ProC-R">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Tumor-infiltrating B cell" target="CD20">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="STAT1" target="CD8+ T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="PTPRC" target="T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="PTPRC" target="Cytotoxic T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="PTPRC" target="Plasma cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="PTPRC" target="Immune cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="E-Cadherin" target="Epithelial cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="IL21" target="T follicular helper(Tfh) cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD8" target="T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD8" target="Cytotoxic T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD8" target="Tumor-infiltrating T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD8" target="CD8+ T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CK5" target="Mammary stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="PLOD2" target="Tumor-associated macrophage (TAM)">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="IFITM3" target="Exhausted CD8+ T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD104" target="Basal epithelial cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="M2 macrophage" target="CCL3">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="M2 macrophage" target="MARCO">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="M2 macrophage" target="CD276">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="M2 macrophage" target="CD163">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="PDGFRA" target="Fibroblast">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD36" target="Endothelial progenitor cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD19" target="B10 Regulatory B cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ITGAX" target="Dendritic cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="KIR3DL2" target="Natural killer cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="MLANA" target="Melanocyte">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="KRT10" target="Suprabasal epithelial cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CAV1" target="Perivascular cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CAV1" target="Antigen presentation cancer-associated fibroblast">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="KIT" target="Basal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="KIT" target="Mast cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CTSG" target="Mast cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD25" target="Conventional T(Tconv) cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD25" target="Cytotoxic T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD25" target="CD4+ T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="MX1" target="Exhausted CD8+ T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="tryptase" target="Mast cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Src" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD163" target="Tumor-associated macrophage (TAM)">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Natural killer cell" target="CCR7">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Natural killer cell" target="XCL1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Natural killer cell" target="KIR2DL1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Natural killer cell" target="KIR2DL3">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Natural killer cell" target="KLRC1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Natural killer cell" target="NCAM1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Natural killer cell" target="CD3G">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Natural killer cell" target="NCR1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Natural killer cell" target="CD3D">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Natural killer cell" target="GNLY">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Natural killer cell" target="NKG7">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Natural killer cell" target="KIR2DL4">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="FN1" target="CD44">
+      <data key="d5">FN1</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="FN1" target="ITGB1">
+      <data key="d5">FN1</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="FN1" target="SDC1">
+      <data key="d5">FN1</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="FN1" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CCL5" target="CCR5">
+      <data key="d5">CCL</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="CCL5" target="T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD127" target="Conventional T(Tconv) cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="MYLK" target="Basal progenitor cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CLDN12" target="Epithelial cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="IFI6" target="Exhausted CD8+ T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Myo-epithelial cell" target="KRT5">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Myo-epithelial cell" target="KRT14">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="KRT86" target="Exhausted CD8+ T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Zeb-1" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Proliferating T cell" target="MKI67">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Luminal epithelial cell" target="ERBB2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Luminal epithelial cell" target="CD44">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Luminal epithelial cell" target="CDH1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Luminal epithelial cell" target="AR">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Luminal epithelial cell" target="MKI67">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Luminal epithelial cell" target="MUC1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Luminal epithelial cell" target="PGR">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Luminal epithelial cell" target="EPCAM">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Luminal epithelial cell" target="CD24">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Luminal epithelial cell" target="KRT23">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Luminal epithelial cell" target="KRT81">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Exhausted T(Tex) cell" target="GPR25">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="NRP1" target="Dendritic cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="TWIST1" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Mast cell" target="CPA3">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Mast cell" target="CMA1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Mast cell" target="TPSD1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="POSTN" target="Fibroblast">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="SIGLEC1" target="Tumor-associated macrophage (TAM)">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Tumor-associated macrophage (TAM)" target="CCL2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Tumor-associated macrophage (TAM)" target="IL10">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Tumor-associated macrophage (TAM)" target="CD68">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ZEB2" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="B10 Regulatory B cell" target="CD38">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="B10 Regulatory B cell" target="CD24">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Dendritic cell" target="HLA-DPA1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Dendritic cell" target="HLA-DRA">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CFD" target="T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CFD" target="Adipocyte">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CLEC4C" target="Plasmacytoid dendritic cell(pDC)">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Antigen presentation cancer-associated fibroblast" target="CD74">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Basal progenitor cell" target="ACTA3">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Basal progenitor cell" target="WIF1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="MMP11" target="Fibroblast">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="GZMA" target="Cytotoxic T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Fibronectin" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Basal cell" target="PGR">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Basal cell" target="CD24">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Basal cell" target="KRT14">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="KRT5" target="Epithelial cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="GZMB" target="Exhausted CD8+ T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="GZMB" target="Cytotoxic T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="GZMB" target="CD8+ T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="FBN1" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="NKG7" target="Effector CD8 T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="NKG7" target="Cytotoxic T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="vimentin" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Myeloid dendritic cell" target="CCR7">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Perivascular cell" target="ITGB1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Perivascular cell" target="S100A4">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Perivascular cell" target="TAGLN">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Perivascular cell" target="MYH11">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Perivascular cell" target="RGS5">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD44" target="COL1A1">
+      <data key="d5">COLLAGEN</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="CD44" target="COL1A2">
+      <data key="d5">COLLAGEN</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="CD44" target="SELE">
+      <data key="d5">SELE</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="CD44" target="Polyploid giant cancer cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD44" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD44" target="Breast cancer stem-like cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD44" target="EMT cancer stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD44" target="Progenitor cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD44" target="Tumor-initiating cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="FOXP3" target="T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="FOXP3" target="Tumor-infiltrating T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD45" target="Hematopoietic cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD45" target="Leukocyte">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Tumor-infiltrating T cell" target="CD4">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Effector CD8 T cell" target="CCR7">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Effector CD8 T cell" target="CD3G">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Effector CD8 T cell" target="CD3D">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Naive memory B cell" target="CD38">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cycling epithelial cell" target="MKI67">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="GD2" target="Breast cancer stem-like cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="SCARA5" target="Adipocyte">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CK" target="Epithelial cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ITGAM" target="CD40LG">
+      <data key="d5">CD40</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="IFI27" target="Exhausted CD8+ T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="smooth muscle myosin heavy chain" target="Myoepithelial cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Cav-1" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="HLA-E" target="KLRC1">
+      <data key="d5">MHC-I</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="HLA-E" target="CD8+ T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ISG15" target="Exhausted CD8+ T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="SNAI1" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="fibronectin" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Conventional T(Tconv) cell" target="CD4">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Conventional T(Tconv) cell" target="DUSP1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Conventional T(Tconv) cell" target="IL17">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CXCL13" target="Exhausted CD8+ T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CXCL13" target="T follicular helper(Tfh) cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="VIM" target="T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="VIM" target="Fibroblast">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="VIM" target="Myofibroblast">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="VIM" target="Paget cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="VIM" target="Cytotoxic T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="VIM" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="VIM" target="Plasma cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="TGFB1" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD8+ T cell" target="IDO1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD8+ T cell" target="HLA-DRA">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="EPCAM" target="Epithelial cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="EPCAM" target="EMT cancer stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="APOD" target="Adipocyte">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="SPARC" target="Fibroblast">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="SPARC" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="NCR1" target="Natural killer T(NKT) cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="DCN" target="Fibroblast">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ITGB1" target="CD40LG">
+      <data key="d5">CD40</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="ITGB1" target="COL1A1">
+      <data key="d5">COLLAGEN</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="ITGB1" target="COL1A2">
+      <data key="d5">COLLAGEN</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="ITGB1" target="CDH1">
+      <data key="d5">CDH1</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="ITGB1" target="Fibroblast">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="IGHG2" target="Plasma cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD2" target="T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD2" target="Cytotoxic T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CCR5" target="CCL3">
+      <data key="d5">CCL</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="FAK" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="PIP" target="Paget cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD3D" target="T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD3D" target="Cytotoxic T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD3D" target="Natural killer T(NKT) cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Adipocyte" target="DLK1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Fibroblast" target="CXCL12">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Fibroblast" target="COL1A1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Fibroblast" target="COL1A2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Fibroblast" target="S100A4">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Fibroblast" target="TAGLN">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Myoepithelial cell" target="calponin">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Myoepithelial cell" target="p63">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Neutrophil" target="C5aR1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="KRT18" target="Epithelial cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="MYH11" target="Muscle cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Exhausted CD8+ T cell" target="CCL3">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Exhausted CD8+ T cell" target="HAVCR2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Exhausted CD8+ T cell" target="HLA-DQA2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Exhausted CD8+ T cell" target="HLA-DRA">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Exhausted CD8+ T cell" target="HLA-DRB5">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Exhausted CD8+ T cell" target="PRF1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Exhausted CD8+ T cell" target="LY6E">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Exhausted CD8+ T cell" target="BST2">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Exhausted CD8+ T cell" target="IFI44L">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Exhausted CD8+ T cell" target="IFIT3">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Exhausted CD8+ T cell" target="IFI44">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Exhausted CD8+ T cell" target="GNLY">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Exhausted CD8+ T cell" target="ALOX5AP">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="IGKC" target="Plasma cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="MKI67" target="Proliferative cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Twist" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD4" target="HLA-DPA1">
+      <data key="d5">MHC-II</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="CD4" target="HLA-DQA2">
+      <data key="d5">MHC-II</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="CD4" target="HLA-DRA">
+      <data key="d5">MHC-II</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="CD4" target="HLA-DRB5">
+      <data key="d5">MHC-II</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="CD4" target="T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD4" target="CD4+ T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD4" target="T helper(Th) cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="PRF1" target="Cytotoxic T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Plasmacytoid dendritic cell(pDC)" target="IL3RA">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD3G" target="T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD3G" target="Cytotoxic T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="N-cadherin" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="HBB" target="Red blood cell (erythrocyte)">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="GATA3" target="Paget cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="GZMK" target="T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CXADR" target="Epithelial cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ALDH1A3" target="Epithelial cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ALDH1A3" target="Epithelial-mesenchymal transition cancer stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="SDC1" target="COL1A1">
+      <data key="d5">COLLAGEN</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="SDC1" target="COL1A2">
+      <data key="d5">COLLAGEN</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="SDC1" target="Epithelial cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="SDC1" target="Myofibroblast">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="SDC1" target="Plasma cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CXCR4" target="CXCL12">
+      <data key="d5">CXCL</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="Twist1" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD3" target="T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="OCLN" target="OCLN">
+      <data key="d5">OCLN</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="OCLN" target="Epithelial cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="LAPTM5" target="T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="LAPTM5" target="Cytotoxic T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="LAPTM5" target="Plasma cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ZEB1" target="Epithelial cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ZEB1" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="IGHG1" target="Plasma cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ICOC" target="T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Epithelial cell" target="CDH1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Epithelial cell" target="KRT8">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Epithelial cell" target="KRT14">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Epithelial cell" target="CK18">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Epithelial cell" target="ZO-1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Paget cell" target="MMP9">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Paget cell" target="KRT8">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Paget cell" target="AR">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Paget cell" target="MUC1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Paget cell" target="MYD88">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD140b" target="Hematopoietic cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="T follicular helper(Tfh) cell" target="CD200">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="T follicular helper(Tfh) cell" target="BCL6">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Rac1" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Slug" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD146" target="Perivascular-like cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Vimentin" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD38" target="PECAM1">
+      <data key="d5">PECAM2</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="IFIT1" target="T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="GNLY" target="Natural killer T(NKT) cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="PECAM1" target="PECAM1">
+      <data key="d5">PECAM1</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="CD235a" target="Red blood cell (erythrocyte)">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="ALDH1A1" target="Epithelial-mesenchymal transition cancer stem cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="TIMP1" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD40LG" target="CD4+ T cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="CD59" target="Mesenchymal cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Myofibroblast" target="COL1A1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Mesenchymal cell" target="ETS1">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Mesenchymal cell" target="CTSC">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Mesenchymal cell" target="FBLN5">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Mesenchymal cell" target="collagens">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Mesenchymal cell" target="N-Cadherin">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="Mesenchymal cell" target="Snail">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="MYL9" target="Muscle cell">
+      <data key="d3">gene-cellstate</data>
+      <data key="d4">cellmarker2.0</data>
+    </edge>
+    <edge source="NCAM1" target="NCAM1">
+      <data key="d5">NCAM</data>
+      <data key="d4">cellchat</data>
+    </edge>
+    <edge source="CDH1" target="CDH1">
+      <data key="d5">CDH</data>
+      <data key="d4">cellchat</data>
+    </edge>
+  </graph>
+</graphml>
