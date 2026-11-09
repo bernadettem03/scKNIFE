@@ -2,10 +2,9 @@
 
 **Connect single-cell gene expression with biological knowledge to reveal interpretable cellular programs.**
 
-[Documentation](https://scknife-tutorial.readthedocs.io/en/latest/) · [Tutorial notebook](tutorial/scKNIFE_Bassez_Cohort_B_complete_tutorial.ipynb) · [Installation](https://scknife-tutorial.readthedocs.io/en/latest/installation.html) · [Graph guide](https://scknife-tutorial.readthedocs.io/en/latest/graphs.html)
+[Documentation](https://scknife-tutorial.readthedocs.io/en/latest/) · [Tutorial notebook](tutorial/scKNIFE_Bassez_Cohort_B_complete_tutorial.ipynb) · [Installation](https://scknife-tutorial.readthedocs.io/en/latest/installation.html) · [Graph guide](https://scknife-tutorial.readthedocs.io/en/latest/graphs.html) · [Test runs](https://github.com/bernadettem03/scKNIFE/actions/workflows/tests.yml)
 
-[![Tests](https://github.com/bernadettem03/scKNIFE/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/bernadettem03/scKNIFE/actions/workflows/tests.yml)
-[![Documentation](https://readthedocs.org/projects/scknife-docs/badge/?version=latest)](https://scknife-tutorial.readthedocs.io/en/latest/)
+[![Documentation](https://app.readthedocs.org/projects/scknife-tutorial/badge/?version=latest)](https://scknife-tutorial.readthedocs.io/en/latest/)
 [![Software license: MIT](https://img.shields.io/badge/software_license-MIT-blue.svg)](LICENSE)
 
 scKNIFE uses graph-regularized non-negative matrix factorization to learn cell factors and biological-node activities.
