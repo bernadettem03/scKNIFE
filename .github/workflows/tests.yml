@@ -16,7 +16,7 @@ jobs:
           python-version: '3.9.21'
       - run: python -m pip install -e '.[test,tutorial]'
       - run: python -m pip check
-      - name: Check current 10,000-cell tutorial commands
+      - name: Check current 36,721-cell tutorial commands
         run: python scripts/check_tutorial_contract.py
       - run: python -m pytest -q
       - run: python scripts/validate_supplied_graphs.py

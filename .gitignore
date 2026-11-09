@@ -36,6 +36,7 @@ tutorial/outputs_5000/
 tutorial/inputs/
 
 tutorial/outputs_10000/
+tutorial/outputs_36721/
 
 # Deliberately bundled, fully synthetic regression fixture
 !tutorial/data/synthetic_regression_1000.h5ad

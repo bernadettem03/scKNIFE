@@ -20,6 +20,7 @@ def run_full_pipeline(
     tol=1e-4,
     random_state=42,
     max_dense_bytes=2_000_000_000,
+    show_loss=True,
 ):
     print("Starting Full scKNIFE (Graph-Regularized NMF) Pipeline...")
     print(f"Params - k={k}, lambda={lambda_reg}, beta_W={beta_W}, beta_H={beta_H}, Iterations={n_iter}\n")
@@ -62,7 +63,8 @@ def run_full_pipeline(
 
     # Store loss history for downstream evaluation (joint grid, tuning)
     adata.uns['loss_history'] = loss_history
-    plot_losses(loss_history)
+    if show_loss:
+        plot_losses(loss_history)
 
     W_std, H_std, X_hat_std, std_metrics = run_standard_nmf_and_evaluate(X, adata, k=k)
 

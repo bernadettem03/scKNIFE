@@ -30,3 +30,21 @@ from scknife.signaling import run_activity_lr
 from scknife.celltype.breast import run_breast_celltype_assignment
 
 from scknife.celltype.rare_refinement import refine_rare_breast_labels
+
+
+# Resolve analysis namespaces on first use, keeping the base import lightweight.
+def __getattr__(name):
+    from importlib import import_module
+
+    namespaces = {
+        "fp": "tutorial.factors",
+        "activity": "tutorial.activity",
+        "communication": "tutorial.signaling",
+        "optional": "tutorial.optional",
+        "tutorial": "tutorial",
+    }
+    if name not in namespaces:
+        raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+    module = import_module(f"{__name__}.{namespaces[name]}")
+    globals()[name] = module
+    return module

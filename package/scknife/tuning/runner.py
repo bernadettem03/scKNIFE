@@ -7,7 +7,7 @@ from scipy.stats import pearsonr
 from sklearn.decomposition import NMF as SklearnNMF
 from sklearn.metrics import calinski_harabasz_score, davies_bouldin_score
 import matplotlib
-matplotlib.use('Agg')
+# Respect the caller's backend (inline in notebooks, Agg for headless scripts).
 import matplotlib.pyplot as plt
 
 from scknife.tuning.advanced import leiden_silhouette, evaluate_h_graph_clustering

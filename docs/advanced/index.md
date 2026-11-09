@@ -1,7 +1,8 @@
 ---
 orphan: true
+redirect_to: ../index.html#more-examples
 ---
 
-# Detailed analysis with 10,000 cells
+# Tutorial link
 
-All worked analyses are integrated into the {doc}`../tutorial-10000`, including factor interpretation, projection and cell signaling.
+[Continue to the tutorial](../index.md#more-examples).

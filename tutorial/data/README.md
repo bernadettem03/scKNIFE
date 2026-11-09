@@ -6,4 +6,4 @@ Regenerate with `python scripts/generate_synthetic_fixture.py` (seed 42). Counts
 
 The synthetic data are supplied under the repository MIT license. Graph resource terms are recorded separately.
 
-The main [10,000-cell tutorial](../../docs/tutorial-10000.md) continues to use Bassez cohort-2 data obtained from the [original source](https://lambrechtslab.sites.vib.be/en/single-cell). Follow [input preparation](../../docs/tutorial-inputs.md); the real counts and metadata are not bundled here.
+The main [36,721-cell TNBC tutorial](../../docs/tutorials/36721-setup.md) continues to use Bassez cohort-2 data obtained from the [original source](https://lambrechtslab.sites.vib.be/en/single-cell). Follow [input preparation](../../docs/tutorial-inputs.md); the real counts and metadata are not bundled here.

@@ -1,54 +1,21 @@
 # Installation
 
-Use **Python 3.9.21** in a new environment.
-
-## Install from GitHub
-
-```bash
-conda create -n scknife python=3.9.21 pip
-conda activate scknife
-pip install "git+https://github.com/bernadettem03/scKNIFE.git"
-```
-
-## Editable installation
+Clone the repository to get the example scripts and graphs. Use Python 3.9.21 and install the tutorial dependencies:
 
 ```bash
 git clone https://github.com/bernadettem03/scKNIFE.git
 cd scKNIFE
 conda create -n scknife python=3.9.21 pip
 conda activate scknife
-pip install -e .
+python -m pip install -e '.[tutorial]'
 ```
 
-## Run the 10,000-cell tutorial
-
-After cloning the repository, install the tutorial dependencies:
-
-```bash
-pip install -e '.[tutorial]'
-```
-
-Follow {doc}`tutorial-inputs` to obtain and prepare the external data. Then run the commands in {doc}`quickstart`. The {doc}`tutorial-10000` explains the same analysis in detail. The tutorial uses the supplied Version 1 graph and does not require the optional graph-building dependencies.
-
-## Verify
+Check the installation:
 
 ```python
 import scknife
-from scknife import run_full_pipeline, run_tuning
-print(scknife.__file__)
-print(run_full_pipeline)
+from importlib.metadata import version
+print(version("scknife"))
 ```
 
-## Clustering dependencies
-
-H-space clustering uses Scanpy's Leiden implementation. The `tutorial` extra above installs these dependencies; install them separately only if you installed the base package:
-
-```bash
-pip install python-igraph leidenalg
-```
-
-See {doc}`troubleshooting` for common setup problems.
-
-## Continue the tutorial
-
-Obtain the files in {doc}`tutorial-inputs`, then continue to {doc}`tutorials/10000-setup`. Choose an analysis from {doc}`tutorial-10000` after fitting and clustering.
+Continue to [Run scKNIFE](tutorials/36721-setup.md#start-with-raw-counts) to prepare the dataset and fit the model.

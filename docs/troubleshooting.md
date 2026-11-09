@@ -30,4 +30,4 @@ Tune on a representative subset, run full factorization once, and persist W, H, 
 
 ## Read the Docs does not rerun the tutorial
 
-The site displays saved notebook outputs. To regenerate results with your inputs, run `python scripts/run_tutorial.py` after completing {doc}`tutorial-inputs`.
+The site displays saved notebook outputs. To regenerate results with your inputs, run `python scripts/run_tutorial.py` after completing [input preparation](tutorials/36721-setup.md#start-with-raw-counts).

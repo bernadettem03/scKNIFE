@@ -2,7 +2,8 @@
 (function () {
   try {
     if (!localStorage.getItem("scknife-furo-theme-initialized")) {
-      localStorage.setItem("theme", "light");
+      if (!localStorage.getItem("theme")) localStorage.setItem("theme", "light");
+      document.body.dataset.theme = localStorage.getItem("theme");
       localStorage.setItem("scknife-furo-theme-initialized", "true");
     }
   } catch (_) { /* Storage may be disabled in private browser settings. */ }

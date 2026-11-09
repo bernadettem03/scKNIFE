@@ -1,7 +1,8 @@
 ---
 orphan: true
+redirect_to: tutorials/36721-setup.html
 ---
 
-# Tutorial entry point
+# Tutorial link
 
-The current main workflow is the {doc}`tutorial-10000`. It regenerates its plots from a representative 10,000-cell sample and examines cell-type retention using source cell-type metadata.
+[Continue to the tutorial](tutorials/36721-setup.md).

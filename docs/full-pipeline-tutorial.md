@@ -1,7 +1,8 @@
 ---
 orphan: true
+redirect_to: tutorials/36721-setup.html
 ---
 
-# Complete 10,000-cell workflow
+# Tutorial link
 
-Follow the {doc}`tutorial-10000` for the 10,000-cell analysis with code and plots. Start with {doc}`quickstart` and {doc}`tutorial-inputs`.
+[Continue to the tutorial](tutorials/36721-setup.md).

@@ -1,9 +1,8 @@
 ---
 orphan: true
+redirect_to: index.html#analysis-tasks
 ---
 
-# Analysis tasks
+# Tutorial link
 
-Choose metabolic tasks, GO analysis, factor interpretation or cell–cell signaling from the tutorial overview.
-
-[Open analysis tasks](tutorial-10000.md).
+[Continue to the tutorial](index.md#analysis-tasks).

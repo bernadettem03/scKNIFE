@@ -8,7 +8,7 @@ import os
 from pathlib import Path
 
 import matplotlib
-matplotlib.use("Agg")
+# Respect the caller's backend (inline in notebooks, Agg for headless scripts).
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyArrowPatch
 import networkx as nx
@@ -127,6 +127,7 @@ def plot_sender_receiver(comm: pd.DataFrame, outdir: Path, prefix: str = "01") -
     axes[1].set_xlabel("Total incoming weighted score")
     axes[1].set_title("B  Receiver strength", loc="left", fontweight="bold")
     for ax in axes:
+        ax.xaxis.set_major_locator(plt.MaxNLocator(4))
         clean_axis(ax)
     fig.tight_layout()
     save_figure(fig, outdir / f"{prefix}_sender_receiver")
@@ -199,6 +200,7 @@ def plot_network(
     nx.draw_networkx_nodes(
         graph,
         pos,
+        nodelist=groups,
         node_color=group_colors(groups),
         node_size=NODE_SIZE,
         edgecolors="white",

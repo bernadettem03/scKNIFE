@@ -1,9 +1,8 @@
 ---
 orphan: true
+redirect_to: 36721-setup.html
 ---
 
-# Tutorial guide
+# Tutorial link
 
-Open the 10,000-cell tutorial to get started or choose an analysis.
-
-[Open tutorial guide](../tutorial-10000.md).
+[Continue to the tutorial](36721-setup.md).

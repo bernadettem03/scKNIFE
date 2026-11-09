@@ -1,7 +1,8 @@
 ---
 orphan: true
+redirect_to: tutorials/36721-setup.html
 ---
 
-# Quick start: 10,000 cells
+# Tutorial link
 
-Continue with the {doc}`quickstart` for commands and {doc}`tutorial-inputs` for input preparation. The {doc}`tutorial-10000` explains every stage and all newly generated plots.
+[Continue to the tutorial](tutorials/36721-setup.md).

@@ -30,7 +30,7 @@ dependencies = [
 ]
 
 [project.urls]
-Documentation = "https://scknife-docs.readthedocs.io/en/latest/"
+Documentation = "https://scknife-tutorial.readthedocs.io/en/latest/"
 Source = "https://github.com/bernadettem03/scKNIFE"
 Issues = "https://github.com/bernadettem03/scKNIFE/issues"
 

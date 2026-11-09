@@ -17,7 +17,7 @@
     "beta_W": 0.001,
     "beta_H": 0.1
   },
-  "selected_validation_error": 0.5983674211666361,
-  "seconds": 327.11089665512554,
+  "selected_validation_error": 0.5977392471579029,
+  "seconds": 396.14251106604934,
   "selection_rule": "Smallest rank within 1% of best joint-grid validation error; sequential penalties minimize mean error."
 }

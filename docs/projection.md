@@ -6,4 +6,4 @@ orphan: true
 
 Projection code, figures and results are on the dedicated example page.
 
-[Open rank sensitivity and projection](tutorials/10000-validation.md).
+[Open rank sensitivity and projection](tutorials/36721-validation.md).

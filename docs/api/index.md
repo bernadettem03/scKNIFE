@@ -15,6 +15,7 @@ Only functions presented in this reference are treated as the supported public u
 ```{toctree}
 :maxdepth: 2
 
+tutorial
 core
 graphs
 tuning

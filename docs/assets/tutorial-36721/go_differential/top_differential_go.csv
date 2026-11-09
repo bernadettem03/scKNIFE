@@ -1,0 +1,6 @@
+cell_type,feature,log2FC,cohens_d,adj_p_value
+Cancer_cell,tRNA 3'-end processing (GO:0042780),0.310,0.470,5.98e-45
+Cancer_cell,5-phosphoribose 1-diphosphate metabolic process (GO:0046391),0.283,0.404,7.61e-44
+Cancer_cell,5-phosphoribose 1-diphosphate biosynthetic process (GO:0006015),0.283,0.404,7.61e-44
+Cancer_cell,ruffle assembly (GO:0097178),0.286,0.452,9.37e-43
+Cancer_cell,mitochondrial tRNA processing (GO:0090646),0.286,0.468,1.07e-42

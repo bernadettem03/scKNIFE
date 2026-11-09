@@ -60,17 +60,21 @@ html_theme_options = {
 
 
 ANALYSIS_PAGES = {
-    "tutorials/10000-metabolic", "tutorials/10000-go",
-    "tutorials/10000-factors", "tutorials/10000-signaling",
-    "tutorials/10000-validation", "tutorials/10000-states",
+    "tutorials/36721-metabolic", "tutorials/36721-go",
+    "tutorials/36721-factors", "tutorials/36721-signaling",
+    "tutorials/36721-validation", "tutorials/36721-states",
 }
 
 
 def task_navigation(app, pagename, templatename, context, doctree):
     """Keep independent analysis topics out of sequential page navigation."""
+    redirect = app.env.metadata.get(pagename, {}).get('redirect_to')
+    if redirect:
+        context['redirect_to'] = redirect
+        return 'redirect.html'
     if pagename in ANALYSIS_PAGES:
         context["prev"] = context["next"] = None
-    elif pagename == "tutorials/10000-annotation":
+    elif pagename == "tutorials/36721-clustering":
         context["next"] = None
 
 

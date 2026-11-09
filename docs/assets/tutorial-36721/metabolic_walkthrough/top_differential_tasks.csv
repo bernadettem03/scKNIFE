@@ -1,0 +1,6 @@
+cell_type,feature,log2FC,cohens_d,adj_p_value
+Cancer_cell,Co-translational translocation,-0.315,-0.612,8.50e-50
+Cancer_cell,Disulfide bond formation,-0.437,-0.472,7.64e-48
+Cancer_cell,Post translational translocation,-0.337,-0.553,2.29e-43
+Cancer_cell,Synthesis of bilirubin,-0.756,-0.421,2.03e-41
+Cancer_cell,Malate to pyruvate conversion,0.256,0.525,4.47e-38

@@ -13,7 +13,7 @@ parser.add_argument("--regression", action="store_true", help="Run the small bun
 args = parser.parse_args()
 name = "scKNIFE_regression_1000.ipynb" if args.regression else "scKNIFE_Bassez_Cohort_B_complete_tutorial.ipynb"
 source = root / "tutorial" / name
-out = Path(os.environ.get("SCKNIFE_TUTORIAL_OUTPUT", root / ("tutorial/outputs" if args.regression else "tutorial/outputs_10000"))).resolve()
+out = Path(os.environ.get("SCKNIFE_TUTORIAL_OUTPUT", root / ("tutorial/outputs" if args.regression else "tutorial/outputs_36721"))).resolve()
 out.mkdir(parents=True, exist_ok=True)
 os.environ["SCKNIFE_TUTORIAL_OUTPUT"] = str(out)
 nb = nbformat.read(source, as_version=4)

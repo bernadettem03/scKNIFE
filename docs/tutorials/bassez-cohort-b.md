@@ -1,7 +1,8 @@
 ---
 orphan: true
+redirect_to: 36721-setup.html
 ---
 
-# Bassez tutorial: 10,000 cells
+# Tutorial link
 
-Open the {doc}`../tutorial-10000` or download the {download}`executed notebook <../downloads/scKNIFE_10000_tutorial.ipynb>`. Prepare the inputs using {doc}`../tutorial-inputs`.
+[Continue to the tutorial](36721-setup.md).

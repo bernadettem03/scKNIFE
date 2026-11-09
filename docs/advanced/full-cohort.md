@@ -1,9 +1,8 @@
 ---
 orphan: true
+redirect_to: ../index.html#analysis-tasks
 ---
 
-# Complete tutorial: 10,000 cells
+# Tutorial link
 
-The complete analysis is now in the {doc}`../tutorial-10000`. It covers fitting, cell-type retention, biological activity, descriptive condition contrasts, factor interpretation, projection and signaling using the same selected 10,000 cells.
-
-Use {doc}`../quickstart` to run it, or {doc}`../tutorial-inputs` to prepare the source data. This page contains no historical cohort plots.
+[Continue to the tutorial](../index.md#analysis-tasks).

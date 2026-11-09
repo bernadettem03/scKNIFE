@@ -39,8 +39,12 @@ article div.highlight, article pre { max-width: 100%; overflow-x: auto; }
 article a.scientific-figure-link { max-width: 100%; }
 
 /* Preserve readable row labels in combined entity heatmaps. */
-article img.combined-entity-plot { max-height: none; max-width: 100%; width: 100%; }
+article img.combined-entity-plot { max-height: none; max-width: min(100%, 700px); width: auto; }
 
 /* Keep metabolic examples compact without widening the violin panels. */
 article img.metabolic-plot { max-width: min(100%, 680px); }
-article img.metabolic-violin { max-width: min(100%, 380px); max-height: none; }
+article img.metabolic-violin { max-width: min(100%, 315px); max-height: none; }
+
+/* Give multi-panel signaling plots extra room for labels. */
+article img.analysis-single, article img.signaling-single { max-width: min(100%, 490px); height: auto; }
+article img.analysis-wide, article img.signaling-wide { max-width: min(100%, 610px); height: auto; }

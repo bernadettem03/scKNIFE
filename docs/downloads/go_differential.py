@@ -1,76 +1,25 @@
-from pathlib import Path
-import os, json, hashlib, textwrap
-import numpy as np
-import pandas as pd
-import scanpy as sc
-import networkx as nx
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-from scknife.tutorial_differential import differential_activity, effect_overview, volcano
+import scknife
 
-BASE = Path(os.environ.get('SCKNIFE_TUTORIAL_OUTPUT', 'tutorial/outputs_10000'))
-OUT = BASE / 'go_differential'
-OUT.mkdir(parents=True, exist_ok=True)
-fit = sc.read_h5ad(BASE / 'fitted_subset.h5ad')
-activity = pd.read_parquet(BASE / 'activity_scores.parquet')
-assert fit.n_obs == 10000 and fit.obs_names.is_unique
-assert activity.columns.equals(fit.obs_names) and activity.index.is_unique
-meta = fit.obs[['cellType', 'timepoint', 'expansion']].astype(str)
-G = nx.read_graphml('graphs/version_1/unified_graph.graphml')
+fit = scknife.tutorial.load_fit()
+graph = scknife.tutorial.load_graph()
+activity = scknife.tutorial.load_activities(fit)
+scores = scknife.activity.node_scores(activity, graph, "GO_term")
+score_name = "GO-node activity"
 
-def nodes_of_kind(kind):
-    return sorted(n for n, d in G.nodes(data=True)
-                  if d.get('kind') == kind and n in activity.index)
+comparison = dict(
+    cell_type_key="cellType", condition_key="timepoint",
+    subset={"expansion": "E"}, contrast=("Pre", "On"), min_cells=20,
+)
+go_de = scknife.activity.compare_activity(
+    fit, scores, kind="GO_term", score_name=score_name, **comparison
+)
 
-EXPANSION = 'E'
-# EXPANSION = 'NE'  # Non-expanded group.
-CELL_TYPE = 'Cancer_cell'
-# CELL_TYPE = 'T_cell'
-# CELL_TYPE = 'Myeloid_cell'
-CONTRAST = ('Pre', 'On')  # group 2 minus group 1.
-MIN_CELLS = 20
-Q_CUTOFF, D_CUTOFF, LOGFC_CUTOFF = 0.05, 0.3, 0.25
-GROUP_NAME = {'E': 'Expanded', 'NE': 'Non-expanded'}[EXPANSION]
-selected_meta = meta.loc[meta.expansion.eq(EXPANSION)
-                         & meta.timepoint.isin(CONTRAST)].copy()
-counts = pd.crosstab(selected_meta.cellType, selected_meta.timepoint)
-counts = counts.reindex(columns=list(CONTRAST), fill_value=0)
-counts['eligible'] = counts[list(CONTRAST)].min(axis=1).ge(MIN_CELLS)
-counts.to_csv(OUT / 'condition_cell_counts.csv')
-eligible = counts.index[counts.eligible]
-test_meta = selected_meta.loc[selected_meta.cellType.isin(eligible)].copy()
-assert CELL_TYPE in eligible, 'Choose a cell type with enough cells in both conditions.'
-print(counts.to_string())
+cell_type = "Cancer_cell"  # Other options: "T_cell", "Myeloid_cell"
+cutoffs = dict(q_cutoff=0.05, min_d=0.3, min_log2fc=0.25)
+passing = scknife.activity.select_results(go_de, cell_type=cell_type, **cutoffs)
+columns = ["cell_type", "feature", "log2FC", "cohens_d", "adj_p_value"]
+passing[columns].head().style.format({"log2FC": "{:.3f}", "cohens_d": "{:.3f}", "adj_p_value": "{:.2e}"})
 
-plt.rcParams.update({'font.size': 11, 'axes.titlesize': 12,
-                     'axes.labelsize': 11, 'xtick.labelsize': 10,
-                     'ytick.labelsize': 10, 'axes.spines.top': False,
-                     'axes.spines.right': False})
+scknife.activity.plot_effects(go_de, **cutoffs)
 
-
-go_scores = activity.loc[nodes_of_kind('GO_term')].T
-go_de = differential_activity(go_scores, test_meta, CONTRAST, MIN_CELLS,
-                              Q_CUTOFF, D_CUTOFF, LOGFC_CUTOFF)
-go_de['score'] = 'GO-node activity'
-go_de.to_csv(OUT / 'go_differential_activity.csv', index=False)
-effect_overview(go_de, 'GO biological processes', OUT / 'go_effects.png',
-                GROUP_NAME, D_CUTOFF)
-
-
-volcano(go_de, 'GO biological processes', OUT / 'go_volcano.png',
-        CELL_TYPE, GROUP_NAME, Q_CUTOFF, D_CUTOFF)
-
-
-summary = {
-    'fit_cells': int(fit.n_obs), 'selected_group': EXPANSION,
-    'group_cells': int(len(selected_meta)), 'tested_cells': int(len(test_meta)),
-    'eligible_cell_types': eligible.tolist(), 'score': 'GO-node activity',
-    'go_terms': go_scores.shape[1], 'go_tests': len(go_de),
-    'go_hits': int(go_de.passes_cutoffs.sum()),
-    'contrast': list(CONTRAST), 'minimum_cells': MIN_CELLS,
-    'cutoffs': {'q': Q_CUTOFF, 'absolute_d': D_CUTOFF, 'absolute_log2FC': LOGFC_CUTOFF},
-    'cell_id_sha256': hashlib.sha256('\n'.join(fit.obs_names).encode()).hexdigest(),
-}
-(OUT / 'differential_summary.json').write_text(json.dumps(summary, indent=2))
-print(json.dumps(summary, indent=2))
+scknife.activity.plot_volcano(go_de, cell_type=cell_type, **cutoffs)
