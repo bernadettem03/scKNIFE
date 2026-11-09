@@ -4,7 +4,6 @@
 
 [Documentation](https://scknife-tutorial.readthedocs.io/en/latest/) · [Tutorial notebook](tutorial/scKNIFE_Bassez_Cohort_B_complete_tutorial.ipynb) · [Installation](https://scknife-tutorial.readthedocs.io/en/latest/installation.html) · [Graph guide](https://scknife-tutorial.readthedocs.io/en/latest/graphs.html) · [Test runs](https://github.com/bernadettem03/scKNIFE/actions/workflows/tests.yml)
 
-[![Documentation](https://app.readthedocs.org/projects/scknife-tutorial/badge/?version=latest)](https://scknife-tutorial.readthedocs.io/en/latest/)
 [![Software license: MIT](https://img.shields.io/badge/software_license-MIT-blue.svg)](LICENSE)
 
 scKNIFE uses graph-regularized non-negative matrix factorization to learn cell factors and biological-node activities.
